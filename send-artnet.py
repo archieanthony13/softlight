@@ -31,15 +31,15 @@ def send_artnet_data(ip, universe, data):
 if __name__ == "__main__":
     target_ip = "10.175.60.40"  # Replace with your Art-Net device's IP
     universe = 1  # Universe number
-    i = 0
-    while True:
-        if i < 255:
-            i+=1
-        else:
-            i=0
-        dmx_data = bytes([0] * 369) + bytes([i]) + bytes([255,0,0]) + bytes([0] * 138)  # Example: All channels at full intensity
-        send_artnet_data(target_ip, universe, dmx_data)
-        time.sleep(0.01)
-        # dmx_data = bytes([0] * 512)  # Example: All channels at 0 intensity
+    # i = 0
+    # while True:
+        # if i < 255:
+        #     i+=1
+        # else:
+        #     i=0
+        # dmx_data = bytes([0] * 369) + bytes([i]) + bytes([255,0,0]) + bytes([0] * 138)  # Example: All channels at full intensity
         # send_artnet_data(target_ip, universe, dmx_data)
-        # time.sleep(1)
+        # time.sleep(0.01)
+    # dmx_data = bytes([0] * 512)  # Example: All channels at 0 intensity
+    dmx_data = bytes([0] * 369) + bytes([0]) + bytes([255,0,0]) + bytes([0] * 138)
+    send_artnet_data(target_ip, universe, dmx_data)
