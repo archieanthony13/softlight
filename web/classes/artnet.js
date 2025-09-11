@@ -2,9 +2,11 @@ class Artnet{
     constructor(ip){
         this.ip = ip
         this.socket = new WebSocket("ws://localhost:8765");
+        this.open = false
         var that = this
         this.socket.onopen = () => { 
-            console.log("Connected to server"); 
+            console.log("Connected to server");
+            that.open = true
         }; 
         
         this.socket.onmessage = (event) => { 
@@ -17,6 +19,7 @@ class Artnet{
         
         this.socket.onclose = () => { 
             console.log("Connection closed"); 
+            that.open = false
         };
     }
 
@@ -25,6 +28,8 @@ class Artnet{
     }
 
     sendData(dmx){
-        this.socket.send(JSON.stringify([this.ip,1,JSON.stringify(dmx.data)]));
+        if(this.open){
+            this.socket.send(JSON.stringify([this.ip,1,JSON.stringify(dmx.data)]));
+        }
     }
 }
