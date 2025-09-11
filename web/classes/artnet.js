@@ -24,7 +24,7 @@ class Artnet{
         this.ip = ip
     }
 
-    sendData(universe, dmx){
-        this.socket.send(JSON.stringify([this.ip,universe,JSON.stringify(dmx.data)]));
+    sendData(dmx){
+        this.socket.send(JSON.stringify([this.ip,1,JSON.stringify(dmx.data)]));
     }
 }
