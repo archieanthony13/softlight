@@ -15,7 +15,6 @@ def sendArtnetData(ip, universe, data):
 
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
         sock.sendto(packet, (ip, 6454))
-        print(f"Sent Art-Net data to {ip}:{6454}")
 
 import asyncio
 import websockets
