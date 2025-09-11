@@ -17,7 +17,22 @@ def sendArtnetData(ip, universe, data):
         sock.sendto(packet, (ip, 6454))
         print(f"Sent Art-Net data to {ip}:{6454}")
 
-ip = "10.175.60.40"
-universe = 1
-dmxData = bytes([255] * 512)
-sendArtnetData(ip, universe, dmxData)
+import asyncio
+import websockets
+
+import threading
+import json
+
+async def echo(websocket):
+    async for message in websocket:
+        messageSplit = json.loads(message)
+        ip = messageSplit[0]
+        universe = messageSplit[1]
+        data = bytes(json.loads(messageSplit[2]))
+        sendArtnetData(ip, universe, data)
+
+async def main():
+    async with websockets.serve(echo, "localhost", 8765):
+        await asyncio.Future()  # Run forever
+
+asyncio.run(main())

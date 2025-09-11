@@ -28,3 +28,8 @@ window.addEventListener('resize',function(e){
 })
 
 window.dispatchEvent(new Event('resize'));
+
+var dmx = new DMX()
+var artnet = new Artnet("10.175.60.40")
+dmx.data = new Array(512).fill(0)
+artnet.sendData(1,dmx)
