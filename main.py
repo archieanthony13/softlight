@@ -1,5 +1,8 @@
 import socket
 import struct
+import asyncio
+import websockets
+import json
 
 def sendArtnetData(ip, universe, data):
     data = data[:512] + bytes(512 - len(data))
@@ -15,12 +18,6 @@ def sendArtnetData(ip, universe, data):
 
     with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
         sock.sendto(packet, (ip, 6454))
-
-import asyncio
-import websockets
-
-import threading
-import json
 
 async def echo(websocket):
     async for message in websocket:
