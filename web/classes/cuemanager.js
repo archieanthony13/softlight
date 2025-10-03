@@ -1,0 +1,5 @@
+class CueManager{
+    constructor(){
+        
+    }
+}
