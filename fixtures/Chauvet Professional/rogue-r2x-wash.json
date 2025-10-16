@@ -1,0 +1,266 @@
+{
+  "name": "Rogue R2X Wash",
+  "manufacturer": "Chauvet Professional",
+  "pixels": 5,
+  "channels": {
+    "Pan": {
+      "defaultValue": 0
+    },
+    "Fine Pan": {
+      "defaultValue": 0
+    },
+    "Tilt": {
+      "defaultValue": 0
+    },
+    "Fine Tilt": {
+      "defaultValue": 0
+    },
+    "Pan/Tilt Speed": {
+      "defaultValue": 0
+    },
+    "Dimmer": {
+      "defaultValue": 0
+    },
+    "Fine Dimmer": {
+      "defaultValue": 0
+    },
+    "Strobe": {
+      "defaultValue": 255,
+      "listValues": [
+        {
+          "startValue": 0,
+          "endValue": 19,
+          "description": "Off"
+        },
+        {
+          "startValue": 20,
+          "endValue": 24,
+          "description": "On"
+        },
+        {
+          "startValue": 25,
+          "endValue": 64,
+          "description": "Strobe, Fast to Slow"
+        },
+        {
+          "startValue": 65,
+          "endValue": 69,
+          "description": "On"
+        },
+        {
+          "startValue": 70,
+          "endValue": 84,
+          "description": "Strobe, Fast on, Slow off"
+        },
+        {
+          "startValue": 85,
+          "endValue": 89,
+          "description": "On"
+        },
+        {
+          "startValue": 90,
+          "endValue": 104,
+          "description": "Strobe, Slow on, Fast off"
+        },
+        {
+          "startValue": 105,
+          "endValue": 109,
+          "description": "On"
+        },
+        {
+          "startValue": 110,
+          "endValue": 124,
+          "description": "Random, Fast to Slow"
+        },
+        {
+          "startValue": 125,
+          "endValue": 129,
+          "description": "On"
+        },
+        {
+          "startValue": 130,
+          "endValue": 144,
+          "description": "Random, Fast on, Slow off"
+        },
+        {
+          "startValue": 145,
+          "endValue": 149,
+          "description": "On"
+        },
+        {
+          "startValue": 150,
+          "endValue": 164,
+          "description": "Random, Slow on, Fast off"
+        },
+        {
+          "startValue": 165,
+          "endValue": 169,
+          "description": "On"
+        },
+        {
+          "startValue": 170,
+          "endValue": 184,
+          "description": "Pulse, Fast to Slow"
+        },
+        {
+          "startValue": 185,
+          "endValue": 189,
+          "description": "On"
+        },
+        {
+          "startValue": 190,
+          "endValue": 204,
+          "description": "Random Pulse, Fast to Slow"
+        },
+        {
+          "startValue": 205,
+          "endValue": 209,
+          "description": "On"
+        },
+        {
+          "startValue": 210,
+          "endValue": 224,
+          "description": "Strobe, Slow on, Slow off"
+        },
+        {
+          "startValue": 225,
+          "endValue": 229,
+          "description": "On"
+        },
+        {
+          "startValue": 230,
+          "endValue": 244,
+          "description": "Pulse Strobe, Fast to Slow"
+        },
+        {
+          "startValue": 245,
+          "endValue": 255,
+          "description": "On"
+        }
+      ]
+    },
+    "Red 1": {
+      "defaultValue": 0
+    },
+    "Fine Red 1": {
+      "defaultValue": 0
+    },
+    "Green 1": {
+      "defaultValue": 0
+    },
+    "Fine Green 1": {
+      "defaultValue": 0
+    },
+    "Blue 1": {
+      "defaultValue": 0
+    },
+    "Fine Blue 1": {
+      "defaultValue": 0
+    },
+    "White 1": {
+      "defaultValue": 0
+    },
+    "Fine White 1": {
+      "defaultValue": 0
+    },
+    "Red 2": {
+      "defaultValue": 0
+    },
+    "Fine Red 2": {
+      "defaultValue": 0
+    },
+    "Green 2": {
+      "defaultValue": 0
+    },
+    "Fine Green 2": {
+      "defaultValue": 0
+    },
+    "Blue 2": {
+      "defaultValue": 0
+    },
+    "Fine Blue 2": {
+      "defaultValue": 0
+    },
+    "White 2": {
+      "defaultValue": 0
+    },
+    "Fine White 2": {
+      "defaultValue": 0
+    },
+    "Red 3": {
+      "defaultValue": 0
+    },
+    "Fine Red 3": {
+      "defaultValue": 0
+    },
+    "Green 3": {
+      "defaultValue": 0
+    },
+    "Fine Green 3": {
+      "defaultValue": 0
+    },
+    "Blue 3": {
+      "defaultValue": 0
+    },
+    "Fine Blue 3": {
+      "defaultValue": 0
+    },
+    "White 3": {
+      "defaultValue": 0
+    },
+    "Fine White 3": {
+      "defaultValue": 0
+    },
+    "Red 4": {
+      "defaultValue": 0
+    },
+    "Fine Red 4": {
+      "defaultValue": 0
+    },
+    "Green 4": {
+      "defaultValue": 0
+    },
+    "Fine Green 4": {
+      "defaultValue": 0
+    },
+    "Blue 4": {
+      "defaultValue": 0
+    },
+    "Fine Blue 4": {
+      "defaultValue": 0
+    },
+    "White 4": {
+      "defaultValue": 0
+    },
+    "Fine White 4": {
+      "defaultValue": 0
+    },
+    "Red 5": {
+      "defaultValue": 0
+    },
+    "Fine Red 5": {
+      "defaultValue": 0
+    },
+    "Green 5": {
+      "defaultValue": 0
+    },
+    "Fine Green 5": {
+      "defaultValue": 0
+    },
+    "Blue 5": {
+      "defaultValue": 0
+    },
+    "Fine Blue 5": {
+      "defaultValue": 0
+    },
+    "White 5": {
+      "defaultValue": 0
+    },
+    "Fine White 5": {
+      "defaultValue": 0
+    },
+    "Color": {
+      
+    }
+  }
+}
