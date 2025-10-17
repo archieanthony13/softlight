@@ -12,6 +12,10 @@ class FixtureManager{
         }
     }
 
+    clearFixtureLibrary(){
+        localStorage.removeItem("softlight-fixture-library")
+    }
+
     loadFixtureProfileFromFile(){
         let object = document.createElement('input')
         object.type = "file"
@@ -24,6 +28,24 @@ class FixtureManager{
                 localStorage.setItem("softlight-fixture-library", JSON.stringify(that.fixtureLibrary))
             }
             filereader.readAsText(object.files[0])
+        }
+    }
+
+    getFixtureProfile(manufacturer, name){
+        for(let i=0;i<this.fixtureLibrary.length;i++){
+            if(this.fixtureLibrary[i].manufacturer == manufacturer && this.fixtureLibrary[i].name == name){
+                return this.fixtureLibrary[i]
+            }
+        }
+        return -1
+    }
+
+    patchFixture(channel, mode, manufacturer, name){
+        let fixtureProfile = this.getFixtureProfile(manufacturer, name)
+        if(fixtureProfile == -1){
+            console.error("Unable to create fixture. Please upload a fixture profile for this")
+        } else {
+            this.fixtures.push(new Fixture(channel, mode, this.getFixtureProfile(manufacturer, name)))
         }
     }
 }
