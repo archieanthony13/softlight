@@ -12,6 +12,10 @@ class Fixture{
     }
 
     updateFixtureChannel(channel, value){
-        this.channels[this.channelNames.indexOf(channel)] = value
+        if(this.channelNames.indexOf(channel) == -1){
+            console.error("Unable to update channel. This does not exist for this fixture.")
+        } else {
+            this.channels[this.channelNames.indexOf(channel)] = value
+        }
     }
 }
