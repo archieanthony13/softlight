@@ -1,7 +1,7 @@
 function update(){
     dmx.update()
     artnet.sendData(dmx)
-    renderManager.update()
+    interface.update()
     requestAnimationFrame(update)
 }
 

@@ -38,3 +38,4 @@ fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X W
 
 var inputManager = new InputManager()
 var renderManager = new RenderManager()
+var interface = new Interface()
