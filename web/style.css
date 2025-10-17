@@ -1,9 +1,3 @@
 html{
     background-color: black;
 }
-
-.fader{
-    writing-mode: vertical-lr;
-    direction: rtl;
-    background: red;
-}
