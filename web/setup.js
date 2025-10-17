@@ -38,4 +38,5 @@ fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X W
 
 var inputManager = new InputManager()
 var renderManager = new RenderManager()
+// renderManager.loadFont("./assets/textures/font")
 var interface = new Interface()

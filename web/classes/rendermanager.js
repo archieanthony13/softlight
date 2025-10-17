@@ -13,20 +13,20 @@ class RenderManager{
         for(let i=97;i<97+26;i++){
             let character = String.fromCharCode(i)
             this.createState("font",character,false)
-            this.addImage(`${path}/${character}.png`,"font",character)
+            this.addImage(`${path}/${character}.svg`,"font",character)
         }
-        for(let i=0;i<10;i++){
-            this.createState("font",i,false)
-            this.addImage(`${path}/${i}.png`,"font",i)
-        }
-        this.createState("font","/",false)
-        this.addImage(`${path}/slash.png`,"font","/")
-        this.createState("font",":",false)
-        this.addImage(`${path}/colon.png`,"font",":")
-        this.createState("font",".",false)
-        this.addImage(`${path}/fullstop.png`,"font",".")
-        this.createState("font",",",false)
-        this.addImage(`${path}/comma.png`,"font",",")
+        // for(let i=0;i<10;i++){
+        //     this.createState("font",i,false)
+        //     this.addImage(`${path}/${i}.png`,"font",i)
+        // }
+        // this.createState("font","/",false)
+        // this.addImage(`${path}/slash.png`,"font","/")
+        // this.createState("font",":",false)
+        // this.addImage(`${path}/colon.png`,"font",":")
+        // this.createState("font",".",false)
+        // this.addImage(`${path}/fullstop.png`,"font",".")
+        // this.createState("font",",",false)
+        // this.addImage(`${path}/comma.png`,"font",",")
     }
 
     createObject(object){
@@ -71,7 +71,7 @@ class RenderManager{
 
     renderText(text,color,x,y,fontSize){
         ctx.fillStyle = color
-        ctx.font = fontSize + "px Calibri"
+        ctx.font = fontSize + "px Montserrat"
         ctx.fillText(text,x,y)
     }
 

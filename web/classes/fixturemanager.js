@@ -2,6 +2,7 @@ class FixtureManager{
     constructor(){
         this.fixtureLibrary = []
         this.fixtures = []
+        this.selectedFixtures = []
     }
 
     loadFixtureLibrary(){
