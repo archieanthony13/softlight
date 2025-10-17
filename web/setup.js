@@ -32,3 +32,5 @@ window.dispatchEvent(new Event('resize'));
 var dmx = new DMX()
 var artnet = new Artnet("10.175.60.40")
 dmx.data = new Array(512).fill(0)
+
+var fixtureManager = new FixtureManager()

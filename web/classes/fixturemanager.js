@@ -1,6 +1,7 @@
 class FixtureManager{
     constructor(){
         this.fixtureLibrary = []
+        this.fixtures = []
     }
 
     loadFixtureLibrary(){
@@ -11,7 +12,7 @@ class FixtureManager{
         }
     }
 
-    loadFixtureFromFile(){
+    loadFixtureProfileFromFile(){
         let object = document.createElement('input')
         object.type = "file"
         object.click()
