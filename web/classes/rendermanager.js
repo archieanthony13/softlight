@@ -2,4 +2,8 @@ class RenderManager{
     constructor(){
         
     }
+
+    update(){
+        
+    }
 }

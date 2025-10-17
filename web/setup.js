@@ -7,8 +7,6 @@ canvas.style.height = "500px"
 canvas.width = 1000*scale
 canvas.height = 500*scale
 ctx.scale(scale,scale)
-let offset = [475,225]
-ctx.translate(offset[0],offset[1])
 
 ctx.imageSmoothingEnabled = false
 
@@ -37,3 +35,6 @@ var fixtureManager = new FixtureManager()
 fixtureManager.loadFixtureLibrary()
 fixtureManager.patchFixture(148,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 1")
 fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 2")
+
+var inputManager = new InputManager()
+var renderManager = new RenderManager()
