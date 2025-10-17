@@ -35,4 +35,5 @@ dmx.data = new Array(512).fill(0)
 
 var fixtureManager = new FixtureManager()
 fixtureManager.loadFixtureLibrary()
-fixtureManager.patchFixture(1,"56 Channel","Chauvet Professional","Rogue R2X Wash")
+fixtureManager.patchFixture(148,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 1")
+fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 2")

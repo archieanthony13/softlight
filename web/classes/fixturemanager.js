@@ -40,12 +40,21 @@ class FixtureManager{
         return -1
     }
 
-    patchFixture(channel, mode, manufacturer, name){
-        let fixtureProfile = this.getFixtureProfile(manufacturer, name)
+    patchFixture(channel, mode, manufacturer, fixtureName, name){
+        let fixtureProfile = this.getFixtureProfile(manufacturer, fixtureName)
         if(fixtureProfile == -1){
             console.error("Unable to create fixture. Please upload a fixture profile for this")
         } else {
-            this.fixtures.push(new Fixture(channel, mode, this.getFixtureProfile(manufacturer, name)))
+            this.fixtures.push(new Fixture(channel, mode, fixtureProfile, name))
         }
+    }
+
+    getFixture(name){
+        for(let i=0;i<this.fixtures.length;i++){
+            if(this.fixtures[i].name == name){
+                return this.fixtures[i]
+            }
+        }
+        return -1
     }
 }
