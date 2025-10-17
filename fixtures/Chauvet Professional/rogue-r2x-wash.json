@@ -1,6 +1,7 @@
 {
 	"name": "Rogue R2X Wash",
 	"manufacturer": "Chauvet Professional",
+	"productPage": "https://www.chauvetprofessional.com/products/rogue-r2x-wash/",
 	"pixels": 5,
 	"channels": {
 		"Pan": {
