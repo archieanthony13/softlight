@@ -2,7 +2,7 @@ class FixtureManager{
     constructor(){
         this.fixtureLibrary = []
         this.fixtures = []
-        this.selectedFixtures = [0]
+        this.selectedFixtures = []
     }
 
     loadFixtureLibrary(){
@@ -57,5 +57,11 @@ class FixtureManager{
             }
         }
         return -1
+    }
+
+    updateSelectedFixtureChannel(channel, value){
+        for(let i=0;i<this.selectedFixtures.length;i++){
+            this.fixtures[this.selectedFixtures[i]].updateFixtureChannel(channel, value)
+        }
     }
 }
