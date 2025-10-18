@@ -27,16 +27,13 @@ class Interface{
         renderManager.renderText("Beam","#000000",810,435,30)
         let attributes = []
         if(fixtureManager.selectedFixtures.length > 0){
-            if(this.selectedMode == "dimmer"){
-                for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
-                    let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
-                    for(let j=0;j<fixture.channelNames.length;j++){
-                        if(fixture.fixtureProfile.channels[fixture.channelNames[j]].type == "dimmer" && attributes.indexOf(channelNames[j]) == -1)
-                        attributes.push(channelNames[j])
-                    }
+            for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
+                let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
+                for(let j=0;j<fixture.channelNames.length;j++){
+                    if(fixture.fixtureProfile.channels[fixture.channelNames[j]].type == this.selectedMode && attributes.indexOf(fixture.channelNames[j]) == -1)
+                    attributes.push(fixture.channelNames[j])
                 }
             }
         }
-        console.log(attributes)
     }
 }
