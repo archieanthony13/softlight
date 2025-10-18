@@ -10,19 +10,44 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <canvas width="1000" height="500" style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); background-color: grey;"></canvas>
-    <script src="classes/dmx.js"></script>
-    <script src="classes/fader.js"></script>
-    <script src="classes/artnet.js"></script>
-    <script src="classes/cue.js"></script>
-    <script src="classes/cuemanager.js"></script>
-    <script src="classes/fixture.js"></script>
-    <script src="classes/fixturemanager.js"></script>
-    <script src="classes/inputmanager.js"></script>
-    <script src="classes/rendermanager.js"></script>
-    <script src="classes/interface/interface.js"></script>
-    <script src="classes/interface/button.js"></script>
-    <script src="setup.js"></script>
-    <script src="main.js"></script>
+    <div class="container">
+        <div class="top-section" id="top-panel">
+            <p>TOP</p>
+        </div>
+        <div class="middle-section">
+            <div class="middle-left-section" id="fixtures">
+                <p>Mid Left</p>
+            </div>
+            <div class="middle-right-section" id="sequences">
+                <p>Mid Right</p>
+            </div>
+        </div>
+        <div class="bottom-section">
+            <div class="bottom-left-section">
+                <p>Bottom Left</p>
+            </div>
+            <div class="bottom-right-section">
+                <div class="bottom-right-top-section" id="attributes">
+                    <button>Dimmer</button>
+                    <button>Color</button>
+                    <button>Position</button>
+                    <button>Beam</button>
+                    <button>Shape</button>
+                </div>
+                <div class="bottom-right-bottom-section" id="attribute-values">
+                    <label for="attribute-values-input-1">Value</label>
+                    <label for="attribute-values-input-2">Value</label>
+                    <label for="attribute-values-input-3">Value</label>
+                    <label for="attribute-values-input-4">Value</label>
+                    <label for="attribute-values-input-5">Value</label>
+                    <input type="text" name="attribute-values-input-1" id="attribute-values-input-1">
+                    <input type="text" name="attribute-values-input-2" id="attribute-values-input-2">
+                    <input type="text" name="attribute-values-input-3" id="attribute-values-input-3">
+                    <input type="text" name="attribute-values-input-4" id="attribute-values-input-4">
+                    <input type="text" name="attribute-values-input-5" id="attribute-values-input-5">
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
