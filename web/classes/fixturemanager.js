@@ -48,6 +48,8 @@ class FixtureManager{
         } else {
             this.fixtures.push(new Fixture(channel, mode, fixtureProfile, name))
         }
+
+        ui.updateFixtureList()
     }
 
     getFixture(name){
