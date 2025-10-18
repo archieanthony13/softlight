@@ -13,7 +13,7 @@ html, body {
     max-height: 100vh;
     background-color: lightblue;
     display: grid;
-    grid-template-rows: calc(var(--scale) * 5) auto calc(var(--scale) * 10);
+    grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 35) calc(var(--scale) * 10);
     font-size: calc(var(--scale));
     position: absolute;
     top: 0px;
@@ -34,10 +34,14 @@ html, body {
     grid-template-columns: auto auto;
 }
 
+.middle-left-section, .middle-right-section {
+    overflow-y: scroll;
+}
+
 .bottom-section {
     background-color: gray;
     display: grid;
-    grid-template-columns: calc(var(--scale) * 10) auto;
+    grid-template-columns: calc(var(--scale) * 10) calc(var(--scale) * 90);
 }
 
 .bottom-right-section {
@@ -48,6 +52,11 @@ html, body {
 .bottom-right-section div {
     display: grid;
     grid-template-columns: auto auto auto auto auto;
+}
+
+#fixtures {
+    display: grid;
+    grid-template-columns: auto auto;
 }
 
 @media (min-aspect-ratio: 2/1) {
