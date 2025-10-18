@@ -40,14 +40,24 @@
                     <label for="attribute-values-input-3">Value</label>
                     <label for="attribute-values-input-4">Value</label>
                     <label for="attribute-values-input-5">Value</label>
-                    <input type="text" name="attribute-values-input-1" id="attribute-values-input-1">
-                    <input type="text" name="attribute-values-input-2" id="attribute-values-input-2">
-                    <input type="text" name="attribute-values-input-3" id="attribute-values-input-3">
-                    <input type="text" name="attribute-values-input-4" id="attribute-values-input-4">
-                    <input type="text" name="attribute-values-input-5" id="attribute-values-input-5">
+                    <input type="number" name="attribute-values-input-1" id="attribute-values-input-1" min="0" max="255">
+                    <input type="number" name="attribute-values-input-2" id="attribute-values-input-2" min="0" max="255">
+                    <input type="number" name="attribute-values-input-3" id="attribute-values-input-3" min="0" max="255">
+                    <input type="number" name="attribute-values-input-4" id="attribute-values-input-4" min="0" max="255">
+                    <input type="number" name="attribute-values-input-5" id="attribute-values-input-5" min="0" max="255">
                 </div>
             </div>
         </div>
     </div>
+
+    <script src="classes/artnet.js"></script>
+    <script src="classes/cue.js"></script>
+    <script src="classes/cuemanager.js"></script>
+    <script src="classes/dmx.js"></script>
+    <script src="classes/fader.js"></script>
+    <script src="classes/fixture.js"></script>
+    <script src="classes/fixturemanager.js"></script>
+    <script src="setup.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
