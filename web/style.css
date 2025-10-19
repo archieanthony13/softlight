@@ -57,7 +57,6 @@ html, body {
 #fixtures {
     display: grid;
     grid-template-columns: calc(var(--scale) * 4) auto;
-    grid-template-rows: calc(var(--scale) * 4);
 }
 
 #fixtures input {

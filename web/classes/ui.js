@@ -26,6 +26,7 @@ class UI{
             document.getElementById('fixtures').append(input)
             document.getElementById('fixtures').append(label)
         }
+        document.getElementById('fixtures').style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
     updateAttributes(){
