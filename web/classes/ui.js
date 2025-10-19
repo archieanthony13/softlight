@@ -19,6 +19,15 @@ class UI{
                 }
             }
         })
+
+        document.querySelector('#attribute-page-up').onclick = function(){
+            that.attributePage++
+            that.updateAttributes()
+        }
+        document.querySelector('#attribute-page-down').onclick = function(){
+            that.attributePage--
+            that.updateAttributes()
+        }
     }
 
     updateFixtureList(){
