@@ -9,6 +9,17 @@ class UI{
                 that.updateAttributes()
             }
         })
+
+        document.getElementById('attribute-values').onchange = function(e){
+            let labels = document.querySelectorAll("#attribute-values label")
+            let inputs = document.querySelectorAll("#attribute-values input")
+            for(let i=0;i<labels.length;i++){
+                if(labels[i].innerHTML != ""){
+                    console.log(labels[i].innerHTML, inputs[i].value)
+                    fixtureManager.updateSelectedFixtureChannel(labels[i].innerHTML, parseInt(inputs[i].value))
+                }
+            }
+        }
     }
 
     updateFixtureList(){
