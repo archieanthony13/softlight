@@ -4,7 +4,10 @@ class FixtureManager{
         this.fixtures = []
         this.selectedFixtures = []
 
-        document.getElementById('fixtures').onchange = this.updateSelectedFixtures
+        let that = this
+        document.getElementById('fixtures').onchange = function(){
+            that.updateSelectedFixtures()
+        }
     }
 
     loadFixtureLibrary(){
