@@ -6,6 +6,7 @@ class UI{
         document.querySelectorAll("#attributes button").forEach(function(n){
             n.onclick = function(e){
                 that.attribute = n.innerHTML.toLowerCase()
+                that.attributePage = 0
                 that.updateAttributes()
             }
         })
