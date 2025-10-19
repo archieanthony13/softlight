@@ -70,6 +70,20 @@ html, body {
     font-size: calc(var(--scale) * 2);
 }
 
+#attributes button {
+    background-color: gray;
+    transition-duration: .1s;
+    border-radius: calc(var(--scale) * 1);
+    border: rgb(61, 61, 61) solid calc(var(--scale) * 0.2);
+    font-size: calc(var(--scale));
+    font-family: Montserrat;
+}
+
+#attributes button:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
+
 @media (min-aspect-ratio: 2/1) {
     html, body {
         --scale: 2vh;
