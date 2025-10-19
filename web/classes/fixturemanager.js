@@ -3,6 +3,8 @@ class FixtureManager{
         this.fixtureLibrary = []
         this.fixtures = []
         this.selectedFixtures = []
+
+        document.getElementById('fixtures').onchange = this.updateSelectedFixtures
     }
 
     loadFixtureLibrary(){
@@ -65,5 +67,16 @@ class FixtureManager{
         for(let i=0;i<this.selectedFixtures.length;i++){
             this.fixtures[this.selectedFixtures[i]].updateFixtureChannel(channel, value)
         }
+    }
+
+    updateSelectedFixtures(){
+        let fixtureSection = document.querySelectorAll('#fixtures input')
+        this.selectedFixtures = []
+        for(let i=0;i<fixtureSection.length;i++){
+            if(fixtureSection[i].checked){
+                this.selectedFixtures.push(i)
+            }
+        }
+        ui.updateAttributes()
     }
 }
