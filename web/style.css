@@ -59,17 +59,12 @@ html, body {
     grid-template-columns: auto;
 }
 
-/* #fixtures input {
-    height: calc(var(--scale) * 2);
-    padding: 0px;
-    margin: calc(var(--scale) * 0.25);
-} */
-
 #fixtures input:checked + label {
     color: orange;
 }
 
 #fixtures label {
+    transition-duration: .1s;
     font-size: calc(var(--scale) * 2);
 }
 
