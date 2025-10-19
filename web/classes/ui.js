@@ -33,6 +33,7 @@ class UI{
             input.type = "checkbox"
             input.name = "fixture-" + i
             input.id = "fixture-" + i
+            input.hidden = true
             document.getElementById('fixtures').append(input)
             document.getElementById('fixtures').append(label)
         }

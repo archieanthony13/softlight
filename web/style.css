@@ -56,13 +56,17 @@ html, body {
 
 #fixtures {
     display: grid;
-    grid-template-columns: calc(var(--scale) * 4) auto;
+    grid-template-columns: auto;
 }
 
-#fixtures input {
+/* #fixtures input {
     height: calc(var(--scale) * 2);
     padding: 0px;
     margin: calc(var(--scale) * 0.25);
+} */
+
+#fixtures input:checked + label {
+    color: orange;
 }
 
 #fixtures label {
