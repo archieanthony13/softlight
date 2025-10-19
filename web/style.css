@@ -56,7 +56,18 @@ html, body {
 
 #fixtures {
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: calc(var(--scale) * 4) auto;
+    grid-template-rows: calc(var(--scale) * 4);
+}
+
+#fixtures input {
+    height: calc(var(--scale) * 2);
+    padding: 0px;
+    margin: calc(var(--scale) * 0.25);
+}
+
+#fixtures label {
+    font-size: calc(var(--scale) * 2);
 }
 
 @media (min-aspect-ratio: 2/1) {

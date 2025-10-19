@@ -14,6 +14,7 @@ class UI{
             let input = document.createElement('input')
             input.type = "checkbox"
             input.name = "fixture-" + i
+            input.id = "fixture-" + i
             document.getElementById('fixtures').append(input)
             document.getElementById('fixtures').append(label)
         }
