@@ -1,6 +1,13 @@
 class UI{
     constructor(){
-
+        this.attribute = "dimmer"
+        let that = this
+        document.querySelectorAll("#attributes button").forEach(function(n){
+            n.onclick = function(e){
+                that.attribute = n.innerHTML.toLowerCase()
+                that.updateAttributes()
+            }
+        })
     }
 
     updateFixtureList(){
@@ -18,5 +25,9 @@ class UI{
             document.getElementById('fixtures').append(input)
             document.getElementById('fixtures').append(label)
         }
+    }
+
+    updateAttributes(){
+        
     }
 }
