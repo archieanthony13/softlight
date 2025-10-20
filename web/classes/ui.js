@@ -29,6 +29,9 @@ class UI{
             that.attributePage--
             that.updateAttributes()
         }
+        document.querySelector('button#upload-fixture-profile').onclick = function(){
+            fixtureManager.loadFixtureProfileFromFile()
+        }
     }
 
     updateFixtureList(){

@@ -73,6 +73,10 @@ html, body {
     font-size: calc(var(--scale) * 2);
 }
 
+#fixtures label:hover {
+    cursor: pointer;
+}
+
 button {
     background-color: gray;
     transition-duration: .1s;
@@ -80,6 +84,7 @@ button {
     border: rgb(61, 61, 61) solid calc(var(--scale) * 0.2);
     font-size: calc(var(--scale));
     font-family: Montserrat;
+    height: 100%;
 }
 
 button:hover {
