@@ -97,3 +97,18 @@ button:hover {
         --scale: 2vh;
     }
 }
+
+.patch-menu {
+    width: calc(var(--scale) * 90);
+    height: calc(var(--scale) * 45);
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin: auto;
+    background-color: rgb(65, 65, 65);
+    border-radius: calc(var(--scale) * 1);
+    display: grid;
+    grid-template-rows: calc(var(--scale) * 5) auto;
+}
