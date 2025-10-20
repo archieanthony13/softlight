@@ -1,0 +1,301 @@
+{
+	"name": "Ovation E-910FC",
+	"manufacturer": "Chauvet Professional",
+	"productPage": "https://www.chauvetprofessional.com/products/ovation-e-910fc/",
+	"pixels": 1,
+	"channels": {
+        "Dimmer": {
+			"defaultValue": 0,
+			"type": "dimmer"
+		},
+		"Fine Dimmer": {
+			"defaultValue": 0,
+			"type": "dimmer"
+		},
+		"Red": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Fine Red": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+        "Green": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Fine Green": {
+			"defaultValue": 0,
+			"type": "poscolorition"
+		},
+        "Blue": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Fine Blue": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+        "Amber": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Fine Amber": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+        "Lime": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Fine Lime": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Strobe": {
+			"defaultValue": 0,
+			"type": "beam",
+			"listValues": [
+				{
+					"startValue": 0,
+					"endValue": 10,
+					"description": "No function"
+				},
+				{
+					"startValue": 11,
+					"endValue": 255,
+					"description": "Strobe, Slow To Fast"
+				}
+			]
+		},
+		"Virtual Color Wheel": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Color Temperature": {
+			"defaultValue": 0,
+			"type": "color"
+		},
+		"Auto Program": {
+			"defaultValue": 0,
+			"type": "beam",
+			"listValues": [
+				{
+					"startValue": 0,
+					"endValue": 10,
+					"description": "No function"
+				},
+				{
+					"startValue": 11,
+					"endValue": 60,
+					"description": "Automatic Program 1"
+				},
+				{
+					"startValue": 61,
+					"endValue": 110,
+					"description": "Automatic Program 2"
+				},
+                {
+					"startValue": 111,
+					"endValue": 160,
+					"description": "Automatic Program 3"
+				},
+                {
+					"startValue": 161,
+					"endValue": 210,
+					"description": "Automatic Program 4"
+				},
+                {
+					"startValue": 211,
+					"endValue": 255,
+					"description": "Automatic Program 5"
+				}
+			]
+		},
+		"Auto Speed": {
+			"defaultValue": 0,
+			"type": "beam"
+		},
+		"Control": {
+			"defaultValue": 0,
+			"type": "beam",
+			"listValues": [
+				{
+					"startValue": 0,
+					"endValue": 7,
+					"description": "No function"
+				},
+				{
+					"startValue": 8,
+					"endValue": 15,
+					"description": "Dimmer Reset"
+				},
+				{
+					"startValue": 16,
+					"endValue": 23,
+					"description": "Red Shift On"
+				},
+				{
+					"startValue": 24,
+					"endValue": 31,
+					"description": "Red Shift Off"
+				},
+				{
+					"startValue": 32,
+					"endValue": 39,
+					"description": "S-Curve Dimmer Curve"
+				},
+				{
+					"startValue": 40,
+					"endValue": 47,
+					"description": "Linear Dimmer Curve"
+				},
+				{
+					"startValue": 48,
+					"endValue": 55,
+					"description": "Square Dimmer Curve"
+				},
+				{
+					"startValue": 56,
+					"endValue": 63,
+					"description": "Inverse Square Dimmer Curve"
+				},
+				{
+					"startValue": 64,
+					"endValue": 71,
+					"description": "Dimmer Mode Off"
+				},
+				{
+					"startValue": 72,
+					"endValue": 79,
+					"description": "Dimmer Mode 1"
+				},
+				{
+					"startValue": 80,
+					"endValue": 87,
+					"description": "Dimmer Mode 2"
+				},
+				{
+					"startValue": 88,
+					"endValue": 95,
+					"description": "Dimmer Mode 3"
+				},
+				{
+					"startValue": 96,
+					"endValue": 103,
+					"description": "X-Fade Speed Off"
+				},
+				{
+					"startValue": 104,
+					"endValue": 111,
+					"description": "X-Fade Speed 1"
+				},
+				{
+					"startValue": 112,
+					"endValue": 119,
+					"description": "X-Fade Speed 2"
+				},
+				{
+					"startValue": 120,
+					"endValue": 127,
+					"description": "X-Fade Speed 3"
+				},
+				{
+					"startValue": 128,
+					"endValue": 135,
+					"description": "X-Fade Speed 4"
+				},
+				{
+					"startValue": 136,
+					"endValue": 255,
+					"description": "Reserved For Future Use"
+				}
+			]
+		}
+	},
+	"modes": {
+		"16 Channel": [
+			"Dimmer",
+            "Fine Dimmer",
+            "Red",
+            "Fine Red",
+            "Green",
+            "Fine Green",
+            "Blue",
+            "Fine Blue",
+            "Amber",
+            "Fine Amber",
+            "Lime",
+            "Fine Lime",
+            "Strobe",
+            "Virtual Color Wheel",
+            "Color Temperature",
+            "Control"
+		],
+        "13 Channel": [
+			"Dimmer",
+            "Fine Dimmer",
+            "Red",
+            "Fine Red",
+            "Green",
+            "Fine Green",
+            "Blue",
+            "Fine Blue",
+            "Amber",
+            "Fine Amber",
+            "Lime",
+            "Fine Lime",
+            "Strobe"
+		],
+        "12 Channel": [
+			"Dimmer",
+            "Red",
+            "Green",
+            "Blue",
+            "Amber",
+            "Lime",
+            "Strobe",
+            "Virtual Color Wheel",
+            "Color Temperature",
+            "Auto Program",
+            "Auto Speed",
+            "Control"
+		],
+        "10 Channel": [
+			"Dimmer",
+            "Fine Dimmer",
+            "Red",
+            "Green",
+            "Blue",
+            "Amber",
+            "Lime",
+            "Strobe",
+            "Virtual Color Wheel",
+            "Color Temperature"
+		],
+        "7 Channel": [
+			"Dimmer",
+            "Fine Dimmer",
+            "Red",
+            "Green",
+            "Blue",
+            "Amber",
+            "Lime"
+		],
+        "5 Channel": [
+			"Dimmer",
+            "Red",
+            "Green",
+            "Blue",
+            "Amber"
+		],
+        "3 Channel": [
+			"Dimmer",
+            "Virtual Color Wheel",
+            "Color Temperature"
+		],
+        "1 Channel": [
+            "Dimmer"
+        ]
+	}
+}
