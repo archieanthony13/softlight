@@ -11,7 +11,7 @@ html, body {
     /* width: 100%; */
     max-width: 100vw;
     max-height: 100vh;
-    background-color: lightblue;
+    background-color: lightgray;
     display: grid;
     grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 35) calc(var(--scale) * 10);
     font-size: calc(var(--scale));
