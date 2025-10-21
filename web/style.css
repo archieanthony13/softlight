@@ -1,3 +1,8 @@
+* {
+    font-family: Montserrat;
+    user-select: none;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -21,8 +26,6 @@ html, body {
     left: 0px;
     right: 0px;
     margin: auto;
-    user-select: none;
-    font-family: Montserrat;
 }
 
 .top-section {
@@ -64,16 +67,16 @@ html, body {
     grid-template-columns: auto;
 }
 
-#fixtures input:checked + label {
+input:checked + label {
     color: orange;
 }
 
-#fixtures label {
+label {
     transition-duration: .1s;
     font-size: calc(var(--scale) * 2);
 }
 
-#fixtures label:hover {
+label:hover {
     cursor: pointer;
 }
 
@@ -83,7 +86,6 @@ button {
     border-radius: calc(var(--scale) * 1);
     border: rgb(61, 61, 61) solid calc(var(--scale) * 0.2);
     font-size: calc(var(--scale));
-    font-family: Montserrat;
     height: 100%;
 }
 
@@ -111,4 +113,13 @@ button:hover {
     border-radius: calc(var(--scale) * 1);
     display: none;
     grid-template-rows: calc(var(--scale) * 5) auto;
+}
+
+.patch-menu-top-section {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+}
+
+.patch-menu-bottom-section {
+    display: grid;
 }
