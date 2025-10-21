@@ -25,6 +25,7 @@ class FixtureManager{
     loadFixtureProfileFromFile(){
         let object = document.createElement('input')
         object.type = "file"
+        object.accept = ".json"
         object.click()
         let that = this
         object.onchange = function(){
