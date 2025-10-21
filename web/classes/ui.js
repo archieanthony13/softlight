@@ -32,6 +32,9 @@ class UI{
         document.querySelector('button#patch-menu-button').onclick = function(){
             patchMenu.togglePatchMenu()
         }
+        document.querySelector('button#upload-fixture-profile').onclick = function(){
+            fixtureManager.loadFixtureProfileFromFile()
+        }
     }
 
     updateFixtureList(){
