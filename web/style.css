@@ -109,6 +109,6 @@ button:hover {
     margin: auto;
     background-color: rgb(65, 65, 65);
     border-radius: calc(var(--scale) * 1);
-    display: grid;
+    display: none;
     grid-template-rows: calc(var(--scale) * 5) auto;
 }

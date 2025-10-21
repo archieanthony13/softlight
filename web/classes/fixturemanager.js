@@ -57,6 +57,11 @@ class FixtureManager{
         ui.updateFixtureList()
     }
 
+    deleteFixture(id){
+        this.fixtures.splice(id,1)
+        ui.updateFixtureList()
+    }
+
     getFixture(name){
         for(let i=0;i<this.fixtures.length;i++){
             if(this.fixtures[i].name == name){

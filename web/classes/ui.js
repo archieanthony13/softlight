@@ -29,8 +29,8 @@ class UI{
             that.attributePage--
             that.updateAttributes()
         }
-        document.querySelector('button#upload-fixture-profile').onclick = function(){
-            fixtureManager.loadFixtureProfileFromFile()
+        document.querySelector('button#patch-menu-button').onclick = function(){
+            patchMenu.togglePatchMenu()
         }
     }
 

@@ -3,6 +3,7 @@ var artnet = new Artnet("10.175.60.40")
 dmx.data = new Array(512).fill(0)
 
 var ui = new UI()
+var patchMenu = new Patch()
 
 var fixtureManager = new FixtureManager()
 fixtureManager.loadFixtureLibrary()
