@@ -4,16 +4,23 @@ class Patch{
         this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-section")
         this.active = false
 
+        this.manufacturerElement = document.createElement('select')
+        this.manufacturerElement.id = "manufacturer"
+        this.nameElement = document.createElement('select')
+        this.nameElement.id = "name"
+        this.channelElement = document.createElement('select')
+        this.channelElement.id = "channel"
+
         let that = this
         this.patchElement.querySelector("#patch-fixture").onclick = function(){
             that.patchFixtureMenu()
         }
 
-        this.patchElementBottom.querySelector("#manufacturer").onchange = function(){
+        this.manufacturerElement.onchange = function(){
             that.updateFixtureNameSelect()
             that.updateChannelSelect()
         }
-        this.patchElementBottom.querySelector("#name").onchange = function(){
+        this.nameElement.onchange = function(){
             that.updateChannelSelect()
         }
     }
@@ -48,9 +55,10 @@ class Patch{
     }
 
     patchFixtureMenu(){
-        this.patchElementBottom.append(manufacturerElement)
-        this.patchElementBottom.append(nameElement)
-        this.patchElementBottom.append(channelElement)
+        this.patchElementBottom.innerHTML = ""
+        this.patchElementBottom.append(this.manufacturerElement)
+        this.patchElementBottom.append(this.nameElement)
+        this.patchElementBottom.append(this.channelElement)
         this.updateManufacturerSelect()
         this.updateFixtureNameSelect()
         this.updateChannelSelect()
