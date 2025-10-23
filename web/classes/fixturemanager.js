@@ -50,7 +50,7 @@ class FixtureManager{
     patchFixture(channel, mode, manufacturer, fixtureName, name){
         let fixtureProfile = this.getFixtureProfile(manufacturer, fixtureName)
         if(fixtureProfile == -1){
-            console.error("Unable to create fixture. Please upload a fixture profile for this")
+            console.error("Unable to create fixture. Please upload a fixture profile for " + manufacturer, fixtureName)
         } else {
             this.fixtures.push(new Fixture(channel, mode, fixtureProfile, name))
         }
