@@ -7,5 +7,10 @@ var patchMenu = new Patch()
 
 var fixtureManager = new FixtureManager()
 fixtureManager.loadFixtureLibrary()
-fixtureManager.patchFixture(148,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 1")
-fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 2")
+
+async function patchFixtures(){
+    await fixtureManager.patchFixture(148,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 1")
+    await fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 2")
+}
+
+patchFixtures()
