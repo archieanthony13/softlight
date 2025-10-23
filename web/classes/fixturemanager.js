@@ -47,13 +47,13 @@ class FixtureManager{
         return -1
     }
 
-    patchFixture(channel, mode, manufacturer, fixtureName, name){
+    async patchFixture(channel, mode, manufacturer, fixtureName, name){
         let fixtureProfile = this.getFixtureProfile(manufacturer, fixtureName)
         if(fixtureProfile == -1){
-            console.error("Unable to create fixture. Please upload a fixture profile for " + manufacturer, fixtureName)
-        } else {
-            this.fixtures.push(new Fixture(channel, mode, fixtureProfile, name))
+            await this.loadFixtureProfileFromCloud(manufacturer, fixtureName)
+            fixtureProfile = this.getFixtureProfile(manufacturer, fixtureName)
         }
+        this.fixtures.push(new Fixture(channel, mode, fixtureProfile, name))
 
         ui.updateFixtureList()
     }
@@ -87,5 +87,11 @@ class FixtureManager{
             }
         }
         ui.updateAttributes()
+    }
+
+    async loadFixtureProfileFromCloud(manufacturer, name){
+        let data = JSON.parse(await fetch("https://raw.githubusercontent.com/RetroCoder13/softlight-fixture-library/refs/heads/main/"+manufacturer+"/"+name+".json").then(text => text.text()))
+        this.fixtureLibrary.push(data)
+        localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
 }
