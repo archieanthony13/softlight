@@ -103,7 +103,9 @@ class FixtureManager{
                 if(contents[i].size == 0){
                     fixturesList = fixturesList.concat(await this.getFixtureLibraryFromCloud(contents[i].url))
                 } else {
-                    fixturesList.push(contents[i].name)
+                    if(contents[i].name != "README.md"){
+                        fixturesList.push(contents[i].download_url)
+                    }
                 }
             }
         } else {
