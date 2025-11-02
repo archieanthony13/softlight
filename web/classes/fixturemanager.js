@@ -113,4 +113,12 @@ class FixtureManager{
         }
         return fixturesList
     }
+
+    async loadFixtureLibraryFromCloud(){
+        let fixturesList = await this.getFixtureLibraryFromCloud()
+        for(let i=0;i<fixturesList.length;i++){
+            this.fixtureLibrary.push(JSON.parse(await fetch(fixturesList[i]).then(text => text.text())))
+        }
+        localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
+    }
 }

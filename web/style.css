@@ -121,7 +121,7 @@ button:hover {
 
 .patch-menu-top-section {
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto;
 }
 
 .patch-menu-bottom-section {

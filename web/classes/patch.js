@@ -12,8 +12,14 @@ class Patch{
         this.channelElement.id = "channel"
 
         let that = this
-        this.patchElement.querySelector("#patch-fixture").onclick = function(){
+        this.patchElement.querySelector("button#patch-fixture").onclick = function(){
             that.patchFixtureMenu()
+        }
+        this.patchElement.querySelector('button#upload-fixture-profile').onclick = function(){
+            fixtureManager.loadFixtureProfileFromFile()
+        }
+        this.patchElement.querySelector('button#load-fixture-library').onclick = function(){
+            fixtureManager.loadFixtureLibraryFromCloud()
         }
 
         this.manufacturerElement.onchange = function(){
