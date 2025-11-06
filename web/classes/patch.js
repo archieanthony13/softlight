@@ -1,7 +1,7 @@
 class Patch{
     constructor(){
         this.patchElement = document.querySelector('.patch-menu')
-        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-section")
+        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section")
         this.active = false
 
         this.manufacturerElement = document.createElement('select')
@@ -12,6 +12,9 @@ class Patch{
         this.channelElement.id = "channel"
 
         let that = this
+        this.patchElement.querySelector("button#fixture-list").onclick = function(){
+            that.updateFixtureList()
+        }
         this.patchElement.querySelector("button#patch-fixture").onclick = function(){
             that.patchFixtureMenu()
         }
@@ -57,6 +60,10 @@ class Patch{
             this.patchElementBottom.append(input)
             this.patchElementBottom.append(label)
         }
+        this.patchElement.querySelector('button#upload-fixture-profile').style.display = "none"
+        this.patchElement.querySelector('button#load-fixture-library').style.display = "none"
+        this.patchElement.querySelector('button#delete-fixture').style.display = "block"
+        this.patchElement.querySelector('button#edit-fixture').style.display = "block"
         this.patchElementBottom.style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
@@ -68,6 +75,11 @@ class Patch{
         this.updateManufacturerSelect()
         this.updateFixtureNameSelect()
         this.updateChannelSelect()
+        this.patchElement.querySelector('button#upload-fixture-profile').style.display = "block"
+        this.patchElement.querySelector('button#load-fixture-library').style.display = "block"
+        this.patchElement.querySelector('button#delete-fixture').style.display = "none"
+        this.patchElement.querySelector('button#edit-fixture').style.display = "none"
+        this.patchElementBottom.style.gridTemplateRows = "repeat(3, calc(var(--scale)*4))"
     }
 
     updateManufacturerSelect(){

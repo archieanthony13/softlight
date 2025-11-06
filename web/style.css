@@ -116,14 +116,26 @@ button:hover {
     background-color: rgb(65, 65, 65);
     border-radius: calc(var(--scale) * 1);
     display: none;
+    /* display: grid; */
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
 .patch-menu-top-section {
     display: grid;
-    grid-template-columns: auto auto auto auto auto;
+    grid-template-columns: auto auto auto auto auto auto;
 }
 
 .patch-menu-bottom-section {
     display: grid;
+    grid-template-rows: calc(var(--scale) * 5) auto;
+}
+
+.patch-menu-bottom-top-section {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto;
+}
+
+.patch-menu-bottom-bottom-section {
+    display: grid;
+    grid-template-rows: 10px 10px 10px;
 }
