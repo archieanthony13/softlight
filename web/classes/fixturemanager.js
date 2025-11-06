@@ -104,7 +104,7 @@ class FixtureManager{
                     fixturesList = fixturesList.concat(await this.getFixtureLibraryFromCloud(contents[i].url))
                 } else {
                     if(contents[i].name != "README.md"){
-                        fixturesList.push(contents[i].download_url)
+                        fixturesList.push(contents[i].path.replace(".json",""))
                     }
                 }
             }
@@ -117,7 +117,7 @@ class FixtureManager{
     async loadFixtureLibraryFromCloud(){
         let fixturesList = await this.getFixtureLibraryFromCloud()
         for(let i=0;i<fixturesList.length;i++){
-            this.fixtureLibrary.push(JSON.parse(await fetch(fixturesList[i]).then(text => text.text())))
+            this.fixtureLibrary.push(JSON.parse(await fetch("https://raw.githubusercontent.com/RetroCoder13/softlight-fixture-library/main/" + fixturesList[i] + ".json").then(text => text.text())))
         }
         localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
