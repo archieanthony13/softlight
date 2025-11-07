@@ -71,6 +71,10 @@ html, body {
     grid-template-columns: auto;
 }
 
+input, select {
+    font-size: calc(var(--scale) * 2);
+}
+
 input:checked + label {
     color: orange;
 }
