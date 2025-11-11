@@ -53,14 +53,28 @@
             <button id="fixture-list">Fixture List</button>
             <button id="patch-fixture">Patch Fixture</button>
         </div>
-        <div class="patch-menu-bottom-section">
-            <div class="patch-menu-bottom-top-section">
-                <button id="upload-fixture-profile" hidden>Upload Fixture Profile</button>
-                <button id="load-fixture-library" hidden>Load Fixture Library</button>
-                <button id="delete-fixture" hidden>Delete Fixture</button>
-                <button id="edit-fixture" hidden>Edit Fixture</button>
+        <div class="patch-menu-bottom-section fixture-list">
+            <div class="patch-menu-bottom-top-section fixture-list">
+                <button id="delete-fixture">Delete Fixture</button>
+                <button id="edit-fixture">Edit Fixture</button>
             </div>
-            <div class="patch-menu-bottom-bottom-section"></div>
+            <div class="patch-menu-bottom-bottom-section fixture-list">
+
+            </div>
+        </div>
+        <div class="patch-menu-bottom-section patch-fixture">
+            <div class="patch-menu-bottom-top-section patch-fixture">
+                <button id="upload-fixture-profile">Upload Fixture Profile</button>
+                <button id="load-fixture-library">Load Fixture Library</button>
+            </div>
+            <div class="patch-menu-bottom-bottom-section patch-fixture">
+                <select name="manufacturer" id="patch-fixture-manufacturer"></select>
+                <select name="name" id="patch-fixture-name"></select>
+                <select name="channel" id="patch-fixture-channel"></select>
+                <input type="text" id="patch-fixture-fixture-name">
+                <input type="number" id="patch-fixture-fixture-channel">
+                <button id="patch-fixture-patch">Patch</button>
+            </div>
         </div>
     </div>
 

@@ -1,19 +1,16 @@
 class Patch{
     constructor(){
         this.patchElement = document.querySelector('.patch-menu')
-        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section")
+        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.fixture-list")
         this.active = false
 
-        this.manufacturerElement = document.createElement('select')
-        this.manufacturerElement.id = "manufacturer"
-        this.nameElement = document.createElement('select')
-        this.nameElement.id = "name"
-        this.channelElement = document.createElement('select')
-        this.channelElement.id = "channel"
+        this.manufacturerElement = document.querySelector('select#patch-fixture-manufacturer')
+        this.nameElement = document.querySelector('select#patch-fixture-name')
+        this.channelElement = document.querySelector('select#patch-fixture-channel')
 
         let that = this
         this.patchElement.querySelector("button#fixture-list").onclick = function(){
-            that.updateFixtureList()
+            that.fixtureListMenu()
         }
         this.patchElement.querySelector("button#patch-fixture").onclick = function(){
             that.patchFixtureMenu()
@@ -23,6 +20,10 @@ class Patch{
         }
         this.patchElement.querySelector('button#load-fixture-library').onclick = function(){
             fixtureManager.loadFixtureLibraryFromCloud()
+        }
+
+        this.patchElement.querySelector('#patch-fixture-patch').onclick = function(){
+            that.patchFixture()
         }
 
         this.manufacturerElement.onchange = function(){
@@ -38,13 +39,14 @@ class Patch{
         this.active = !this.active
         if(this.active){
             this.patchElement.style.display = "grid"
-            this.updateFixtureList()
+            this.fixtureListMenu()
         } else {
             this.patchElement.style.display = "none"
         }
     }
 
-    updateFixtureList(){
+    fixtureListMenu(){
+        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.fixture-list")
         this.patchElementBottom.innerHTML = ""
         for(let i=0;i<fixtureManager.fixtures.length;i++){
             let label = document.createElement('label')
@@ -60,30 +62,31 @@ class Patch{
             this.patchElementBottom.append(input)
             this.patchElementBottom.append(label)
         }
-        this.patchElement.querySelector('button#upload-fixture-profile').style.display = "none"
-        this.patchElement.querySelector('button#load-fixture-library').style.display = "none"
-        this.patchElement.querySelector('button#delete-fixture').style.display = "block"
-        this.patchElement.querySelector('button#edit-fixture').style.display = "block"
+        this.patchElement.querySelector('.patch-menu-bottom-section.fixture-list').style.display = "grid"
+        this.patchElement.querySelector('.patch-menu-bottom-section.patch-fixture').style.display = "none"
         this.patchElementBottom.style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
     patchFixtureMenu(){
-        this.patchElementBottom.innerHTML = ""
-        this.patchElementBottom.append(this.manufacturerElement)
-        this.patchElementBottom.append(this.nameElement)
-        this.patchElementBottom.append(this.channelElement)
+        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.patch-fixture")
+        // this.patchElementBottom.innerHTML = ""
+        // this.patchElementBottom.append(this.manufacturerElement)
+        // this.patchElementBottom.append(this.nameElement)
+        // this.patchElementBottom.append(this.channelElement)
         this.updateManufacturerSelect()
         this.updateFixtureNameSelect()
         this.updateChannelSelect()
-        this.patchElement.querySelector('button#upload-fixture-profile').style.display = "block"
-        this.patchElement.querySelector('button#load-fixture-library').style.display = "block"
-        this.patchElement.querySelector('button#delete-fixture').style.display = "none"
-        this.patchElement.querySelector('button#edit-fixture').style.display = "none"
-        this.patchElementBottom.style.gridTemplateRows = "repeat(3, calc(var(--scale)*4))"
+        // this.patchElement.querySelector('button#upload-fixture-profile').style.display = "block"
+        // this.patchElement.querySelector('button#load-fixture-library').style.display = "block"
+        // this.patchElement.querySelector('button#delete-fixture').style.display = "none"
+        // this.patchElement.querySelector('button#edit-fixture').style.display = "none"
+        this.patchElementBottom.style.gridTemplateRows = "repeat(6, calc(var(--scale)*4))"
+        this.patchElement.querySelector('.patch-menu-bottom-section.fixture-list').style.display = "none"
+        this.patchElement.querySelector('.patch-menu-bottom-section.patch-fixture').style.display = "grid"
     }
 
     updateManufacturerSelect(){
-        let manufacturerElement = this.patchElementBottom.querySelector("#manufacturer")
+        let manufacturerElement = this.patchElementBottom.querySelector("#patch-fixture-manufacturer")
         let manufacturersList = []
         manufacturerElement.innerHTML = ""
         for(let i=0;i<fixtureManager.fixtureLibrary.length;i++){
@@ -100,8 +103,8 @@ class Patch{
     }
 
     updateFixtureNameSelect(){
-        let manufacturer = this.patchElementBottom.querySelector("#manufacturer").value
-        let nameElement = this.patchElementBottom.querySelector("#name")
+        let manufacturer = this.patchElementBottom.querySelector("#patch-fixture-manufacturer").value
+        let nameElement = this.patchElementBottom.querySelector("#patch-fixture-name")
         nameElement.innerHTML = ""
         for(let i=0;i<fixtureManager.fixtureLibrary.length;i++){
             let fixture = fixtureManager.fixtureLibrary[i]
@@ -116,9 +119,9 @@ class Patch{
     }
 
     updateChannelSelect(){
-        let manufacturer = this.patchElementBottom.querySelector("#manufacturer").value
-        let name = this.patchElementBottom.querySelector("#name").value
-        let channelElement = this.patchElementBottom.querySelector("#channel")
+        let manufacturer = this.patchElementBottom.querySelector("#patch-fixture-manufacturer").value
+        let name = this.patchElementBottom.querySelector("#patch-fixture-name").value
+        let channelElement = this.patchElementBottom.querySelector("#patch-fixture-channel")
         channelElement.innerHTML = ""
         for(let i=0;i<fixtureManager.fixtureLibrary.length;i++){
             let fixture = fixtureManager.fixtureLibrary[i]
@@ -133,5 +136,15 @@ class Patch{
                 }
             }
         }
+    }
+
+    patchFixture(){
+        let manufacturer = this.patchElementBottom.querySelector("#patch-fixture-manufacturer").value
+        let name = this.patchElementBottom.querySelector("#patch-fixture-name").value
+        let channel = this.patchElementBottom.querySelector("#patch-fixture-channel").value
+        let fixtureName = this.patchElementBottom.querySelector("#patch-fixture-fixture-name").value
+        let fixtureChannel = parseInt(this.patchElementBottom.querySelector("#patch-fixture-fixture-channel").value)
+        console.log(fixtureChannel, channel, manufacturer, name, fixtureName)
+        fixtureManager.patchFixture(fixtureChannel, channel, manufacturer, name, fixtureName)
     }
 }

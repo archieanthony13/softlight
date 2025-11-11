@@ -125,7 +125,7 @@ button:hover {
     border-radius: calc(var(--scale) * 1);
     display: none;
     /* display: grid; */
-    grid-template-rows: calc(var(--scale) * 5) auto;
+    grid-template-rows: calc(var(--scale) * 5) auto auto;
 }
 
 .patch-menu-top-section {
@@ -145,5 +145,8 @@ button:hover {
 
 .patch-menu-bottom-bottom-section {
     display: grid;
-    grid-template-rows: 10px 10px 10px;
 }
+
+.patch-menu-bottom-section.patch-fixture {
+    display: none;
+} 
