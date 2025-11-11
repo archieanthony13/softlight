@@ -79,6 +79,10 @@ input:checked + label {
     color: orange;
 }
 
+label:hover {
+    color: blue;
+}
+
 label {
     transition-duration: .1s;
     font-size: calc(var(--scale) * 2);
