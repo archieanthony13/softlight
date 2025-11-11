@@ -3,6 +3,7 @@ class Patch{
         this.patchElement = document.querySelector('.patch-menu')
         this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.fixture-list")
         this.active = false
+        this.selectedFixtures = []
 
         this.manufacturerElement = document.querySelector('select#patch-fixture-manufacturer')
         this.nameElement = document.querySelector('select#patch-fixture-name')
@@ -24,6 +25,9 @@ class Patch{
 
         this.patchElement.querySelector('#patch-fixture-patch').onclick = function(){
             that.patchFixture()
+        }
+        this.patchElement.querySelector('#delete-fixture').onclick = function(){
+            that.deleteFixtures()
         }
 
         this.manufacturerElement.onchange = function(){
@@ -146,5 +150,23 @@ class Patch{
         let fixtureChannel = parseInt(this.patchElementBottom.querySelector("#patch-fixture-fixture-channel").value)
         console.log(fixtureChannel, channel, manufacturer, name, fixtureName)
         fixtureManager.patchFixture(fixtureChannel, channel, manufacturer, name, fixtureName)
+    }
+
+    deleteFixtures(){
+        this.updateSelectedFixtures()
+        for(let i=0;i<this.selectedFixtures.length;i++){
+            fixtureManager.deleteFixture(this.selectedFixtures[i])
+        }
+    }
+
+    updateSelectedFixtures(){
+        let fixtureSection = document.querySelectorAll('.patch-menu-bottom-bottom-section.fixture-list input')
+        this.selectedFixtures = []
+        for(let i=0;i<fixtureSection.length;i++){
+            if(fixtureSection[i].checked){
+                this.selectedFixtures.push(i)
+            }
+        }
+        ui.updateAttributes()
     }
 }
