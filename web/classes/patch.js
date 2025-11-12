@@ -155,7 +155,7 @@ class Patch{
     deleteFixtures(){
         this.updateSelectedFixtures()
         for(let i=0;i<this.selectedFixtures.length;i++){
-            fixtureManager.deleteFixture(this.selectedFixtures[i])
+            fixtureManager.deleteFixture(this.selectedFixtures[i] - i)
         }
         this.fixtureListMenu()
     }
