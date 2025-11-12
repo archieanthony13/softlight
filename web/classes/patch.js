@@ -1,7 +1,7 @@
 class Patch{
     constructor(){
-        this.patchElement = document.querySelector('.patch-menu')
-        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.fixture-list")
+        this.patchElement = document.querySelector('.menu#patch-menu')
+        this.patchElementBottom = this.patchElement.querySelector(".menu-bottom-bottom-section.fixture-list")
         this.active = false
         this.selectedFixtures = []
 
@@ -50,7 +50,7 @@ class Patch{
     }
 
     fixtureListMenu(){
-        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.fixture-list")
+        this.patchElementBottom = this.patchElement.querySelector(".menu-bottom-bottom-section.fixture-list")
         this.patchElementBottom.innerHTML = ""
         for(let i=0;i<fixtureManager.fixtures.length;i++){
             let label = document.createElement('label')
@@ -66,13 +66,13 @@ class Patch{
             this.patchElementBottom.append(input)
             this.patchElementBottom.append(label)
         }
-        this.patchElement.querySelector('.patch-menu-bottom-section.fixture-list').style.display = "grid"
-        this.patchElement.querySelector('.patch-menu-bottom-section.patch-fixture').style.display = "none"
+        this.patchElement.querySelector('.menu-bottom-section.fixture-list').style.display = "grid"
+        this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "none"
         this.patchElementBottom.style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
     patchFixtureMenu(){
-        this.patchElementBottom = this.patchElement.querySelector(".patch-menu-bottom-bottom-section.patch-fixture")
+        this.patchElementBottom = this.patchElement.querySelector(".menu-bottom-bottom-section.patch-fixture")
         // this.patchElementBottom.innerHTML = ""
         // this.patchElementBottom.append(this.manufacturerElement)
         // this.patchElementBottom.append(this.nameElement)
@@ -85,8 +85,8 @@ class Patch{
         // this.patchElement.querySelector('button#delete-fixture').style.display = "none"
         // this.patchElement.querySelector('button#edit-fixture').style.display = "none"
         this.patchElementBottom.style.gridTemplateRows = "repeat(6, calc(var(--scale)*4))"
-        this.patchElement.querySelector('.patch-menu-bottom-section.fixture-list').style.display = "none"
-        this.patchElement.querySelector('.patch-menu-bottom-section.patch-fixture').style.display = "grid"
+        this.patchElement.querySelector('.menu-bottom-section.fixture-list').style.display = "none"
+        this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "grid"
     }
 
     updateManufacturerSelect(){
@@ -161,7 +161,7 @@ class Patch{
     }
 
     updateSelectedFixtures(){
-        let fixtureSection = document.querySelectorAll('.patch-menu-bottom-bottom-section.fixture-list input')
+        let fixtureSection = document.querySelectorAll('.menu-bottom-bottom-section.fixture-list input')
         this.selectedFixtures = []
         for(let i=0;i<fixtureSection.length;i++){
             if(fixtureSection[i].checked){

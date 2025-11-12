@@ -112,7 +112,7 @@ button:hover {
     }
 }
 
-.patch-menu {
+.menu {
     width: calc(var(--scale) * 90);
     height: calc(var(--scale) * 45);
     position: absolute;
@@ -128,25 +128,29 @@ button:hover {
     grid-template-rows: calc(var(--scale) * 5) auto auto;
 }
 
-.patch-menu-top-section {
+.menu-top-section {
     display: grid;
     grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15);
 }
 
-.patch-menu-bottom-section {
+.menu-bottom-section {
     display: grid;
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
-.patch-menu-bottom-top-section {
+.menu-bottom-top-section {
     display: grid;
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
 }
 
-.patch-menu-bottom-bottom-section {
+.menu-bottom-bottom-section {
     display: grid;
 }
 
-.patch-menu-bottom-section.patch-fixture {
+.menu-bottom-section.patch-fixture {
     display: none;
-} 
+}
+
+/* .menu#settings-menu {
+    display: grid;
+} */

@@ -12,6 +12,7 @@
 <body>
     <div class="container">
         <div class="top-section" id="top-panel">
+            <button id="settings-menu-button">Settings</button>
             <button id="patch-menu-button">Patch</button>
         </div>
         <div class="middle-section">
@@ -48,25 +49,53 @@
             </div>
         </div>
     </div>
-    <div class="patch-menu">
-        <div class="patch-menu-top-section">
-            <button id="fixture-list">Fixture List</button>
-            <button id="patch-fixture">Patch Fixture</button>
+
+    <div class="menu" id="settings-menu">
+        <div class="menu-top-section">
+            <button id="save-page">Save</button>
+            <button id="network-page">Network</button>
         </div>
-        <div class="patch-menu-bottom-section fixture-list">
-            <div class="patch-menu-bottom-top-section fixture-list">
-                <button id="delete-fixture">Delete Fixture</button>
+        <div class="menu-bottom-section save-page">
+            <div class="menu-bottom-top-section save-page">
+                <button id="save-to-file">Save to File</button>
+                <button id="save-to-browser">Save to Browser</button>
+                <button id="load-from-file">Load from File</button>
+                <button id="load-from-browser">Load from Browser</button>
             </div>
-            <div class="patch-menu-bottom-bottom-section fixture-list">
+            <div class="menu-bottom-bottom-section save-page">
+                
+            </div>
+        </div>
+        <div class="menu-bottom-section network-page">
+            <div class="menu-bottom-top-section network-page">
+                <button id="art-net">Save Preferences</button>
+                <button id="server">Reset to Default</button>
+            </div>
+            <div class="menu-bottom-bottom-section network-page">
 
             </div>
         </div>
-        <div class="patch-menu-bottom-section patch-fixture">
-            <div class="patch-menu-bottom-top-section patch-fixture">
+    </div>
+
+    <div class="menu" id="patch-menu">
+        <div class="menu-top-section">
+            <button id="fixture-list">Fixture List</button>
+            <button id="patch-fixture">Patch Fixture</button>
+        </div>
+        <div class="menu-bottom-section fixture-list">
+            <div class="menu-bottom-top-section fixture-list">
+                <button id="delete-fixture">Delete Fixture</button>
+            </div>
+            <div class="menu-bottom-bottom-section fixture-list">
+
+            </div>
+        </div>
+        <div class="menu-bottom-section patch-fixture">
+            <div class="menu-bottom-top-section patch-fixture">
                 <button id="upload-fixture-profile">Upload Fixture Profile</button>
                 <button id="load-fixture-library">Load Fixture Library</button>
             </div>
-            <div class="patch-menu-bottom-bottom-section patch-fixture">
+            <div class="menu-bottom-bottom-section patch-fixture">
                 <select name="manufacturer" id="patch-fixture-manufacturer"></select>
                 <select name="name" id="patch-fixture-name"></select>
                 <select name="channel" id="patch-fixture-channel"></select>
@@ -85,6 +114,7 @@
     <script src="classes/fixture.js"></script>
     <script src="classes/fixturemanager.js"></script>
     <script src="classes/patch.js"></script>
+    <script src="classes/settings.js"></script>
     <script src="classes/ui.js"></script>
     <script src="setup.js"></script>
     <script src="main.js"></script>
