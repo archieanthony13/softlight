@@ -5,6 +5,9 @@ class Settings{
         this.active = false
 
         let that = this
+        this.settingsElement.querySelector("button#exit-settings").onclick = function(){
+            that.toggleSettingsMenu()
+        }
         this.settingsElement.querySelector("button#save-page").onclick = function(){
             that.saveMenu()
         }

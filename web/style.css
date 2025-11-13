@@ -101,6 +101,7 @@ button {
     border: rgb(61, 61, 61) solid calc(var(--scale) * 0.2);
     font-size: calc(var(--scale));
     height: 100%;
+    padding: 0px;
 }
 
 button:hover {
@@ -132,7 +133,7 @@ button:hover {
 
 .menu-top-section {
     display: grid;
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 5);
 }
 
 .menu-bottom-section {
@@ -153,6 +154,17 @@ button:hover {
     display: none;
 }
 
-/* .menu#settings-menu {
+.menu#settings-menu {
     display: grid;
-} */
+}
+
+button.exit-button {
+    font-size: calc(var(--scale) * 2.5);
+    width: calc(var(--scale) * 5);
+    margin-left: calc(var(--scale) * 55);
+    text-align: center;
+}
+
+img.button-image {
+    height: calc(var(--scale) * 2);
+}

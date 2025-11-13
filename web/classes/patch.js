@@ -10,6 +10,9 @@ class Patch{
         this.channelElement = document.querySelector('select#patch-fixture-channel')
 
         let that = this
+        this.patchElement.querySelector("button#exit-patch").onclick = function(){
+            that.togglePatchMenu()
+        }
         this.patchElement.querySelector("button#fixture-list").onclick = function(){
             that.fixtureListMenu()
         }
