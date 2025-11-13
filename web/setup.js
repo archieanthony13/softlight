@@ -5,6 +5,7 @@ dmx.data = new Array(512).fill(0)
 var ui = new UI()
 var patchMenu = new Patch()
 var settingsMenu = new Settings()
+var parameterMenu = new Parameter()
 
 var fixtureManager = new FixtureManager()
 fixtureManager.loadFixtureLibrary()

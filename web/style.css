@@ -172,3 +172,16 @@ img.button-image {
     grid-template-columns: calc(var(--scale) * 30) calc(var(--scale) * 30);
     grid-template-rows: calc(var(--scale) * 3) calc(var(--scale) * 3);
 }
+
+.menu#parameter-menu {
+    width: calc(var(--scale) * 45);
+    height: calc(var(--scale) * 20);
+    display: grid;
+}
+
+.menu#parameter-menu button.exit-button {
+    font-size: calc(var(--scale) * 2.5);
+    width: calc(var(--scale) * 5);
+    margin-left: calc(var(--scale) * 10);
+    text-align: center;
+}
