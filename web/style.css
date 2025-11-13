@@ -129,6 +129,7 @@ button:hover {
     display: none;
     /* display: grid; */
     grid-template-rows: calc(var(--scale) * 5) auto auto;
+    box-shadow: 0px 0px calc(var(--scale) * 1) calc(var(--scale) * 0.5) black;
 }
 
 .menu-top-section {
@@ -152,10 +153,6 @@ button:hover {
 
 .menu-bottom-section.patch-fixture {
     display: none;
-}
-
-.menu#settings-menu {
-    display: grid;
 }
 
 button.exit-button {
