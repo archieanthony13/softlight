@@ -130,6 +130,7 @@ button:hover {
     /* display: grid; */
     grid-template-rows: calc(var(--scale) * 5) auto auto;
     box-shadow: 0px 0px calc(var(--scale) * 1) calc(var(--scale) * 0.5) black;
+    color: lightgray;
 }
 
 .menu-top-section {
