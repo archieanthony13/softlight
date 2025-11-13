@@ -48,3 +48,7 @@ class Parameter {
 // 0b1111000000001111 >> 8                      Most significant bit (binary shift)
 // 0b1111000000001111 & 0b0000000011111111      Least significant bit (mask)
 // Could convert the mask to HEX to make it shorter
+
+// Shorter:
+// 16-bit number >> 8
+// 16-bit number & 255
