@@ -71,6 +71,8 @@ class Patch{
         }
         this.patchElement.querySelector('.menu-bottom-section.fixture-list').style.display = "grid"
         this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "none"
+        this.patchElement.querySelector("button#fixture-list").classList.add("selected")
+        this.patchElement.querySelector("button#patch-fixture").classList.remove("selected")
         this.patchElementBottom.style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
@@ -90,6 +92,8 @@ class Patch{
         this.patchElementBottom.style.gridTemplateRows = "repeat(6, calc(var(--scale)*4))"
         this.patchElement.querySelector('.menu-bottom-section.fixture-list').style.display = "none"
         this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "grid"
+        this.patchElement.querySelector("button#fixture-list").classList.remove("selected")
+        this.patchElement.querySelector("button#patch-fixture").classList.add("selected")
     }
 
     updateManufacturerSelect(){

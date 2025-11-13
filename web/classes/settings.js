@@ -36,12 +36,16 @@ class Settings{
         this.settingsElementBottom = this.settingsElement.querySelector(".menu-bottom-bottom-section.save-page")
         this.settingsElement.querySelector('.menu-bottom-section.save-page').style.display = "grid"
         this.settingsElement.querySelector('.menu-bottom-section.network-page').style.display = "none"
+        this.settingsElement.querySelector("button#save-page").classList.add("selected")
+        this.settingsElement.querySelector("button#network-page").classList.remove("selected")
     }
 
     networkMenu(){
         this.settingsElementBottom = this.settingsElement.querySelector(".menu-bottom-bottom-section.network-page")
         this.settingsElement.querySelector('.menu-bottom-section.save-page').style.display = "none"
         this.settingsElement.querySelector('.menu-bottom-section.network-page').style.display = "grid"
+        this.settingsElement.querySelector("button#save-page").classList.remove("selected")
+        this.settingsElement.querySelector("button#network-page").classList.add("selected")
         let ip = this.settingsElementBottom.querySelector('#settings-network-ip-address')
         let websocket = this.settingsElementBottom.querySelector('#settings-network-websocket-address')
         ip.value = artnet.ip

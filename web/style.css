@@ -109,6 +109,10 @@ button:hover {
     cursor: pointer;
 }
 
+button.selected {
+    background-color: orange;
+}
+
 @media (min-aspect-ratio: 2/1) {
     html, body {
         --scale: 2vh;
