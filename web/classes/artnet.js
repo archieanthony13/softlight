@@ -1,9 +1,18 @@
 class Artnet{
-    constructor(ip){
+    constructor(ip, websocket){
         this.ip = ip
-        this.socket = new WebSocket("ws://localhost:8765");
+        this.changeWebsocket(websocket)
+    }
+
+    changeIp(ip){
+        this.ip = ip
+    }
+
+    changeWebsocket(address){
+        this.websocket = address
+        this.socket = new WebSocket(this.websocket);
         this.open = false
-        var that = this
+        let that = this
         this.socket.onopen = function(e){
             console.log("Connected to server")
             that.open = true
@@ -21,10 +30,6 @@ class Artnet{
             console.log("Connection closed")
             that.open = false
         }
-    }
-
-    changeIp(ip){
-        this.ip = ip
     }
 
     sendData(dmx){

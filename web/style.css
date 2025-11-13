@@ -151,10 +151,6 @@ button:hover {
     display: grid;
 }
 
-.menu-bottom-section.patch-fixture {
-    display: none;
-}
-
 button.exit-button {
     font-size: calc(var(--scale) * 2.5);
     width: calc(var(--scale) * 5);
@@ -164,4 +160,10 @@ button.exit-button {
 
 img.button-image {
     height: calc(var(--scale) * 2);
+}
+
+.menu-bottom-bottom-section.network-page {
+    display: grid;
+    grid-template-columns: calc(var(--scale) * 30) calc(var(--scale) * 30);
+    grid-template-rows: calc(var(--scale) * 3) calc(var(--scale) * 3);
 }
