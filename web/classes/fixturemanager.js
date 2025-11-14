@@ -81,9 +81,16 @@ class FixtureManager{
         return -1
     }
 
-    updateSelectedFixtureChannel(channel, value){
+    updateSelectedFixtureChannel(channel, value, bits){
         for(let i=0;i<this.selectedFixtures.length;i++){
-            this.fixtures[this.selectedFixtures[i]].updateFixtureChannel(channel, value)
+            if(bits == 1){
+                this.fixtures[this.selectedFixtures[i]].updateFixtureChannel(channel, value)
+            } else {
+                let coarse = value >> 8
+                let fine = value & 255
+                this.fixtures[this.selectedFixtures[i]].updateFixtureChannel(channel, coarse)
+                this.fixtures[this.selectedFixtures[i]].updateFixtureChannel("Fine " + channel, fine)
+            }
         }
     }
 

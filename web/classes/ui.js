@@ -84,6 +84,7 @@ class UI{
                             }
                         } else {
                             let index = attributes.indexOf(fixture.channelNames[j].replace("Fine ",""))
+                            attributeValues[index] = (attributeValues[index] << 8) + fixture.channels[j]
                             bits[index] = 2
                         }
                     }

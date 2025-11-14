@@ -29,7 +29,7 @@ class Parameter {
             }
             that.value = value
             this.value = value
-            fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value)
+            fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value, that.bits)
             ui.updateAttributes()
         }
     }
