@@ -42,6 +42,7 @@ class Parameter {
         this.parameterElement.querySelector("button#list-values").classList.remove("selected")
         
         this.parameterElementBottom.querySelector("input#parameter-raw-value").value = this.value
+        this.parameterElement.querySelector("input#parameter-raw-value").select()
     }
 
     listValueMenu(){
