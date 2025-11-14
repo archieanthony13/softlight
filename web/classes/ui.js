@@ -71,14 +71,20 @@ class UI{
                 let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
                 for(let j=0;j<fixture.channelNames.length;j++){
                     if(fixture.fixtureProfile.channels[fixture.channelNames[j]].type == this.attribute){
-                        let index = attributes.indexOf(fixture.channelNames[j])
-                        if(index == -1){
-                            attributes.push(fixture.channelNames[j])
-                            attributeValues.push(fixture.channels[j])
-                        } else {
-                            if(fixture.channels[j] > attributeValues[index]){
-                                attributeValues[index] = fixture.channels[j]
+                        if(fixture.channelNames[j].indexOf("Fine") == -1){
+                            let index = attributes.indexOf(fixture.channelNames[j])
+                            if(index == -1){
+                                attributes.push(fixture.channelNames[j])
+                                attributeValues.push(fixture.channels[j])
+                                bits.push(1)
+                            } else {
+                                if(fixture.channels[j] > attributeValues[index]){
+                                    attributeValues[index] = fixture.channels[j]
+                                }
                             }
+                        } else {
+                            let index = attributes.indexOf(fixture.channelNames[j].replace("Fine ",""))
+                            bits[index] = 2
                         }
                     }
                 }
@@ -86,7 +92,9 @@ class UI{
         }
         for(let i=0;i<5;i++){
             let j=i+this.attributePage*5
-            document.querySelectorAll('#attribute-values button')[i].innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && (attributeValues[j] || 0))
+            let button = document.querySelectorAll('#attribute-values button')[i]
+            button.dataset.bits = bits[j]
+            button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && (attributeValues[j] || 0))
         }
     }
 }
