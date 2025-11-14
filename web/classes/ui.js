@@ -15,12 +15,13 @@ class UI{
             }
         })
 
-        Array.from(document.querySelectorAll('#attribute-values input')).forEach(function(n){
-            n.onchange = function(){
-                let label = document.querySelector("#attribute-values label#" + n.id + "-label")
-                let input = n
-                if(label.innerHTML != ""){
-                    fixtureManager.updateSelectedFixtureChannel(label.innerHTML, parseInt(input.value))
+        document.querySelectorAll("#attribute-values button").forEach(function(n){
+            n.onclick = function(e){
+                if(n.innerHTML != ""){
+                    let paramVal = n.innerHTML.split("<br>")
+                    parameterMenu.parameter = paramVal[0]
+                    parameterMenu.value = parseInt(paramVal[1])
+                    parameterMenu.toggleParameterMenu()
                 }
             }
         })
@@ -83,8 +84,7 @@ class UI{
         }
         for(let i=0;i<5;i++){
             let j=i+this.attributePage*5
-            document.querySelectorAll('#attribute-values label')[i].innerHTML = (attributes[j] || "")
-            document.querySelectorAll('#attribute-values input')[i].value = (attributeValues[j] || 0)
+            document.querySelectorAll('#attribute-values button')[i].innerHTML = (attributes[j] || "") + "<br>" + (attributeValues[j] || 0)
         }
     }
 }

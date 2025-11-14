@@ -59,10 +59,6 @@ html, body {
     grid-template-columns: repeat(5, calc(var(--scale) * 18));
 }
 
-.bottom-right-bottom-section {
-    grid-template-rows: calc(var(--scale) * 2.5) calc(var(--scale) * 2.5);
-}
-
 .bottom-left-section {
     display: grid;
     grid-template-rows: 50% 50%;
@@ -176,7 +172,7 @@ img.button-image {
 .menu#parameter-menu {
     width: calc(var(--scale) * 45);
     height: calc(var(--scale) * 20);
-    display: grid;
+    /* display: grid; */
 }
 
 .menu#parameter-menu button.exit-button {

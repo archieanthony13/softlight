@@ -4,6 +4,9 @@ class Parameter {
         this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-bottom-section.raw-value")
         this.active = false
 
+        this.parameter = ""
+        this.value = 0
+
         let that = this
         this.parameterElement.querySelector("button#exit-parameter").onclick = function(){
             that.toggleParameterMenu()
@@ -13,6 +16,10 @@ class Parameter {
         }
         this.parameterElement.querySelector("button#list-values").onclick = function(){
             that.listValueMenu()
+        }
+        this.parameterElement.querySelector("input#parameter-raw-value").onchange = function(){
+            that.value = parseInt(that.parameterElement.querySelector("input#parameter-raw-value").value)
+            fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value)
         }
     }
 
@@ -27,11 +34,13 @@ class Parameter {
     }
 
     rawValueMenu(){
-        this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-bottom-section.raw-value")
+        this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-section.raw-value")
         this.parameterElement.querySelector('.menu-bottom-section.raw-value').style.display = "grid"
         this.parameterElement.querySelector('.menu-bottom-section.list-values').style.display = "none"
         this.parameterElement.querySelector("button#raw-value").classList.add("selected")
         this.parameterElement.querySelector("button#list-values").classList.remove("selected")
+        
+        this.parameterElementBottom.querySelector("input#parameter-raw-value").value = this.value
     }
 
     listValueMenu(){
