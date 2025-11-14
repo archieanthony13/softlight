@@ -5,6 +5,10 @@ class UI{
         let that = this
         document.querySelectorAll("#attributes button").forEach(function(n){
             n.onclick = function(e){
+                document.querySelectorAll("#attributes button").forEach(function(m){
+                    m.classList.remove("selected")
+                })
+                n.classList.add("selected")
                 that.attribute = n.innerHTML.toLowerCase()
                 that.attributePage = 0
                 that.updateAttributes()
