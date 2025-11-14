@@ -33,6 +33,9 @@ class UI{
         }
         document.querySelector('#attribute-page-down').onclick = function(){
             that.attributePage--
+            if(that.attributePage < 0){
+                that.attributePage = 0
+            }
             that.updateAttributes()
         }
         document.querySelector('button#patch-menu-button').onclick = function(){
