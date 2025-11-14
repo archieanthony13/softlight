@@ -84,7 +84,7 @@ class UI{
         }
         for(let i=0;i<5;i++){
             let j=i+this.attributePage*5
-            document.querySelectorAll('#attribute-values button')[i].innerHTML = (attributes[j] || "") + "<br>" + (attributeValues[j] || 0)
+            document.querySelectorAll('#attribute-values button')[i].innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && (attributeValues[j] || 0))
         }
     }
 }
