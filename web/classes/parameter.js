@@ -6,6 +6,7 @@ class Parameter {
 
         this.parameter = ""
         this.value = 0
+        this.bits = 1
 
         let that = this
         this.parameterElement.querySelector("button#exit-parameter").onclick = function(){

@@ -21,6 +21,7 @@ class UI{
                     let paramVal = n.innerHTML.split("<br>")
                     parameterMenu.parameter = paramVal[0]
                     parameterMenu.value = parseInt(paramVal[1])
+                    parameterMenu.bits = parseInt(n.dataset.bits)
                     parameterMenu.toggleParameterMenu()
                 }
             }
@@ -64,6 +65,7 @@ class UI{
     updateAttributes(){
         let attributes = []
         let attributeValues = []
+        let bits = []
         if(fixtureManager.selectedFixtures.length > 0){
             for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
                 let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
