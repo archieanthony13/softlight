@@ -18,7 +18,16 @@ class Parameter {
             that.listValueMenu()
         }
         this.parameterElement.querySelector("input#parameter-raw-value").onchange = function(){
-            that.value = parseInt(that.parameterElement.querySelector("input#parameter-raw-value").value)
+            let value = parseInt(this.value)
+            let min = parseInt(this.min)
+            let max = parseInt(this.max)
+            if(value < min) {
+                value = min
+            } else if(value > max){
+                value = max
+            }
+            that.value = value
+            this.value = value
             fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value)
             ui.updateAttributes()
         }
