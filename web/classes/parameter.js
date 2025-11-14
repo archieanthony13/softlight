@@ -20,6 +20,7 @@ class Parameter {
         this.parameterElement.querySelector("input#parameter-raw-value").onchange = function(){
             that.value = parseInt(that.parameterElement.querySelector("input#parameter-raw-value").value)
             fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value)
+            ui.updateAttributes()
         }
     }
 
