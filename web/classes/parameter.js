@@ -54,8 +54,10 @@ class Parameter {
         let input = this.parameterElementBottom.querySelector("input#parameter-raw-value")
         if(this.bits == 1){
             input.max = 255
+            this.parameterElementBottom.querySelector("p#parameter-range").innerHTML = "Min: 0, Max: 255"
         } else {
             input.max = 65535
+            this.parameterElementBottom.querySelector("p#parameter-range").innerHTML = "Min: 0, Max: 65535"
         }
         input.value = this.value
         this.parameterElement.querySelector("input#parameter-raw-value").select()

@@ -181,3 +181,7 @@ img.button-image {
     margin-left: calc(var(--scale) * 10);
     text-align: center;
 }
+
+p {
+    font-size: calc(var(--scale) * 2);
+}
