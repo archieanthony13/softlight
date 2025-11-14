@@ -51,7 +51,13 @@ class Parameter {
         this.parameterElement.querySelector("button#raw-value").classList.add("selected")
         this.parameterElement.querySelector("button#list-values").classList.remove("selected")
         
-        this.parameterElementBottom.querySelector("input#parameter-raw-value").value = this.value
+        let input = this.parameterElementBottom.querySelector("input#parameter-raw-value")
+        if(this.bits == 1){
+            input.max = 255
+        } else {
+            input.max = 65535
+        }
+        input.value = this.value
         this.parameterElement.querySelector("input#parameter-raw-value").select()
     }
 
