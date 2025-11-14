@@ -93,14 +93,26 @@ class UI{
             }
         }
         let offset = 0
-        for(let i=0;i<5;i++){
-            let j=i+offset+this.attributePage*5
-            let button = document.querySelectorAll('#attribute-values button')[i]
+        let count = 0
+        for(let i=0;i<Math.max(attributes.length,5*(this.attributePage+1)) && count<5;i++){
+            let j=i+offset
+            if(j<attributes.length){
+                if(attributes[j].indexOf("Fine") != -1){
+                    continue
+                }
+            }
+            let button = document.querySelectorAll('#attribute-values button')[count]
             button.dataset.bits = bits[j]
-            if(bits == 1){
-                button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && (attributeValues[j] || 0))
+            if(bits[j] == 1){
+                if(i >= this.attributePage*5){
+                    button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && (attributeValues[j] || 0))
+                    count++
+                }
             } else {
-                button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && ((attributeValues[j] << 8) + attributeValues[j+1] || 0))
+                if(i >= this.attributePage*5){
+                    button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && ((attributeValues[j] << 8) + attributeValues[j+1] || 0))
+                    count++
+                }
                 offset++
             }
         }
