@@ -25,6 +25,9 @@ class Patch{
         this.patchElement.querySelector('button#load-fixture-library').onclick = function(){
             fixtureManager.loadFixtureLibraryFromCloud()
         }
+        this.patchElement.querySelector('button#clear-fixture-library').onclick = function(){
+            fixtureManager.clearFixtureLibrary()
+        }
 
         this.patchElement.querySelector('#patch-fixture-patch').onclick = function(){
             that.patchFixture()

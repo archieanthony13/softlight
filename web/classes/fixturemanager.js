@@ -140,4 +140,9 @@ class FixtureManager{
         }
         localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
+
+    clearFixtureLibrary(){
+        this.fixtureLibrary = []
+        localStorage.removeItem("softlight-fixture-library")
+    }
 }
