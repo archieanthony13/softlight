@@ -47,6 +47,9 @@ class Parameter {
             fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value, that.bits)
             ui.updateAttributes()
         }
+        this.parameterElement.querySelector("input#parameter-raw-value").onchange = function(){
+            this.onkeyup()
+        }
     }
 
     toggleParameterMenu(){
@@ -86,13 +89,3 @@ class Parameter {
         this.parameterElement.querySelector("button#list-values").classList.add("selected")
     }
 }
-
-// NOTE
-// Given a 16-bit binary number this is how to split into two 8-bit numbers
-// 0b1111000000001111 >> 8                      Most significant bit (binary shift)
-// 0b1111000000001111 & 0b0000000011111111      Least significant bit (mask)
-// Could convert the mask to HEX to make it shorter
-
-// Shorter:
-// 16-bit number >> 8
-// 16-bit number & 255
