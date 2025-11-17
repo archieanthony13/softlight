@@ -80,8 +80,15 @@ class UI{
                             attributeValues.push(fixture.channels[j])
                             bits.push(1)
                         } else {
-                            if(fixture.channels[j] > attributeValues[index]){
-                                attributeValues[index] = fixture.channels[j]
+                            if(fixture.channelNames[j].indexOf("Fine") == -1){
+                                if(fixture.channels[j] > attributeValues[index]){
+                                    attributeValues[index] = fixture.channels[j]
+                                }
+                            } else {
+                                if((fixture.channels[j-1] << 8) + fixture.channels[j] > (attributeValues[index-1] << 8) + attributeValues[index]){
+                                    attributeValues[index-1] = fixture.channels[j-1]
+                                    attributeValues[index] = fixture.channels[j]
+                                }
                             }
                         }
                         if(fixture.channelNames[j].indexOf("Fine") != -1){
