@@ -19,14 +19,17 @@ class Patch{
         this.patchElement.querySelector("button#patch-fixture").onclick = function(){
             that.patchFixtureMenu()
         }
-        this.patchElement.querySelector('button#upload-fixture-profile').onclick = function(){
-            fixtureManager.loadFixtureProfileFromFile()
+        this.patchElement.querySelector('button#upload-fixture-profile').onclick = async function(){
+            await fixtureManager.loadFixtureProfileFromFile()
+            that.updatePatchFixtureMenu()
         }
-        this.patchElement.querySelector('button#load-fixture-library').onclick = function(){
-            fixtureManager.loadFixtureLibraryFromCloud()
+        this.patchElement.querySelector('button#load-fixture-library').onclick = async function(){
+            await fixtureManager.loadFixtureLibraryFromCloud()
+            that.updatePatchFixtureMenu()
         }
         this.patchElement.querySelector('button#clear-fixture-library').onclick = function(){
             fixtureManager.clearFixtureLibrary()
+            that.updatePatchFixtureMenu()
         }
 
         this.patchElement.querySelector('#patch-fixture-patch').onclick = function(){
@@ -85,9 +88,7 @@ class Patch{
         // this.patchElementBottom.append(this.manufacturerElement)
         // this.patchElementBottom.append(this.nameElement)
         // this.patchElementBottom.append(this.channelElement)
-        this.updateManufacturerSelect()
-        this.updateFixtureNameSelect()
-        this.updateChannelSelect()
+        this.updatePatchFixtureMenu()
         // this.patchElement.querySelector('button#upload-fixture-profile').style.display = "block"
         // this.patchElement.querySelector('button#load-fixture-library').style.display = "block"
         // this.patchElement.querySelector('button#delete-fixture').style.display = "none"
@@ -97,6 +98,12 @@ class Patch{
         this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "grid"
         this.patchElement.querySelector("button#fixture-list").classList.remove("selected")
         this.patchElement.querySelector("button#patch-fixture").classList.add("selected")
+    }
+
+    updatePatchFixtureMenu(){
+        this.updateManufacturerSelect()
+        this.updateFixtureNameSelect()
+        this.updateChannelSelect()
     }
 
     updateManufacturerSelect(){
