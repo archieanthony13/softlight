@@ -113,8 +113,14 @@
             <button id="exit-parameter" class="exit-button"><img src="assets/textures/cross.svg" class="button-image"></button>
         </div>
         <div class="menu-bottom-section raw-value">
-            <p id="parameter-range">Min: 0, Max: 255</p>
-            <input type="number" name="parameter-raw-value" id="parameter-raw-value" min="0" max="255">
+            <div class="menu-bottom-top-section raw-value">
+                <button id="raw-value-min">Min</button>
+                <button id="raw-value-max">Max</button>
+            </div>
+            <div class="menu-bottom-bottom-section raw-value">
+                <input type="number" name="parameter-raw-value" id="parameter-raw-value" min="0" max="255">
+                <p id="parameter-range">Min: 0, Max: 255</p>
+            </div>
         </div>
         <div class="menu-bottom-section list-values">
 

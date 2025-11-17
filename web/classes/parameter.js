@@ -18,6 +18,16 @@ class Parameter {
         this.parameterElement.querySelector("button#list-values").onclick = function(){
             that.listValueMenu()
         }
+        this.parameterElement.querySelector("button#raw-value-min").onclick = function(){
+            let input = that.parameterElement.querySelector("input#parameter-raw-value")
+            input.value = input.min
+            input.onkeyup()
+        }
+        this.parameterElement.querySelector("button#raw-value-max").onclick = function(){
+            let input = that.parameterElement.querySelector("input#parameter-raw-value")
+            input.value = input.max
+            input.onkeyup()
+        }
         this.parameterElement.querySelector("input#parameter-raw-value").onkeyup = function(){
             let value = parseInt(this.value)
             let min = parseInt(this.min)
