@@ -183,7 +183,7 @@ img.button-image {
 }
 
 .menu#parameter-menu .menu-bottom-top-section {
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
 }
 
 p {

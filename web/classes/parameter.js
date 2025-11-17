@@ -28,6 +28,11 @@ class Parameter {
             input.value = input.max
             input.onkeyup()
         }
+        this.parameterElement.querySelector("button#raw-value-half").onclick = function(){
+            let input = that.parameterElement.querySelector("input#parameter-raw-value")
+            input.value = Math.ceil((input.max - input.min)/2)
+            input.onkeyup()
+        }
         this.parameterElement.querySelector("input#parameter-raw-value").onkeyup = function(){
             let value = parseInt(this.value)
             let min = parseInt(this.min)
