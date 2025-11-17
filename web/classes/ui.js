@@ -101,7 +101,7 @@ class UI{
         }
         let offset = 0
         let count = 0
-        for(let i=0;i<Math.max(attributes.length,5*(this.attributePage+1)) && count<5;i++){
+        for(let i=0;i<Math.max(attributes.length,5*(this.attributePage+1)) || count<5;i++){
             let j=i+offset
             if(j<attributes.length){
                 if(attributes[j].indexOf("Fine") != -1){
