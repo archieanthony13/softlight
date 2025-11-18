@@ -140,7 +140,7 @@ button.selected {
 
 .menu-bottom-section {
     display: grid;
-    grid-template-rows: calc(var(--scale) * 5) auto;
+    grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 35);
 }
 
 .menu-bottom-top-section {
@@ -150,6 +150,11 @@ button.selected {
 
 .menu-bottom-bottom-section {
     display: grid;
+}
+
+.menu-bottom-bottom-section.fixture-list {
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 
 button.exit-button {
@@ -200,5 +205,14 @@ p {
 
 ::-webkit-scrollbar-thumb {
     background-color: rgba(0, 0, 0, 0.5);
+    border-radius: calc(var(--scale) * 0.5);
+}
+
+.menu-bottom-bottom-section.fixture-list::-webkit-scrollbar-track {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-bottom-bottom-section.fixture-list::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: calc(var(--scale) * 0.5);
 }
