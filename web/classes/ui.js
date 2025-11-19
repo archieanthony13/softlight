@@ -81,7 +81,7 @@ class UI{
                             bits.push(1)
                         } else {
                             if(fixture.channelNames[j].indexOf("Fine") == -1){
-                                if(fixture.channels[j] > attributeValues[index]){
+                                if(fixture.channels[j] > attributeValues[index] && fixture.channelNames[j+1].indexOf("Fine") == -1){
                                     attributeValues[index] = fixture.channels[j]
                                 }
                             } else {
