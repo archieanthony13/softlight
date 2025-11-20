@@ -71,6 +71,17 @@ html, body {
 
 input, select {
     font-size: calc(var(--scale) * 2);
+    background-color: gray;
+    border-radius: calc(var(--scale) * 1);
+    border: solid calc(var(--scale) * 0.2) rgb(61, 61, 61);
+}
+
+input:hover {
+    background-color: lightgray;
+}
+
+input:focus {
+    background-color: lightgray;
 }
 
 input:checked + label {
@@ -178,7 +189,7 @@ img.button-image {
 .menu#parameter-menu {
     width: calc(var(--scale) * 50);
     height: calc(var(--scale) * 20);
-    /* display: grid; */
+    display: grid;
 }
 
 .menu#parameter-menu button.exit-button {
