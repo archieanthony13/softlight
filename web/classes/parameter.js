@@ -7,6 +7,7 @@ class Parameter {
         this.parameter = ""
         this.value = 0
         this.bits = 1
+        this.pixel = 1
 
         let that = this
         this.parameterElement.querySelector("button#exit-parameter").onclick = function(){
@@ -17,6 +18,9 @@ class Parameter {
         }
         this.parameterElement.querySelector("button#list-values").onclick = function(){
             that.listValueMenu()
+        }
+        this.parameterElement.querySelector("button#pixel-values").onclick = function(){
+            that.pixelValueMenu()
         }
         this.parameterElement.querySelector("button#raw-value-min").onclick = function(){
             let input = that.parameterElement.querySelector("input#parameter-raw-value")
@@ -66,8 +70,10 @@ class Parameter {
         this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-section.raw-value")
         this.parameterElement.querySelector('.menu-bottom-section.raw-value').style.display = "grid"
         this.parameterElement.querySelector('.menu-bottom-section.list-values').style.display = "none"
+        this.parameterElement.querySelector('.menu-bottom-section.pixel-values').style.display = "none"
         this.parameterElement.querySelector("button#raw-value").classList.add("selected")
         this.parameterElement.querySelector("button#list-values").classList.remove("selected")
+        this.parameterElement.querySelector("button#pixel-values").classList.remove("selected")
         
         let input = this.parameterElementBottom.querySelector("input#parameter-raw-value")
         if(this.bits == 1){
@@ -85,7 +91,18 @@ class Parameter {
         this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-bottom-section.raw-value")
         this.parameterElement.querySelector('.menu-bottom-section.raw-value').style.display = "none"
         this.parameterElement.querySelector('.menu-bottom-section.list-values').style.display = "grid"
+        this.parameterElement.querySelector('.menu-bottom-section.pixel-values').style.display = "none"
         this.parameterElement.querySelector("button#raw-value").classList.remove("selected")
         this.parameterElement.querySelector("button#list-values").classList.add("selected")
+        this.parameterElement.querySelector("button#pixel-values").classList.remove("selected")
+    }
+    pixelValueMenu(){
+        this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-bottom-section.raw-value")
+        this.parameterElement.querySelector('.menu-bottom-section.raw-value').style.display = "none"
+        this.parameterElement.querySelector('.menu-bottom-section.list-values').style.display = "none"
+        this.parameterElement.querySelector('.menu-bottom-section.pixel-values').style.display = "grid"
+        this.parameterElement.querySelector("button#raw-value").classList.remove("selected")
+        this.parameterElement.querySelector("button#list-values").classList.remove("selected")
+        this.parameterElement.querySelector("button#pixel-values").classList.add("selected")
     }
 }
