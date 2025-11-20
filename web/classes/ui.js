@@ -112,12 +112,12 @@ class UI{
             button.dataset.bits = bits[j]
             if(bits[j] == 1){
                 if(i >= this.attributePage*5){
-                    button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && (attributeValues[j] || 0))
+                    button.innerHTML = (attributes[j] || "") + ((attributes[j] || "") && "<br>") + ((attributes[j] || "") && (attributeValues[j] || 0))
                     count++
                 }
             } else {
                 if(i >= this.attributePage*5){
-                    button.innerHTML = (attributes[j] || "") + "<br>" + ((attributes[j] || "") && ((attributeValues[j] << 8) + attributeValues[j+1] || 0))
+                    button.innerHTML = (attributes[j] || "") + ((attributes[j] || "") && "<br>") + ((attributes[j] || "") && ((attributeValues[j] << 8) + attributeValues[j+1] || 0))
                     count++
                 }
                 offset++
