@@ -131,6 +131,7 @@ button.selected {
     grid-template-rows: calc(var(--scale) * 5) auto auto;
     box-shadow: 0px 0px calc(var(--scale) * 1) calc(var(--scale) * 0.5) black;
     color: lightgray;
+    overflow: hidden;
 }
 
 .menu-top-section {
@@ -215,6 +216,7 @@ p {
 
 .menu-bottom-bottom-section.fixture-list::-webkit-scrollbar-track {
     background-color: rgba(255, 255, 255, 0.2);
+    border-radius: calc(var(--scale) * 0.5);
 }
 
 .menu-bottom-bottom-section.fixture-list::-webkit-scrollbar-thumb {
