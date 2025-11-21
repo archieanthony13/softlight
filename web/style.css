@@ -76,12 +76,16 @@ input, select {
     border: solid calc(var(--scale) * 0.2) rgb(61, 61, 61);
 }
 
-input:hover {
+select:hover, input:hover {
     background-color: lightgray;
 }
 
-input:focus {
+select:focus, input:focus {
     background-color: lightgray;
+}
+
+input::placeholder {
+    color: rgba(0,0,0,0.5);
 }
 
 input:checked + label {
@@ -180,7 +184,7 @@ img.button-image {
     height: calc(var(--scale) * 2);
 }
 
-.menu-bottom-bottom-section.network-page {
+.menu-bottom-bottom-section.network-page, .menu-bottom-bottom-section.patch-fixture {
     display: grid;
     grid-template-columns: calc(var(--scale) * 30) calc(var(--scale) * 30);
     grid-template-rows: calc(var(--scale) * 3) calc(var(--scale) * 3);
