@@ -12,7 +12,7 @@ class DMX{
     updateChannelsFromFixture(name){
         let fixture = fixtureManager.getFixture(name)
         for(let i=0;i<fixture.channels.length;i++){
-            if(fixture.manualChannels[i] == false){
+            if(fixture.manualChannels[i] === false){
                 this.data[fixture.channel - 1 + i] = fixture.channels[i]
             } else {
                 this.data[fixture.channel - 1 + i] = fixture.manualChannels[i]

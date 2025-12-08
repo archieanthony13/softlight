@@ -73,7 +73,7 @@ class UI{
             for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
                 let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
                 for(let j=0;j<fixture.channelNames.length;j++){
-                    if(fixture.manualChannels[j] == false){
+                    if(fixture.manualChannels[j] === false){
                         if(fixture.fixtureProfile.channels[fixture.channelNames[j]].type == this.attribute){
                             let index = attributes.indexOf(fixture.channelNames[j])
                             if(index == -1){
