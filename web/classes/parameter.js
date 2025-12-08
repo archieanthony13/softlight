@@ -48,7 +48,7 @@ class Parameter {
             }
             that.value = value
             this.value = value
-            fixtureManager.updateSelectedFixtureChannel(that.parameter, that.value, that.bits)
+            fixtureManager.updateSelectedFixtureManualChannel(that.parameter, that.value, that.bits)
             ui.updateAttributes()
         }
         this.parameterElement.querySelector("input#parameter-raw-value").onchange = function(){

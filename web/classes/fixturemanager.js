@@ -97,6 +97,19 @@ class FixtureManager{
         }
     }
 
+    updateSelectedFixtureManualChannel(channel, value, bits){
+        for(let i=0;i<this.selectedFixtures.length;i++){
+            if(bits == 1){
+                this.fixtures[this.selectedFixtures[i]].updateFixtureManualChannel(channel, value)
+            } else {
+                let coarse = value >> 8
+                let fine = value & 255
+                this.fixtures[this.selectedFixtures[i]].updateFixtureManualChannel(channel, coarse)
+                this.fixtures[this.selectedFixtures[i]].updateFixtureManualChannel("Fine " + channel, fine)
+            }
+        }
+    }
+
     updateSelectedFixtures(){
         let fixtureSection = document.querySelectorAll('#fixtures input')
         this.selectedFixtures = []
