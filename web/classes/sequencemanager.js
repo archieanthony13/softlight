@@ -1,6 +1,7 @@
 class SequenceManager{
     constructor(){
         this.sequences = {}
+        this.selectedSequence = ""
     }
 
     createSequence(name){
@@ -12,6 +13,10 @@ class SequenceManager{
         if(index != -1){
             this.sequences[name].createEmptyCue(cueNumber)
         }
+    }
+
+    selectSequence(name){
+        this.selectedSequence = name
     }
 
     store(name, cueNumber){

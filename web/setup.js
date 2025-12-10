@@ -15,10 +15,10 @@ var sequenceManager = new SequenceManager()
 async function patchFixtures(){
     await fixtureManager.patchFixture(148,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 1")
     await fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 2")
+
+    sequenceManager.createSequence("1")
+    sequenceManager.createEmptyCue("1",0)
+    sequenceManager.store("1",0)
 }
 
 patchFixtures()
-
-sequenceManager.createSequence("1")
-sequenceManager.createEmptyCue("1",0)
-sequenceManager.store("1",0)

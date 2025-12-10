@@ -44,6 +44,16 @@ class UI{
         document.querySelector('button#settings-menu-button').onclick = function(){
             settingsMenu.toggleSettingsMenu()
         }
+
+        document.querySelector('button#sequences-go-button').onclick = function(){
+
+        }
+        document.querySelector('button#sequences-store-button').onclick = function(){
+            
+        }
+        document.querySelector('button#sequences-delete-button').onclick = function(){
+            
+        }
     }
 
     updateFixtureList(){
