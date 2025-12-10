@@ -9,9 +9,10 @@ class Sequence{
     }
 
     store(cueNumber){
-        let index = Object.keys(this.cues).indexOf(cueNumber)
+        let index = Object.keys(this.cues).indexOf(parseFloat(cueNumber))
         if(index != -1){
-            this.cues[cueNumber].store(cueNumber)
+            this.cues[parseFloat(cueNumber)].store()
+            console.log(true)
         }
     }
 }

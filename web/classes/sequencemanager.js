@@ -1,23 +1,23 @@
 class SequenceManager{
     constructor(){
-        this.sequences = []
+        this.sequences = {}
     }
 
     createSequence(name){
-        this.sequences.push(new Sequence(name))
+        this.sequences[name] = new Sequence(name)
     }
 
-    creatEmptyCue(name, cueNumber){
-        let index = this.sequences.indexOf(name)
+    createEmptyCue(name, cueNumber){
+        let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
-            this.sequences[index].createEmptyCue(cueNumber)
+            this.sequences[name].createEmptyCue(cueNumber)
         }
     }
 
     store(name, cueNumber){
-        let index = this.sequences.indexOf(name)
+        let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
-            this.sequences[index].store(cueNumber)
+            this.sequences[name].store(cueNumber)
         }
     }
 }

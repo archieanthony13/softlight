@@ -8,7 +8,7 @@ class Cue{
     store(){
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
-            
+            console.log(fixtures[i].manualChannels)
         }
     }
 }
