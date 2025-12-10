@@ -1,4 +1,4 @@
-class CueManager{
+class Sequence{
     constructor(){
         
     }
