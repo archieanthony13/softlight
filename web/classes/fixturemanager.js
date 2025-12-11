@@ -5,7 +5,7 @@ class FixtureManager{
         this.selectedFixtures = []
 
         let that = this
-        document.getElementById('fixtures').onchange = function(){
+        document.getElementById('fixtures-list').onchange = function(){
             that.updateSelectedFixtures()
         }
     }
@@ -111,7 +111,7 @@ class FixtureManager{
     }
 
     updateSelectedFixtures(){
-        let fixtureSection = document.querySelectorAll('#fixtures input')
+        let fixtureSection = document.querySelectorAll('#fixtures-list input')
         this.selectedFixtures = []
         for(let i=0;i<fixtureSection.length;i++){
             if(fixtureSection[i].checked){

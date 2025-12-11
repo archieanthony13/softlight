@@ -41,16 +41,17 @@ html, body {
 
 .middle-left-section, .middle-right-section {
     overflow-y: scroll;
-}
-
-.middle-right-section {
     display: grid;
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
-.middle-right-top-section {
+.middle-right-top-section, .middle-left-top-section {
     display: grid;
     grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
+}
+
+.middle-left-section {
+    grid-template-columns: calc(var(--scale) * 15);
 }
 
 .bottom-section {
@@ -74,7 +75,7 @@ html, body {
     grid-template-rows: 50% 50%;
 }
 
-#fixtures {
+#fixtures-list {
     display: grid;
     grid-template-columns: auto;
 }

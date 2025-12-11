@@ -57,7 +57,7 @@ class UI{
     }
 
     updateFixtureList(){
-        document.getElementById('fixtures').innerHTML = ""
+        document.getElementById('fixtures-list').innerHTML = ""
         for(let i=0;i<fixtureManager.fixtures.length;i++){
             let label = document.createElement('label')
             label.innerHTML = fixtureManager.fixtures[i].name
@@ -69,10 +69,10 @@ class UI{
             input.name = "fixture-" + i
             input.id = "fixture-" + i
             input.hidden = true
-            document.getElementById('fixtures').append(input)
-            document.getElementById('fixtures').append(label)
+            document.getElementById('fixtures-list').append(input)
+            document.getElementById('fixtures-list').append(label)
         }
-        document.getElementById('fixtures').style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
+        document.getElementById('fixtures-list').style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
     updateAttributes(){
