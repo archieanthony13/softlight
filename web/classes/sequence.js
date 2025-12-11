@@ -10,6 +10,8 @@ class Sequence{
     createEmptyCue(cueNumber){
         this.cues[parseFloat(cueNumber)] = new Cue()
         this.lastCue = Math.max(parseFloat(cueNumber), this.lastCue)
+        this.cuesOrder.push(parseFloat(cueNumber))
+        this.cuesOrder = this.cuesOrder.sort()
     }
 
     store(cueNumber){
@@ -17,8 +19,6 @@ class Sequence{
         if(index != -1){
             this.cues[parseFloat(cueNumber)].store()
         }
-        this.cuesOrder.push(parseFloat(cueNumber))
-        this.cuesOrder = this.cuesOrder.sort()
     }
 
     go(){
@@ -28,5 +28,8 @@ class Sequence{
         } else {
             this.currentCue = this.cuesOrder[0]
         }
+
+        index = Object.keys(this.cues).indexOf(parseFloat(this.currentCue).toString())
+        this.cues[index].go()
     }
 }

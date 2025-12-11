@@ -20,6 +20,10 @@ class Fixture{
         }
     }
 
+    updateFixtureChannelByIndex(index, value){
+        this.channels[index] = value
+    }
+
     updateFixtureManualChannel(channel, value){
         if(this.channelNames.indexOf(channel) == -1){
             console.error("Unable to update channel. This does not exist for this fixture.")
