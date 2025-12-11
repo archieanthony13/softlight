@@ -4,6 +4,7 @@ class Sequence{
         this.cues = {}
         this.lastCue = 0
         this.currentCue = 0
+        this.cuesOrder = []
     }
 
     createEmptyCue(cueNumber){
@@ -15,6 +16,17 @@ class Sequence{
         let index = Object.keys(this.cues).indexOf(parseFloat(cueNumber).toString())
         if(index != -1){
             this.cues[parseFloat(cueNumber)].store()
+        }
+        this.cuesOrder.push(parseFloat(cueNumber))
+        this.cuesOrder = this.cuesOrder.sort()
+    }
+
+    go(){
+        let index = this.cuesOrder.indexOf(this.currentCue)
+        if(index + 1 < this.cuesOrder.length){
+            this.currentCue = this.cuesOrder[index+1]
+        } else {
+            this.currentCue = this.cuesOrder[0]
         }
     }
 }

@@ -1,7 +1,7 @@
 class SequenceManager{
     constructor(){
         this.sequences = {}
-        this.selectedSequence = ""
+        this.selectedSequence = "1"
     }
 
     createSequence(name){
@@ -23,6 +23,13 @@ class SequenceManager{
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             this.sequences[name].store(cueNumber)
+        }
+    }
+
+    go(name){
+        let index = Object.keys(this.sequences).indexOf(name)
+        if(index != -1){
+            this.sequences[name].go()
         }
     }
 }
