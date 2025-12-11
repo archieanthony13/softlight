@@ -3,6 +3,7 @@ class UI{
         this.attribute = "dimmer"
         this.attributePage = 0
         let that = this
+        this.clear = false
         document.querySelectorAll("#attributes button").forEach(function(n){
             n.onclick = function(e){
                 document.querySelectorAll("#attributes button").forEach(function(m){
@@ -52,6 +53,9 @@ class UI{
             
         }
         document.querySelector('button#sequences-delete-button').onclick = function(){
+            
+        }
+        document.querySelector('button#fixtures-clear-button').onclick = function(){
             
         }
     }
