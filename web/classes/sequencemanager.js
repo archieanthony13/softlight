@@ -30,6 +30,8 @@ class SequenceManager{
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             this.sequences[name].go()
+        } else {
+            this.sequences[this.selectedSequence].go()
         }
     }
 }
