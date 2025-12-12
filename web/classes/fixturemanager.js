@@ -110,6 +110,16 @@ class FixtureManager{
         }
     }
 
+    clearManualFixtureChannels(fixture){
+        this.getFixture(fixture).manualChannels.fill(false)
+    }
+
+    clearAllManualFixtureChannels(){
+        for(let i=0;i<this.fixtures.length;i++){
+            this.fixtures[i].manualChannels.fill(false)
+        }
+    }
+
     updateSelectedFixtures(){
         let fixtureSection = document.querySelectorAll('#fixtures-list input')
         this.selectedFixtures = []
