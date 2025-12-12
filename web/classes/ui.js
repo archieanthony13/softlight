@@ -47,10 +47,10 @@ class UI{
         }
 
         document.querySelector('button#sequences-go-button').onclick = function(){
-
+            sequenceManager.go()
         }
         document.querySelector('button#sequences-store-button').onclick = function(){
-            
+            sequenceManager.store()
         }
         document.querySelector('button#sequences-delete-button').onclick = function(){
             

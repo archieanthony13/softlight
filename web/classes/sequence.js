@@ -29,7 +29,6 @@ class Sequence{
             this.currentCue = this.cuesOrder[0]
         }
 
-        index = Object.keys(this.cues).indexOf(parseFloat(this.currentCue).toString())
-        this.cues[index].go()
+        this.cues[this.currentCue].go()
     }
 }

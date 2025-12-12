@@ -22,7 +22,17 @@ class SequenceManager{
     store(name, cueNumber){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
+            if(cueNumber === undefined){
+                cueNumber = Math.floor(this.sequences[name].lastCue) + 1
+                this.createEmptyCue(name, cueNumber)
+            }
             this.sequences[name].store(cueNumber)
+        } else {
+            if(cueNumber === undefined){
+                cueNumber = Math.floor(this.sequences[this.selectedSequence].lastCue) + 1
+                this.createEmptyCue(this.selectedSequence, cueNumber)
+            }
+            this.sequences[this.selectedSequence].store(cueNumber)
         }
     }
 
