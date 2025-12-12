@@ -6,6 +6,7 @@ class FixtureManager{
 
         let that = this
         document.getElementById('fixtures-list').onchange = function(){
+            ui.clear = false
             that.updateSelectedFixtures()
         }
     }

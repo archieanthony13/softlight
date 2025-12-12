@@ -56,7 +56,16 @@ class UI{
             
         }
         document.querySelector('button#fixtures-clear-button').onclick = function(){
-            
+            if(!that.clear){
+                Array.from(document.querySelectorAll('#fixtures-list input')).forEach(function(n){
+                    n.checked = false
+                })
+                fixtureManager.updateSelectedFixtures()
+                that.clear = true
+            } else {
+                fixtureManager.clearAllManualFixtureChannels()
+                that.clear = false
+            }
         }
     }
 
