@@ -7,8 +7,8 @@ class Sequence{
         this.cuesOrder = []
     }
 
-    createEmptyCue(cueNumber){
-        this.cues[parseFloat(cueNumber)] = new Cue()
+    createEmptyCue(cueNumber, cueName){
+        this.cues[parseFloat(cueNumber)] = new Cue(cueName)
         this.lastCue = Math.max(parseFloat(cueNumber), this.lastCue)
         this.cuesOrder.push(parseFloat(cueNumber))
         this.cuesOrder = this.cuesOrder.sort()

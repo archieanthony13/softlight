@@ -75,7 +75,7 @@ html, body {
     grid-template-rows: 50% 50%;
 }
 
-#fixtures-list {
+#fixtures-list, #sequences-cuelist {
     display: grid;
     grid-template-columns: auto;
 }

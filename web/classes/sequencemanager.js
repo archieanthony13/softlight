@@ -8,11 +8,12 @@ class SequenceManager{
         this.sequences[name] = new Sequence(name)
     }
 
-    createEmptyCue(name, cueNumber){
+    createEmptyCue(name, cueNumber, cueName){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
-            this.sequences[name].createEmptyCue(cueNumber)
+            this.sequences[name].createEmptyCue(cueNumber, cueName)
         }
+        ui.updateCueList()
     }
 
     selectSequence(name){
@@ -43,5 +44,6 @@ class SequenceManager{
         } else {
             this.sequences[this.selectedSequence].go()
         }
+        ui.updateCueList()
     }
 }

@@ -88,6 +88,26 @@ class UI{
         document.getElementById('fixtures-list').style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
     }
 
+    updateCueList(){
+        document.getElementById('sequences-cuelist').innerHTML = ""
+        let sequence = sequenceManager.sequences[sequenceManager.selectedSequence]
+        for(let i=0;i<sequence.cuesOrder.length;i++){
+            let label = document.createElement('label')
+            label.innerHTML = sequence.cues[sequence.cuesOrder[i]].name
+            let forAttribute = document.createAttribute('for')
+            forAttribute.value = "cue-" + i
+            label.attributes.setNamedItem(forAttribute)
+            let input = document.createElement('input')
+            input.type = "checkbox"
+            input.name = "cue-" + i
+            input.id = "cue-" + i
+            input.hidden = true
+            document.getElementById('sequences-cuelist').append(input)
+            document.getElementById('sequences-cuelist').append(label)
+        }
+        document.getElementById('sequences-cuelist').style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
+    }
+
     updateAttributes(){
         let attributes = []
         let attributeValues = []

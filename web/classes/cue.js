@@ -1,6 +1,7 @@
 class Cue{
-    constructor(){
+    constructor(name){
         this.data = {}
+        this.name = name
         this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
     }
 
