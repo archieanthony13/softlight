@@ -105,7 +105,7 @@ class UI{
             document.getElementById('sequences-cuelist').append(input)
             document.getElementById('sequences-cuelist').append(label)
         }
-        document.getElementById('sequences-cuelist').style.gridTemplateRows = "repeat(" + fixtureManager.fixtures.length + ", calc(var(--scale)*4))"
+        document.getElementById('sequences-cuelist').style.gridTemplateRows = "repeat(" + sequence.cuesOrder.length + ", calc(var(--scale)*4))"
     }
 
     updateAttributes(){
