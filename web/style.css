@@ -36,18 +36,26 @@ html, body {
 
 .middle-section {
     display: grid;
-    grid-template-columns: auto calc(var(--scale) * 60.75);
+    grid-template-columns: calc(var(--scale) * 39.25) calc(var(--scale) * 60.75);
 }
 
 .middle-left-section, .middle-right-section {
-    overflow-y: scroll;
     display: grid;
+    overflow-y: hidden;
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
 .middle-right-top-section, .middle-left-top-section {
     display: grid;
     grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
+}
+
+.middle-left-bottom-section, .middle-right-bottom-section {
+    overflow-y: scroll;
+}
+
+.middle-left-bottom-section {
+    width: calc(var(--scale) * 39.25);
 }
 
 .middle-left-section {
