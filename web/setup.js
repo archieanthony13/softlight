@@ -22,3 +22,7 @@ async function patchFixtures(){
 }
 
 patchFixtures()
+
+function lerp(a,b,t){
+    return (b-a)*t
+}
