@@ -1,6 +1,7 @@
 class Cue{
     constructor(name){
         this.data = {}
+        this.dataTypes = {}
         this.name = name
         this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
     }
@@ -9,6 +10,7 @@ class Cue{
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             this.data[fixtures[i].name] = JSON.parse(JSON.stringify(fixtures[i].manualChannels))
+            this.dataTypes[fixtures[i].name] = JSON.parse(JSON.stringify(fixtures[i].channelTypes))
         }
     }
 

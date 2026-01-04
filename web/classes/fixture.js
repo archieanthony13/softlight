@@ -5,10 +5,12 @@ class Fixture{
         this.mode = mode
         this.fixtureProfile = fixtureProfile
         this.channelNames = this.fixtureProfile.modes[this.mode]
+        this.channelTypes = []
         this.manualChannels = new Array(this.channelNames.length).fill(false)
         this.channels = []
         for(let i=0;i<this.channelNames.length;i++){
             this.channels.push(this.fixtureProfile.channels[this.channelNames[i]].defaultValue)
+            this.channelTypes.push(this.fixtureProfile.channels[this.channelNames[i]].type)
         }
     }
 
