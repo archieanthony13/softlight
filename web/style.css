@@ -209,17 +209,25 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 3) calc(var(--scale) * 3);
 }
 
-.menu#parameter-menu {
+.menu#parameter-menu, .menu#cue-menu {
     width: calc(var(--scale) * 50);
     height: calc(var(--scale) * 20);
     /* display: grid; */
 }
 
-.menu#parameter-menu button.exit-button {
+.menu#cue-menu {
+    display: grid;
+}
+
+.menu#parameter-menu button.exit-button, .menu#cue-menu button.exit-button {
     font-size: calc(var(--scale) * 2.5);
     width: calc(var(--scale) * 5);
     margin-left: 0px;
     text-align: center;
+}
+
+.menu#cue-menu button.exit-button {
+    margin-left: calc(var(--scale) * 15);
 }
 
 .menu#parameter-menu .menu-bottom-top-section {
