@@ -39,11 +39,19 @@ class SequenceManager{
 
     go(name){
         let index = Object.keys(this.sequences).indexOf(name)
-        if(index != -1){
-            this.sequences[name].go()
-        } else {
-            this.sequences[this.selectedSequence].go()
+        if(index == -1){
+            name = this.selectedSequence
         }
-        ui.updateCueList()
+        this.sequences[name].go()
+        if(name = this.selectedSequence){
+            let cueList = document.querySelectorAll("#sequences-cuelist label")
+            for(let i=0;i<cueList.length;i++){
+                cueList[i].classList.remove("active-cue")
+                if(this.sequences[name].cuesOrder[i] == this.sequences[name].currentCue){
+                    cueList[i].classList.add("active-cue")
+                }
+            }
+            console.log(cueList)
+        }
     }
 }
