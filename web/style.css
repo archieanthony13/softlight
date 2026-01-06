@@ -215,10 +215,6 @@ img.button-image {
     /* display: grid; */
 }
 
-.menu#cue-menu {
-    display: grid;
-}
-
 .menu#parameter-menu button.exit-button, .menu#cue-menu button.exit-button {
     font-size: calc(var(--scale) * 2.5);
     width: calc(var(--scale) * 5);
