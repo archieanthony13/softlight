@@ -7,6 +7,7 @@ class Cue{
     }
 
     store(){
+        console.log(true)
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             this.data[fixtures[i].name] = JSON.parse(JSON.stringify(fixtures[i].manualChannels))

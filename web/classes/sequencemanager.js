@@ -9,6 +9,10 @@ class SequenceManager{
         let that = this
         this.cueMenuElement.querySelector("button#exit-cue").onclick = function(){
             that.toggleCueMenu()
+            let cueNumber = parseFloat(that.cueMenuElement.querySelector("input#cue-settings-cue-number").value)
+            let cueName = that.cueMenuElement.querySelector("input#cue-settings-cue-name").value
+            that.store(cueNumber, undefined, cueName)
+            console.log(cueNumber, cueName)
         }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
@@ -34,23 +38,23 @@ class SequenceManager{
         this.selectedSequence = name
     }
 
-    store(name, cueNumber){
+    store(cueNumber, name, cueName){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             if(cueNumber === undefined){
                 cueNumber = Math.floor(this.sequences[name].lastCue) + 1
                 this.createEmptyCue(name, cueNumber)
             }
-            this.sequences[name].store(cueNumber)
+            this.sequences[name].store(cueNumber, cueName)
         } else {
             if(cueNumber === undefined){
                 cueNumber = Math.floor(this.sequences[this.selectedSequence].lastCue) + 1
                 this.createEmptyCue(this.selectedSequence, cueNumber)
             }
-            this.sequences[this.selectedSequence].store(cueNumber)
+            this.sequences[this.selectedSequence].store(cueNumber, cueName)
         }
 
-        this.toggleCueMenu()
+        ui.updateCueList()
     }
 
     go(name){

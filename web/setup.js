@@ -18,7 +18,7 @@ async function patchFixtures(){
 
     sequenceManager.createSequence("1")
     sequenceManager.createEmptyCue("1",0,"Cue 0")
-    sequenceManager.store("1",0)
+    sequenceManager.store(0,"1")
 }
 
 patchFixtures()

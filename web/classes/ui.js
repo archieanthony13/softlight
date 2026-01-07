@@ -50,7 +50,7 @@ class UI{
             sequenceManager.go()
         }
         document.querySelector('button#sequences-store-button').onclick = function(){
-            sequenceManager.store()
+            sequenceManager.toggleCueMenu()
         }
         document.querySelector('button#sequences-delete-button').onclick = function(){
             
