@@ -13,23 +13,24 @@ class SequenceManager{
             let cueName = that.cueMenuElement.querySelector("input#cue-settings-cue-name").value
             let timings = {
                 "fade":{
-                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-up").value) || 0),
-                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-down").value) || 0),
-                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-color").value) || 0),
-                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-position").value) || 0),
-                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-beam").value) || 0),
-                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-shape").value) || 0)
+                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-up").value)),
+                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-down").value)),
+                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-color").value)),
+                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-position").value)),
+                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-beam").value)),
+                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-shape").value))
                 },
                 "delay":{
-                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-up").value) || 0),
-                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-down").value) || 0),
-                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-color").value) || 0),
-                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-position").value) || 0),
-                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-beam").value) || 0),
-                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-shape").value) || 0)
+                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-up").value)),
+                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-down").value)),
+                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-color").value)),
+                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-position").value)),
+                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-beam").value)),
+                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-shape").value))
                 }
             }
-            that.store(cueNumber, undefined, cueName, timings)
+            let mode = that.cueMenuElement.querySelector("select#cue-settings-store-mode").value
+            that.store(cueNumber, undefined, cueName, timings, mode)
         }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
@@ -67,7 +68,7 @@ class SequenceManager{
         this.selectedSequence = name
     }
 
-    store(cueNumber, name, cueName, timings){
+    store(cueNumber, name, cueName, timings, mode){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             if(cueNumber === undefined || isNaN(cueNumber)){
@@ -77,7 +78,7 @@ class SequenceManager{
                 }
                 this.createEmptyCue(name, cueNumber, cueName)
             }
-            this.sequences[name].store(cueNumber, cueName, timings)
+            this.sequences[name].store(cueNumber, cueName, timings, mode)
         } else {
             if(cueNumber === undefined || isNaN(cueNumber)){
                 cueNumber = Math.floor(this.sequences[this.selectedSequence].lastCue) + 1
@@ -86,7 +87,7 @@ class SequenceManager{
                 }
                 this.createEmptyCue(this.selectedSequence, cueNumber, cueName)
             }
-            this.sequences[this.selectedSequence].store(cueNumber, cueName, timings)
+            this.sequences[this.selectedSequence].store(cueNumber, cueName, timings, mode)
         }
 
         ui.updateCueList()

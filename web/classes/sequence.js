@@ -13,16 +13,16 @@ class Sequence{
         this.updateVariables()
     }
 
-    store(cueNumber, cueName, timings){
+    store(cueNumber, cueName, timings, mode){
         let index = Object.keys(this.cues).indexOf(parseFloat(cueNumber).toString())
         if(index != -1){
-            this.cues[parseFloat(cueNumber)].store(timings)
+            this.cues[parseFloat(cueNumber)].store(timings, mode)
         } else {
             if(cueName === undefined || cueName == ""){
                 cueName = "Cue " + cueNumber
             }
             this.createEmptyCue(cueNumber, cueName)
-            this.cues[parseFloat(cueNumber)].store(timings)
+            this.cues[parseFloat(cueNumber)].store(timings, mode)
         }
     }
 
