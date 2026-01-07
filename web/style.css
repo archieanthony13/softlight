@@ -241,10 +241,12 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 5);
 }
 
-.menu#cue-menu .menu-bottom-section.cue-timings {
-    display: grid;
-    grid-template-columns: calc(var(--scale) * 10) calc(var(--scale) * 10) calc(var(--scale) * 10) calc(var(--scale) * 10) calc(var(--scale) * 10);
-    grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 5);
+.menu#cue-menu .menu-bottom-section.cue-timings table {
+    width: calc(var(--scale) * 50);
+}
+
+.menu#cue-menu .menu-bottom-section.cue-timings table input {
+    width: calc(var(--scale) * 5);
 }
 
 p {
