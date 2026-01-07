@@ -58,15 +58,21 @@ class SequenceManager{
     store(cueNumber, name, cueName, timings){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
-            if(cueNumber === undefined){
+            if(cueNumber === undefined || isNaN(cueNumber)){
                 cueNumber = Math.floor(this.sequences[name].lastCue) + 1
-                this.createEmptyCue(name, cueNumber)
+                if(cueName === undefined || cueName == ""){
+                    cueName = "Cue " + cueNumber
+                }
+                this.createEmptyCue(name, cueNumber, cueName)
             }
             this.sequences[name].store(cueNumber, cueName, timings)
         } else {
-            if(cueNumber === undefined){
+            if(cueNumber === undefined || isNaN(cueNumber)){
                 cueNumber = Math.floor(this.sequences[this.selectedSequence].lastCue) + 1
-                this.createEmptyCue(this.selectedSequence, cueNumber)
+                if(cueName === undefined || cueName == ""){
+                    cueName = "Cue " + cueNumber
+                }
+                this.createEmptyCue(this.selectedSequence, cueNumber, cueName)
             }
             this.sequences[this.selectedSequence].store(cueNumber, cueName, timings)
         }
@@ -88,7 +94,6 @@ class SequenceManager{
                     cueList[i].classList.add("active-cue")
                 }
             }
-            console.log(cueList)
         }
     }
 

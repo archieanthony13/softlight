@@ -11,7 +11,7 @@ class Sequence{
         this.cues[parseFloat(cueNumber)] = new Cue(cueName)
         this.lastCue = Math.max(parseFloat(cueNumber), this.lastCue)
         this.cuesOrder.push(parseFloat(cueNumber))
-        this.cuesOrder = this.cuesOrder.sort()
+        this.cuesOrder = this.cuesOrder.sort((a,b) => a-b)
     }
 
     store(cueNumber, cueName, timings){
@@ -19,6 +19,9 @@ class Sequence{
         if(index != -1){
             this.cues[parseFloat(cueNumber)].store(timings)
         } else {
+            if(cueName === undefined || cueName == ""){
+                cueName = "Cue " + cueNumber
+            }
             this.createEmptyCue(cueNumber, cueName)
             this.cues[parseFloat(cueNumber)].store(timings)
         }

@@ -165,7 +165,6 @@ class Patch{
         let channel = this.patchElementBottom.querySelector("#patch-fixture-channel").value
         let fixtureName = this.patchElementBottom.querySelector("#patch-fixture-fixture-name").value
         let fixtureChannel = parseInt(this.patchElementBottom.querySelector("#patch-fixture-fixture-channel").value)
-        console.log(fixtureChannel, channel, manufacturer, name, fixtureName)
         fixtureManager.patchFixture(fixtureChannel, channel, manufacturer, name, fixtureName)
     }
 
