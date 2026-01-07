@@ -295,7 +295,7 @@ p {
     border-radius: calc(var(--scale) * 0.5);
 }
 
-.active-cue {
+.current-cue {
     background-color: purple;
     color: white;
 }

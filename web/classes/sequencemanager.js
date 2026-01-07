@@ -99,15 +99,6 @@ class SequenceManager{
             name = this.selectedSequence
         }
         this.sequences[name].go()
-        if(name = this.selectedSequence){
-            let cueList = document.querySelectorAll("#sequences-cuelist label")
-            for(let i=0;i<cueList.length;i++){
-                cueList[i].classList.remove("active-cue")
-                if(this.sequences[name].cuesOrder[i] == this.sequences[name].currentCue){
-                    cueList[i].classList.add("active-cue")
-                }
-            }
-        }
     }
 
     toggleCueMenu(){
@@ -138,5 +129,15 @@ class SequenceManager{
         this.cueMenuElement.querySelector('.menu-bottom-section.cue-timings').style.display = "grid"
         this.cueMenuElement.querySelector("button#cue-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.add("selected")
+    }
+
+    update(){
+        let cueList = document.querySelectorAll("#sequences-cuelist label")
+        for(let i=0;i<cueList.length;i++){
+            cueList[i].classList.remove("current-cue")
+            if(this.sequences[this.selectedSequence].cuesOrder[i] == this.sequences[this.selectedSequence].currentCue){
+                cueList[i].classList.add("current-cue")
+            }
+        }
     }
 }
