@@ -11,7 +11,25 @@ class SequenceManager{
             that.toggleCueMenu()
             let cueNumber = parseFloat(that.cueMenuElement.querySelector("input#cue-settings-cue-number").value)
             let cueName = that.cueMenuElement.querySelector("input#cue-settings-cue-name").value
-            that.store(cueNumber, undefined, cueName)
+            let timings = {
+                "fade":{
+                    "dimmer up":0,
+                    "dimmer down":0,
+                    "color":0,
+                    "position":0,
+                    "beam":0,
+                    "shape":0
+                },
+                "delay":{
+                    "dimmer up":0,
+                    "dimmer down":0,
+                    "color":0,
+                    "position":0,
+                    "beam":0,
+                    "shape":0
+                }
+            }
+            that.store(cueNumber, undefined, cueName, timings)
         }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
@@ -37,20 +55,20 @@ class SequenceManager{
         this.selectedSequence = name
     }
 
-    store(cueNumber, name, cueName){
+    store(cueNumber, name, cueName, timings){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             if(cueNumber === undefined){
                 cueNumber = Math.floor(this.sequences[name].lastCue) + 1
                 this.createEmptyCue(name, cueNumber)
             }
-            this.sequences[name].store(cueNumber, cueName)
+            this.sequences[name].store(cueNumber, cueName, timings)
         } else {
             if(cueNumber === undefined){
                 cueNumber = Math.floor(this.sequences[this.selectedSequence].lastCue) + 1
                 this.createEmptyCue(this.selectedSequence, cueNumber)
             }
-            this.sequences[this.selectedSequence].store(cueNumber, cueName)
+            this.sequences[this.selectedSequence].store(cueNumber, cueName, timings)
         }
 
         ui.updateCueList()

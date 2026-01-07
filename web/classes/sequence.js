@@ -14,13 +14,13 @@ class Sequence{
         this.cuesOrder = this.cuesOrder.sort()
     }
 
-    store(cueNumber, cueName){
+    store(cueNumber, cueName, timings){
         let index = Object.keys(this.cues).indexOf(parseFloat(cueNumber).toString())
         if(index != -1){
-            this.cues[parseFloat(cueNumber)].store()
+            this.cues[parseFloat(cueNumber)].store(timings)
         } else {
             this.createEmptyCue(cueNumber, cueName)
-            this.cues[parseFloat(cueNumber)].store()
+            this.cues[parseFloat(cueNumber)].store(timings)
         }
     }
 
