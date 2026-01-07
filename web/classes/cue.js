@@ -4,6 +4,9 @@ class Cue{
         this.dataTypes = {}
         this.name = name
         this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
+
+        this.active = false
+        this.activatedTime = null
     }
 
     store(timings, mode){
@@ -43,6 +46,7 @@ class Cue{
     }
 
     go(){
+        this.active = true
         let keys = Object.keys(this.data)
         for(let i=0;i<keys.length;i++){
             let fixture = keys[i]
@@ -52,6 +56,12 @@ class Cue{
                     fixtureManager.getFixture(keys[i]).updateFixtureChannelByIndex(j,channels[j])
                 }
             }
+        }
+    }
+
+    update(timestamp){
+        if(this.activatedTime === null && this.active == true){
+            this.activatedTime = timestamp
         }
     }
 }

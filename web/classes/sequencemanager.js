@@ -131,12 +131,18 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-timings").classList.add("selected")
     }
 
-    update(){
+    update(timestamp){
         let cueList = document.querySelectorAll("#sequences-cuelist label")
-        for(let i=0;i<cueList.length;i++){
-            cueList[i].classList.remove("current-cue")
-            if(this.sequences[this.selectedSequence].cuesOrder[i] == this.sequences[this.selectedSequence].currentCue){
-                cueList[i].classList.add("current-cue")
+        let sequenceKeys = Object.keys(this.sequences)
+        for(let i=0;i<sequenceKeys.length;i++){
+            this.sequences[sequenceKeys[i]].update(timestamp)
+            if(this.sequences[sequenceKeys[i]].name == this.selectedSequence){
+                for(let j=0;j<cueList.length;j++){
+                    cueList[i].classList.remove("current-cue")
+                    if(this.sequences[this.selectedSequence].cuesOrder[i] == this.sequences[this.selectedSequence].currentCue){
+                        cueList[i].classList.add("current-cue")
+                    }
+                }
             }
         }
     }

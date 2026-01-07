@@ -47,4 +47,10 @@ class Sequence{
         this.cuesOrder = this.cuesOrder.sort((a,b) => a-b)
         this.lastCue = this.cuesOrder[this.cuesOrder.length - 1]
     }
+
+    update(timestamp){
+        for(let i=0;i<this.cuesOrder.length;i++){
+            this.cues[this.cuesOrder[i]].update(timestamp)
+        }
+    }
 }

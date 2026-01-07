@@ -1,5 +1,5 @@
-function update(){
-    sequenceManager.update()
+function update(timestamp){
+    sequenceManager.update(timestamp)
     dmx.update()
     artnet.sendData(dmx)
     requestAnimationFrame(update)
