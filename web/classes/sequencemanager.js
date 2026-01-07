@@ -101,6 +101,10 @@ class SequenceManager{
         this.menuActive = !this.menuActive
         if(this.menuActive){
             this.cueMenuElement.style.display = "grid"
+            let inputs = this.cueMenuElement.querySelectorAll("input")
+            for(let i=0;i<inputs.length;i++){
+                inputs[i].value = ""
+            }
             this.cueSettingsMenu()
         } else {
             this.cueMenuElement.style.display = "none"
