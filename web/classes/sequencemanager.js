@@ -47,6 +47,18 @@ class SequenceManager{
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             this.sequences[name].createEmptyCue(cueNumber, cueName)
+        } else {
+            this.sequences[this.selectedSequence].createEmptyCue(cueNumber, cueName)
+        }
+        ui.updateCueList()
+    }
+
+    deleteCue(name, cueNumber){
+        let index = Object.keys(this.sequences).indexOf(name)
+        if(index != -1){
+            this.sequences[name].deleteCue(cueNumber)
+        } else {
+            this.sequences[this.selectedSequence].deleteCue(cueNumber)
         }
         ui.updateCueList()
     }

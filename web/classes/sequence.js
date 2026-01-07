@@ -9,9 +9,8 @@ class Sequence{
 
     createEmptyCue(cueNumber, cueName){
         this.cues[parseFloat(cueNumber)] = new Cue(cueName)
-        this.lastCue = Math.max(parseFloat(cueNumber), this.lastCue)
         this.cuesOrder.push(parseFloat(cueNumber))
-        this.cuesOrder = this.cuesOrder.sort((a,b) => a-b)
+        this.updateVariables()
     }
 
     store(cueNumber, cueName, timings){
@@ -36,5 +35,15 @@ class Sequence{
         }
 
         this.cues[this.currentCue].go()
+    }
+
+    deleteCue(cueNumber){
+        delete this.cues[cueNumber]
+        this.updateVariables()
+    }
+
+    updateVariables(){
+        this.cuesOrder = this.cuesOrder.sort((a,b) => a-b)
+        this.lastCue = this.cuesOrder[this.cuesOrder.length - 1]
     }
 }

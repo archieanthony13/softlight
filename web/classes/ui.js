@@ -53,7 +53,12 @@ class UI{
             sequenceManager.toggleCueMenu()
         }
         document.querySelector('button#sequences-delete-button').onclick = function(){
-            
+            let inputs = document.querySelectorAll("#sequences-cuelist input")
+            for(let i=0;i<inputs.length;i++){
+                if(inputs[i].checked){
+                    sequenceManager.deleteCue(undefined, inputs[i].dataset.cueNumber)
+                }
+            }
         }
         document.querySelector('button#fixtures-clear-button').onclick = function(){
             if(!that.clear){
@@ -102,6 +107,7 @@ class UI{
             input.name = "cue-" + i
             input.id = "cue-" + i
             input.hidden = true
+            input.dataset.cueNumber = sequence.cuesOrder[i]
             document.getElementById('sequences-cuelist').append(input)
             document.getElementById('sequences-cuelist').append(label)
         }
