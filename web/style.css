@@ -248,12 +248,16 @@ img.button-image {
     border-spacing: 0px;
 }
 
-.menu#cue-menu .menu-bottom-section.cue-timings table * {
+.menu#cue-menu .menu-bottom-section.cue-timings table *:not(input) {
     padding: 0px;
+}
+
+.menu#cue-menu .menu-bottom-section.cue-timings table td {
     padding-top: calc(var(--scale) * 1);
 }
 
 .menu#cue-menu .menu-bottom-section.cue-timings table input {
+    padding-top: 0px;
     width: calc(var(--scale) * 5);
 }
 
