@@ -13,20 +13,20 @@ class SequenceManager{
             let cueName = that.cueMenuElement.querySelector("input#cue-settings-cue-name").value
             let timings = {
                 "fade":{
-                    "dimmer up":0,
-                    "dimmer down":0,
-                    "color":0,
-                    "position":0,
-                    "beam":0,
-                    "shape":0
+                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-up").value) || 0),
+                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-down").value) || 0),
+                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-color").value) || 0),
+                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-position").value) || 0),
+                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-beam").value) || 0),
+                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-shape").value) || 0)
                 },
                 "delay":{
-                    "dimmer up":0,
-                    "dimmer down":0,
-                    "color":0,
-                    "position":0,
-                    "beam":0,
-                    "shape":0
+                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-up").value) || 0),
+                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-down").value) || 0),
+                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-color").value) || 0),
+                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-position").value) || 0),
+                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-beam").value) || 0),
+                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-shape").value) || 0)
                 }
             }
             that.store(cueNumber, undefined, cueName, timings)
