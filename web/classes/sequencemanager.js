@@ -12,7 +12,6 @@ class SequenceManager{
             let cueNumber = parseFloat(that.cueMenuElement.querySelector("input#cue-settings-cue-number").value)
             let cueName = that.cueMenuElement.querySelector("input#cue-settings-cue-name").value
             that.store(cueNumber, undefined, cueName)
-            console.log(cueNumber, cueName)
         }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
