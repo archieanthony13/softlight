@@ -39,6 +39,7 @@ class Sequence{
 
     deleteCue(cueNumber){
         delete this.cues[cueNumber]
+        delete this.cuesOrder.splice(this.cuesOrder.indexOf(cueNumber),1)
         this.updateVariables()
     }
 

@@ -56,7 +56,7 @@ class UI{
             let inputs = document.querySelectorAll("#sequences-cuelist input")
             for(let i=0;i<inputs.length;i++){
                 if(inputs[i].checked){
-                    sequenceManager.deleteCue(undefined, inputs[i].dataset.cueNumber)
+                    sequenceManager.deleteCue(undefined, parseFloat(inputs[i].dataset.cueNumber))
                 }
             }
         }
