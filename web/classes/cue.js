@@ -60,8 +60,11 @@ class Cue{
     }
 
     update(timestamp){
-        if(this.activatedTime === null && this.active == true){
-            this.activatedTime = timestamp
+        if(this.active){
+            if(this.activatedTime === null){
+                this.activatedTime = timestamp
+            }
+            let activeTime = timestamp - this.activatedTime
         }
     }
 }
