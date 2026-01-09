@@ -298,4 +298,17 @@ p {
 .current-cue {
     background-color: purple;
     color: white;
+    transition-duration: 0.1s;
+}
+
+.active-cue {
+    background-color: green;
+    color: white;
+    transition-duration: 0.1s;
+}
+
+.current-cue.active-cue {
+    background-color: red;
+    color: white;
+    transition-duration: 0.1s;
 }

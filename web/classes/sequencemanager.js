@@ -139,6 +139,10 @@ class SequenceManager{
             if(this.sequences[sequenceKeys[i]].name == this.selectedSequence){
                 for(let j=0;j<cueList.length;j++){
                     cueList[j].classList.remove("current-cue")
+                    cueList[j].classList.remove("active-cue")
+                    if(this.sequences[this.selectedSequence].cues[this.sequences[this.selectedSequence].cuesOrder[j]].active){
+                        cueList[j].classList.add("active-cue")
+                    }
                     if(this.sequences[this.selectedSequence].cuesOrder[j] == this.sequences[this.selectedSequence].currentCue){
                         cueList[j].classList.add("current-cue")
                     }
