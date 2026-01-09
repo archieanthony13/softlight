@@ -58,8 +58,8 @@ class Cue{
                 this.activatedTime = timestamp
             }
             let activeTime = timestamp - this.activatedTime
-            if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 1000){
-                if(activeTime - (this.timings["delay"]["dimmer up"] || 0) * 1000 <= (this.timings["fade"]["dimmer up"] || 0)){
+            if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 60){
+                if(activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60 <= (this.timings["fade"]["dimmer up"] || 0)){
                     let keys = Object.keys(this.data)
                     for(let i=0;i<keys.length;i++){
                         let fixture = keys[i]
