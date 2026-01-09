@@ -80,6 +80,9 @@ class Cue{
                             }
                         }
                     }
+                } else {
+                    this.active = false
+                    this.activatedTime = null
                 }
             }
         }
