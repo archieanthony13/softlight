@@ -43,20 +43,13 @@ class Cue{
                 }
             }
         }
+        if(timings === undefined){
+            this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
+        }
     }
 
     go(){
         this.active = true
-        let keys = Object.keys(this.data)
-        for(let i=0;i<keys.length;i++){
-            let fixture = keys[i]
-            let channels = this.data[fixture]
-            for(let j=0;j<channels.length;j++){
-                if(channels[j] !== false){
-                    fixtureManager.getFixture(keys[i]).updateFixtureChannelByIndex(j,channels[j])
-                }
-            }
-        }
     }
 
     update(timestamp){
@@ -65,6 +58,20 @@ class Cue{
                 this.activatedTime = timestamp
             }
             let activeTime = timestamp - this.activatedTime
+            if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 1000){
+                if(activeTime - (this.timings["delay"]["dimmer up"] || 0) * 1000 <= (this.timings["fade"]["dimmer up"] || 0)){
+                    let keys = Object.keys(this.data)
+                    for(let i=0;i<keys.length;i++){
+                        let fixture = keys[i]
+                        let channels = this.data[fixture]
+                        for(let j=0;j<channels.length;j++){
+                            if(channels[j] !== false && this.dataTypes[fixture][j] == "dimmer"){
+                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
