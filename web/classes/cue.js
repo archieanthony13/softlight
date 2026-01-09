@@ -4,6 +4,7 @@ class Cue{
         this.dataTypes = {}
         this.name = name
         this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
+        this.beforeState = {}
 
         this.active = false
         this.activatedTime = null
@@ -50,6 +51,10 @@ class Cue{
 
     go(){
         this.active = true
+        let fixtures = fixtureManager.fixtures
+        for(let i=0;i<fixtures.length;i++){
+            this.beforeState[fixtures[i].name] = JSON.parse(JSON.stringify(fixtures[i].channels))
+        }
     }
 
     update(timestamp){
@@ -59,14 +64,19 @@ class Cue{
             }
             let activeTime = timestamp - this.activatedTime
             if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 60){
-                if(activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60 <= (this.timings["fade"]["dimmer up"] || 0)){
+                if(activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60 <= (this.timings["fade"]["dimmer up"] || 0) * 60){
                     let keys = Object.keys(this.data)
                     for(let i=0;i<keys.length;i++){
                         let fixture = keys[i]
                         let channels = this.data[fixture]
                         for(let j=0;j<channels.length;j++){
                             if(channels[j] !== false && this.dataTypes[fixture][j] == "dimmer"){
-                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                                let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"]["dimmer up"] || 0) * 60)
+                                if(change !== Infinity){
+                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60)))
+                                } else {
+                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                                }
                             }
                         }
                     }
