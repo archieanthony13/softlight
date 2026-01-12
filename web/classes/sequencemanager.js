@@ -44,6 +44,13 @@ class SequenceManager{
         this.sequences[name] = new Sequence(name)
     }
 
+    deleteFixtureByName(fixtureName){
+        let keys = Object.keys(this.sequences)
+        for(let i=0;i<keys.length;i++){
+            this.sequences[keys[i]].deleteFixtureByName(fixtureName)
+        }
+    }
+
     createEmptyCue(name, cueNumber, cueName){
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){

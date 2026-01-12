@@ -71,6 +71,10 @@ class Cue{
         this.totalTime = totalTime.sort((a,b) => b-a)[0]
     }
 
+    deleteFixtureByName(fixtureName){
+        delete this.data[fixtureName]
+    }
+
     update(timestamp){
         if(this.active){
             if(this.activatedTime === null){

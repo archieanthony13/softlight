@@ -62,10 +62,12 @@ class FixtureManager{
     }
 
     deleteFixture(id){
+        let name = this.fixtures[id].name
         this.fixtures.splice(id,1)
         ui.updateFixtureList()
         this.updateSelectedFixtures()
         ui.updateAttributes()
+        sequenceManager.deleteFixtureByName(name)
     }
 
     deleteFixtureByName(name){

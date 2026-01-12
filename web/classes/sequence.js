@@ -13,6 +13,12 @@ class Sequence{
         this.updateVariables()
     }
 
+    deleteFixtureByName(fixtureName){
+        for(let i=0;i<this.cuesOrder.length;i++){
+            this.cues[this.cuesOrder[i]].deleteFixtureByName(fixtureName)
+        }
+    }
+
     store(cueNumber, cueName, timings, mode){
         let index = Object.keys(this.cues).indexOf(parseFloat(cueNumber).toString())
         if(index != -1){
