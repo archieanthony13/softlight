@@ -88,24 +88,19 @@ class Cue{
                     let channelType = this.dataTypes[fixture][j]
                     if(channels[j] !== false){
                         if(channelType == "dimmer"){
-                            if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 60
-                            && activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60 <= (this.timings["fade"]["dimmer up"] || 0) * 60){
-                                let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"]["dimmer up"] || 0) * 60)
-                                if(change !== Infinity){
-                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60)))
-                                } else {
-                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
-                                }
+                            if(channels[j] > this.beforeState[fixture][j]){
+                                channelType = "dimmer up"
+                            } else {
+                                channelType = "dimmer down"
                             }
-                        } else {
-                            if(activeTime >= (this.timings["delay"][channelType] || 0) * 60
-                            && activeTime - (this.timings["delay"][channelType] || 0) * 60 <= (this.timings["fade"][channelType] || 0) * 60){
-                                let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"][channelType] || 0) * 60)
-                                if(change !== Infinity){
-                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"][channelType] || 0) * 60)))
-                                } else {
-                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
-                                }
+                        }
+                        if(activeTime >= (this.timings["delay"][channelType] || 0) * 60
+                        && activeTime - (this.timings["delay"][channelType] || 0) * 60 <= (this.timings["fade"][channelType] || 0) * 60){
+                            let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"][channelType] || 0) * 60)
+                            if(change !== Infinity){
+                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"][channelType] || 0) * 60)))
+                            } else {
+                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
                             }
                         }
                     }
