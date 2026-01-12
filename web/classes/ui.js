@@ -117,6 +117,7 @@ class UI{
     updateAttributes(){
         let attributes = []
         let attributeValues = []
+        let manual = []
         let bits = []
         if(fixtureManager.selectedFixtures.length > 0){
             for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
@@ -128,6 +129,7 @@ class UI{
                             if(index == -1){
                                 attributes.push(fixture.channelNames[j])
                                 attributeValues.push(fixture.channels[j])
+                                manual.push(false)
                                 bits.push(1)
                             } else {
                                 if(fixture.channelNames[j].indexOf("Fine") == -1){
@@ -152,16 +154,20 @@ class UI{
                             if(index == -1){
                                 attributes.push(fixture.channelNames[j])
                                 attributeValues.push(fixture.manualChannels[j])
+                                manual.push(true)
                                 bits.push(1)
                             } else {
                                 if(fixture.channelNames[j].indexOf("Fine") == -1){
                                     if(fixture.manualChannels[j] > attributeValues[index] && fixture.channelNames[j+1].indexOf("Fine") == -1){
                                         attributeValues[index] = fixture.manualChannels[j]
+                                        manual[index] = true
                                     }
                                 } else {
                                     if((fixture.manualChannels[j-1] << 8) + fixture.manualChannels[j] > (attributeValues[index-1] << 8) + attributeValues[index]){
                                         attributeValues[index-1] = fixture.manualChannels[j-1]
                                         attributeValues[index] = fixture.manualChannels[j]
+                                        manual[index-1] = true
+                                        manual[index] = true
                                     }
                                 }
                             }
@@ -184,6 +190,11 @@ class UI{
                 }
             }
             let button = document.querySelectorAll('#attribute-values button')[count]
+            if(manual[j]){
+                button.classList.add("manual-channel")
+            } else {
+                button.classList.remove("manual-channel")
+            }
             button.dataset.bits = bits[j]
             if(bits[j] == 1){
                 if(i >= this.attributePage*5){

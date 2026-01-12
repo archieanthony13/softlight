@@ -312,3 +312,8 @@ p {
     color: white;
     transition-duration: 0.1s;
 }
+
+.manual-channel {
+    background-color: red;
+    color: white;
+}
