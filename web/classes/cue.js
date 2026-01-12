@@ -4,6 +4,7 @@ class Cue{
         this.dataTypes = {}
         this.name = name
         this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
+        this.totalTime = 0
         this.beforeState = {}
 
         this.active = false
@@ -47,6 +48,7 @@ class Cue{
         if(timings === undefined){
             this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
         }
+        this.updateTotalTime()
     }
 
     go(){
@@ -57,20 +59,37 @@ class Cue{
         }
     }
 
+    updateTotalTime(){
+        let totalTime = [0,0,0,0,0,0]
+        let timingKeys = Object.keys(this.timings)
+        for(let i=0;i<timingKeys.length;i++){
+            let timingAttributes = Object.keys(this.timings[timingKeys[i]])
+            for(let j=0;j<timingAttributes.length;j++){
+                totalTime[j] += (this.timings[timingKeys[i]][timingAttributes[j]] || 0)
+            }
+        }
+        this.totalTime = totalTime.sort((a,b) => b-a)[0]
+    }
+
     update(timestamp){
         if(this.active){
             if(this.activatedTime === null){
                 this.activatedTime = timestamp
             }
             let activeTime = timestamp - this.activatedTime
-            if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 60){
-                if(activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60 <= (this.timings["fade"]["dimmer up"] || 0) * 60){
-                    let keys = Object.keys(this.data)
-                    for(let i=0;i<keys.length;i++){
-                        let fixture = keys[i]
-                        let channels = this.data[fixture]
-                        for(let j=0;j<channels.length;j++){
-                            if(channels[j] !== false && this.dataTypes[fixture][j] == "dimmer"){
+            if(activeTime >= this.totalTime * 60){
+                this.active = false
+            }
+            let keys = Object.keys(this.data)
+            for(let i=0;i<keys.length;i++){
+                let fixture = keys[i]
+                let channels = this.data[fixture]
+                for(let j=0;j<channels.length;j++){
+                    let channelType = this.dataTypes[fixture][j]
+                    if(channels[j] !== false){
+                        if(channelType == "dimmer"){
+                            if(activeTime >= (this.timings["delay"]["dimmer up"] || 0) * 60
+                            && activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60 <= (this.timings["fade"]["dimmer up"] || 0) * 60){
                                 let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"]["dimmer up"] || 0) * 60)
                                 if(change !== Infinity){
                                     fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"]["dimmer up"] || 0) * 60)))
@@ -78,11 +97,18 @@ class Cue{
                                     fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
                                 }
                             }
+                        } else {
+                            if(activeTime >= (this.timings["delay"][channelType] || 0) * 60
+                            && activeTime - (this.timings["delay"][channelType] || 0) * 60 <= (this.timings["fade"][channelType] || 0) * 60){
+                                let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"][channelType] || 0) * 60)
+                                if(change !== Infinity){
+                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"][channelType] || 0) * 60)))
+                                } else {
+                                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                                }
+                            }
                         }
                     }
-                } else {
-                    this.active = false
-                    this.activatedTime = null
                 }
             }
         }
