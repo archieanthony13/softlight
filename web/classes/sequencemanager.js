@@ -73,6 +73,7 @@ class SequenceManager{
 
     selectSequence(name){
         this.selectedSequence = name
+        ui.updateCueList()
     }
 
     store(cueNumber, name, cueName, timings, mode){
