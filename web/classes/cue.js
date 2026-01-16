@@ -112,4 +112,18 @@ class Cue{
             }
         }
     }
+
+    track(){
+        this.active = false
+        let keys = Object.keys(this.data)
+        for(let i=0;i<keys.length;i++){
+            let fixture = keys[i]
+            let channels = this.data[fixture]
+            for(let j=0;j<channels.length;j++){
+                if(channels[j] !== false){
+                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                }
+            }
+        }
+    }
 }
