@@ -123,7 +123,35 @@ class UI{
             for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
                 let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
                 for(let j=0;j<fixture.channelNames.length;j++){
-                    if(fixture.manualChannels[j] === false){
+                    if(fixture.manualChannels[j] !== false){
+                        if(fixture.fixtureProfile.channels[fixture.channelNames[j]].type == this.attribute){
+                            let index = attributes.indexOf(fixture.channelNames[j])
+                            if(index == -1){
+                                attributes.push(fixture.channelNames[j])
+                                attributeValues.push(fixture.manualChannels[j])
+                                manual.push(true)
+                                bits.push(1)
+                            } else {
+                                if(fixture.channelNames[j].indexOf("Fine") == -1){
+                                    if(fixture.manualChannels[j] > attributeValues[index] && fixture.channelNames[j+1].indexOf("Fine") == -1){
+                                        attributeValues[index] = fixture.manualChannels[j]
+                                        manual[index] = true
+                                    }
+                                } else {
+                                    if((fixture.manualChannels[j-1] << 8) + fixture.manualChannels[j] > (attributeValues[index-1] << 8) + attributeValues[index]){
+                                        attributeValues[index-1] = fixture.manualChannels[j-1]
+                                        attributeValues[index] = fixture.manualChannels[j]
+                                        manual[index-1] = true
+                                        manual[index] = true
+                                    }
+                                }
+                            }
+                            if(fixture.channelNames[j].indexOf("Fine") != -1){
+                                let index = attributes.indexOf(fixture.channelNames[j].replace("Fine ",""))
+                                bits[index] = 2
+                            }
+                        }
+                    } else if(fixture.channels[j] !== false) {
                         if(fixture.fixtureProfile.channels[fixture.channelNames[j]].type == this.attribute){
                             let index = attributes.indexOf(fixture.channelNames[j])
                             if(index == -1){
@@ -153,21 +181,18 @@ class UI{
                             let index = attributes.indexOf(fixture.channelNames[j])
                             if(index == -1){
                                 attributes.push(fixture.channelNames[j])
-                                attributeValues.push(fixture.manualChannels[j])
-                                manual.push(true)
+                                attributeValues.push(fixture.defaultChannels[j])
+                                manual.push(false)
                                 bits.push(1)
                             } else {
                                 if(fixture.channelNames[j].indexOf("Fine") == -1){
-                                    if(fixture.manualChannels[j] > attributeValues[index] && fixture.channelNames[j+1].indexOf("Fine") == -1){
-                                        attributeValues[index] = fixture.manualChannels[j]
-                                        manual[index] = true
+                                    if(fixture.defaultChannels[j] > attributeValues[index] && fixture.channelNames[j+1].indexOf("Fine") == -1){
+                                        attributeValues[index] = fixture.defaultChannels[j]
                                     }
                                 } else {
-                                    if((fixture.manualChannels[j-1] << 8) + fixture.manualChannels[j] > (attributeValues[index-1] << 8) + attributeValues[index]){
-                                        attributeValues[index-1] = fixture.manualChannels[j-1]
-                                        attributeValues[index] = fixture.manualChannels[j]
-                                        manual[index-1] = true
-                                        manual[index] = true
+                                    if((fixture.defaultChannels[j-1] << 8) + fixture.defaultChannels[j] > (attributeValues[index-1] << 8) + attributeValues[index]){
+                                        attributeValues[index-1] = fixture.defaultChannels[j-1]
+                                        attributeValues[index] = fixture.defaultChannels[j]
                                     }
                                 }
                             }
