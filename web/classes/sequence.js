@@ -36,11 +36,12 @@ class Sequence{
         let index = this.cuesOrder.indexOf(this.currentCue)
         if(index + 1 < this.cuesOrder.length){
             this.currentCue = this.cuesOrder[index+1]
+            this.cues[this.currentCue].go()
         } else {
             this.currentCue = this.cuesOrder[0]
+            this.trackToCue(this.currentCue)
         }
 
-        this.cues[this.currentCue].go()
     }
 
     deleteCue(cueNumber){
@@ -61,6 +62,9 @@ class Sequence{
     }
 
     trackToCue(cueNumber){
+        for(let i=0;i<fixtureManager.fixtures.length;i++){
+            fixtureManager.fixtures[0].channels.fill(false)
+        }
         let iteration = this.cuesOrder.indexOf(cueNumber)
         for(let i=0;i<iteration;i++){
             this.cues[this.cuesOrder[i]].track()
