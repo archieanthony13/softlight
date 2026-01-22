@@ -83,6 +83,7 @@ class Cue{
             let activeTime = timestamp - this.activatedTime
             if(activeTime >= this.totalTime * 60){
                 this.active = false
+                this.activatedTime = null
             }
             let keys = Object.keys(this.data)
             for(let i=0;i<keys.length;i++){
