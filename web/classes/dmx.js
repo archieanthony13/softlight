@@ -28,4 +28,11 @@ class DMX{
             this.updateChannelsFromFixture(fixtures[i].name)
         }
     }
+
+    getFixtureData(fixtureName){
+        let fixture = fixtureManager.getFixture(fixtureName)
+        let beginningChannel = fixture.channel - 1
+        let endChannel = beginningChannel + fixture.channelNames.length
+        return this.data.slice(beginningChannel,endChannel)
+    }
 }
