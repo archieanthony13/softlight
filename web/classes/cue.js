@@ -116,6 +116,7 @@ class Cue{
 
     track(){
         this.active = false
+        this.activatedTime = null
         let keys = Object.keys(this.data)
         for(let i=0;i<keys.length;i++){
             let fixture = keys[i]
