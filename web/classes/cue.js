@@ -102,7 +102,7 @@ class Cue{
                         if(activeTime >= (this.timings["delay"][channelType] || 0) * 60
                         && activeTime - (this.timings["delay"][channelType] || 0) * 60 <= (this.timings["fade"][channelType] || 0) * 60){
                             let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"][channelType] || 0) * 60)
-                            if(change !== Infinity && !isNaN(change)){
+                            if(change !== Infinity && change !== -Infinity && !isNaN(change)){
                                 fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"][channelType] || 0) * 60)))
                             } else {
                                 fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
