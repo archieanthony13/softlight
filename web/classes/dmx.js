@@ -1,6 +1,7 @@
 class DMX{
     constructor(){
         this.data = new Array(512).fill(0)
+        this.dataTypes = new Array(512).fill("default")
     }
 
     updateChannel(channel, data){
@@ -14,10 +15,13 @@ class DMX{
         for(let i=0;i<fixture.channels.length;i++){
             if(fixture.manualChannels[i] !== false){
                 this.data[fixture.channel - 1 + i] = fixture.manualChannels[i]
+                this.dataTypes[fixture.channel - 1 + i] = "manual"
             } else if(fixture.channels[i] !== false) {
                 this.data[fixture.channel - 1 + i] = fixture.channels[i]
+                this.dataTypes[fixture.channel - 1 + i] = "sequence"
             } else {
                 this.data[fixture.channel - 1 + i] = fixture.defaultChannels[i]
+                this.dataTypes[fixture.channel - 1 + i] = "default"
             }
         }
     }
@@ -34,5 +38,12 @@ class DMX{
         let beginningChannel = fixture.channel - 1
         let endChannel = beginningChannel + fixture.channelNames.length
         return this.data.slice(beginningChannel,endChannel)
+    }
+
+    getFixtureDataTypes(fixtureName){
+        let fixture = fixtureManager.getFixture(fixtureName)
+        let beginningChannel = fixture.channel - 1
+        let endChannel = beginningChannel + fixture.channelNames.length
+        return this.dataTypes.slice(beginningChannel,endChannel)
     }
 }
