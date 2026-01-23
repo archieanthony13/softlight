@@ -111,6 +111,7 @@ class Cue{
                     }
                 }
             }
+            ui.updateAttributes()
         }
     }
 
