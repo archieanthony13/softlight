@@ -127,15 +127,17 @@ class UI{
                 let fixtureDataTypes = dmx.getFixtureDataTypes(fixture.name)
                 for(let j=0;j<fixtureData.length;j++){
                     if(fixture.channelTypes[j] == this.attribute){
+                        if(fixtureDataTypes[j] == "manual"){
+                            manual.push("manual")
+                        } else if(fixtureDataTypes[j] == "sequence" && manual[j] != "manual"){
+                            manual.push("sequence")
+                        } else {
+                            manual.push("default")
+                        }
                         let index = attributes.indexOf(fixture.channelNames[j])
                         if(index == -1){
                             attributes.push(fixture.channelNames[j])
                             attributeValues.push(fixtureData[j])
-                            if(fixtureDataTypes[j] == "manual"){
-                                manual.push(true)
-                            } else {
-                                manual.push(false)
-                            }
                             bits.push(1)
                         } else {
                             if(fixture.channelNames[j].indexOf("Fine") == -1){
@@ -167,10 +169,12 @@ class UI{
                 }
             }
             let button = document.querySelectorAll('#attribute-values button')[count]
-            if(manual[j]){
+            button.classList.remove("manual-channel")
+            button.classList.remove("sequence-channel")
+            if(manual[j] == "manual"){
                 button.classList.add("manual-channel")
-            } else {
-                button.classList.remove("manual-channel")
+            } else if(manual[j] == "sequence") {
+                button.classList.add("sequence-channel")
             }
             button.dataset.bits = bits[j]
             if(bits[j] == 1){

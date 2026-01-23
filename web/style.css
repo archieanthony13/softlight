@@ -137,6 +137,7 @@ button {
 button:hover {
     background-color: lightgray;
     cursor: pointer;
+    color: black;
 }
 
 button.selected {
@@ -315,5 +316,10 @@ p {
 
 .manual-channel {
     background-color: red;
+    color: white;
+}
+
+.sequence-channel {
+    background-color: blue;
     color: white;
 }
