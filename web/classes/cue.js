@@ -75,7 +75,7 @@ class Cue{
         delete this.data[fixtureName]
     }
 
-    update(timestamp){
+    update(timestamp, sequence){
         if(this.active){
             if(this.activatedTime === null){
                 this.activatedTime = timestamp
@@ -103,9 +103,9 @@ class Cue{
                         && activeTime - (this.timings["delay"][channelType] || 0) * 60 <= (this.timings["fade"][channelType] || 0) * 60){
                             let change = (channels[j] - this.beforeState[fixture][j])/((this.timings["fade"][channelType] || 0) * 60)
                             if(change !== Infinity && change !== -Infinity && !isNaN(change)){
-                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"][channelType] || 0) * 60)))
+                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,this.beforeState[fixture][j] + (change * (activeTime - (this.timings["delay"][channelType] || 0) * 60)), sequence)
                             } else {
-                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                                fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j], sequence)
                             }
                         }
                     }

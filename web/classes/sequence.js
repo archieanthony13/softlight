@@ -57,7 +57,7 @@ class Sequence{
 
     update(timestamp){
         for(let i=0;i<this.cuesOrder.length;i++){
-            this.cues[this.cuesOrder[i]].update(timestamp)
+            this.cues[this.cuesOrder[i]].update(timestamp, this.name)
         }
     }
 

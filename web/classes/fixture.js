@@ -8,6 +8,8 @@ class Fixture{
         this.channelTypes = []
         this.manualChannels = new Array(this.channelNames.length).fill(false)
         this.channels = new Array(this.channelNames.length).fill(false)
+        this.sequenceChannels = {}
+        this.sequencePriority = []
         this.defaultChannels = []
         for(let i=0;i<this.channelNames.length;i++){
             this.defaultChannels.push(this.fixtureProfile.channels[this.channelNames[i]].defaultValue)
@@ -15,16 +17,41 @@ class Fixture{
         }
     }
 
-    updateFixtureChannel(channel, value){
-        if(this.channelNames.indexOf(channel) == -1){
+    updateFixtureChannel(channel, value, sequence){
+        let index = this.channelNames.indexOf(channel)
+        if(index == -1){
             console.error("Unable to update channel. This does not exist for this fixture.")
         } else {
-            this.channels[this.channelNames.indexOf(channel)] = Math.round(value)
+            if(this.sequenceChannels[sequence] === undefined){
+                this.sequenceChannels[sequence] = new Array(this.channelNames.length).fill(false)
+            }
+            this.sequencePriority.splice(this.sequencePriority.indexOf(sequence),1)
+            this.sequencePriority.push(sequence)
+            this.sequenceChannels[sequence][index] = Math.round(value)
+            this.updateSequenceOutput()
         }
     }
 
-    updateFixtureChannelByIndex(index, value){
-        this.channels[index] = Math.round(value)
+    updateFixtureChannelByIndex(index, value, sequence){
+        if(this.sequenceChannels[sequence] === undefined){
+            this.sequenceChannels[sequence] = new Array(this.channelNames.length).fill(false)
+        }
+        this.sequencePriority.splice(this.sequencePriority.indexOf(sequence),1)
+        this.sequencePriority.push(sequence)
+        this.sequenceChannels[sequence][index] = Math.round(value)
+        this.updateSequenceOutput()
+    }
+
+    updateSequenceOutput(){
+        this.channels.fill(false)
+        for(let i=0;i<this.sequencePriority.length;i++){
+            let channels = this.sequenceChannels[this.sequencePriority[i]]
+            for(let j=0;j<channels.length;j++){
+                if(channels[j] !== false){
+                    this.channels[j] = channels[j]
+                }
+            }
+        }
     }
 
     updateFixtureManualChannel(channel, value){
