@@ -303,13 +303,13 @@ p {
 }
 
 .active-cue {
-    background-color: green;
+    background: linear-gradient(90deg, green var(--percentage), grey var(--percentage));
     color: white;
     transition-duration: 0.1s;
 }
 
 .current-cue.active-cue {
-    background-color: red;
+    background: linear-gradient(90deg, red var(--percentage), grey var(--percentage));
     color: white;
     transition-duration: 0.1s;
 }

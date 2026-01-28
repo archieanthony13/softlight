@@ -6,6 +6,7 @@ class Cue{
         this.timings = {"fade":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0},"delay":{"dimmer up":0,"dimmer down":0,"color":0,"position":0,"beam":0,"shape":0}}
         this.totalTime = 0
         this.beforeState = {}
+        this.percentage = null
 
         this.active = false
         this.activatedTime = null
@@ -81,9 +82,11 @@ class Cue{
                 this.activatedTime = timestamp
             }
             let activeTime = timestamp - this.activatedTime
+            this.percentage = (activeTime/(this.totalTime * 60))*100
             if(activeTime >= this.totalTime * 60){
                 this.active = false
                 this.activatedTime = null
+                this.percentage = null
             }
             let keys = Object.keys(this.data)
             for(let i=0;i<keys.length;i++){
@@ -118,6 +121,7 @@ class Cue{
     track(){
         this.active = false
         this.activatedTime = null
+        this.percentage = null
         let keys = Object.keys(this.data)
         for(let i=0;i<keys.length;i++){
             let fixture = keys[i]

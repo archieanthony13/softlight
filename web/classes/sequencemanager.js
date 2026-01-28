@@ -150,6 +150,7 @@ class SequenceManager{
                     cueList[j].classList.remove("active-cue")
                     if(this.sequences[this.selectedSequence].cues[this.sequences[this.selectedSequence].cuesOrder[j]].active){
                         cueList[j].classList.add("active-cue")
+                        cueList[j].style.setProperty("--percentage",this.sequences[this.selectedSequence].cues[this.sequences[this.selectedSequence].cuesOrder[j]].percentage + "%")
                     }
                     if(this.sequences[this.selectedSequence].cuesOrder[j] == this.sequences[this.selectedSequence].currentCue){
                         cueList[j].classList.add("current-cue")
