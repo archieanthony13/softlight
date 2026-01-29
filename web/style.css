@@ -309,7 +309,7 @@ p {
 }
 
 .current-cue.active-cue {
-    background: linear-gradient(90deg, red var(--percentage), grey var(--percentage));
+    background: linear-gradient(90deg, purple var(--percentage), grey var(--percentage));
     color: white;
     transition-duration: 0.1s;
 }
