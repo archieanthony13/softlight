@@ -54,6 +54,8 @@ class Cue{
 
     go(){
         this.active = true
+        this.activatedTime = null
+        this.percentage = null
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             this.beforeState[fixtures[i].name] = JSON.parse(JSON.stringify(dmx.getFixtureData(fixtures[i].name)))
