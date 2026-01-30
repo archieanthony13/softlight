@@ -12,6 +12,8 @@ fixtureManager.loadFixtureLibrary()
 
 var sequenceManager = new SequenceManager()
 
+var save = new Save()
+
 async function patchFixtures(){
     await fixtureManager.patchFixture(148,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 1")
     await fixtureManager.patchFixture(232,"56 Channel","Chauvet Professional","Rogue R2X Wash","RR2XW 2")
