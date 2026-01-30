@@ -4,6 +4,7 @@ class Save{
     }
 
     generateSaveData(){
+        this.data = {"fixtures":{},"sequences":{}}
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             let fixture = fixtures[i]
