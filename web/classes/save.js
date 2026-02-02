@@ -35,6 +35,13 @@ class Save{
 
     saveToFile(){
         this.generateSaveData()
+        let element = document.createElement('a')
+        element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.data)))
+        element.setAttribute('download', "softlight " + new Date().toString() + ".json")
+        element.style.display = 'none'
+        document.body.appendChild(element)
+        element.click()
+        document.body.removeChild(element)
     }
 
     saveToBrowser(){
@@ -48,13 +55,7 @@ class Save{
         sequenceManager.sequences = {}
     }
 
-    loadFromFile(){
-
-    }
-
-    loadFromBrowser(){
-        this.clearData()
-        this.data = JSON.parse(localStorage.getItem("softlight-showfile"))
+    load(){
         let fixtures = this.data.fixtures
         let keys = Object.keys(fixtures)
         for(let i=0;i<keys.length;i++){
@@ -77,6 +78,28 @@ class Save{
             sequenceManager.sequences[keys[i]].updateVariables()
         }
         this.loaded()
+    }
+
+    loadFromFile(){
+        this.clearData()
+        let element = document.createElement('input')
+        element.type = "file"
+        let that = this
+        element.onchange = function(){
+            let filereader = new FileReader()
+            filereader.onload = async function(){
+                that.data = JSON.parse(filereader.result)
+                that.load()
+            }
+            filereader.readAsText(element.files[0])
+        }
+        element.click()
+    }
+
+    loadFromBrowser(){
+        this.clearData()
+        this.data = JSON.parse(localStorage.getItem("softlight-showfile"))
+        this.load()
     }
 
     loaded(){

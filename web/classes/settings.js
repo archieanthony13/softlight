@@ -20,6 +20,18 @@ class Settings{
         this.settingsElement.querySelector('#network-reset').onclick = function(){
             that.resetNetworkPreferences()
         }
+        this.settingsElement.querySelector('button#save-to-file').onclick = function(){
+            save.saveToFile()
+        }
+        this.settingsElement.querySelector('button#save-to-browser').onclick = function(){
+            save.saveToBrowser()
+        }
+        this.settingsElement.querySelector('button#load-from-file').onclick = function(){
+            save.loadFromFile()
+        }
+        this.settingsElement.querySelector('button#load-from-browser').onclick = function(){
+            save.loadFromBrowser()
+        }
     }
 
     toggleSettingsMenu(){
