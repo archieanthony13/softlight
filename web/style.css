@@ -45,6 +45,10 @@ html, body {
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
+.middle-right-section#sequences {
+    display: none;
+}
+
 .middle-right-top-section, .middle-left-top-section {
     display: grid;
     grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);

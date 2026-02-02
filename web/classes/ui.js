@@ -74,11 +74,27 @@ class UI{
         }
 
         document.querySelector('button#cues-section-button').onclick = function(){
-
+            that.cuesSection()
         }
         document.querySelector('button#sequences-section-button').onclick = function(){
-            
+            that.sequencesSection()
         }
+    }
+
+    cuesSection(){
+        document.querySelector('.middle-right-section#cues').style.display = "grid"
+        document.querySelector('.middle-right-section#sequences').style.display = "none"
+        document.querySelector('button#cues-section-button').classList.add('selected')
+        document.querySelector('button#sequences-section-button').classList.remove('selected')
+        this.updateCueList()
+    }
+
+    sequencesSection(){
+        document.querySelector('.middle-right-section#cues').style.display = "none"
+        document.querySelector('.middle-right-section#sequences').style.display = "grid"
+        document.querySelector('button#cues-section-button').classList.remove('selected')
+        document.querySelector('button#sequences-section-button').classList.add('selected')
+        this.updateSequencesList()
     }
 
     updateFixtureList(){
@@ -119,6 +135,10 @@ class UI{
             document.getElementById('cues-cuelist').append(label)
         }
         document.getElementById('cues-cuelist').style.gridTemplateRows = "repeat(" + sequence.cuesOrder.length + ", calc(var(--scale)*4))"
+    }
+
+    updateSequencesList(){
+
     }
 
     updateAttributes(){
