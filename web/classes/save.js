@@ -73,11 +73,13 @@ class Save{
             let cueKeys = Object.keys(cues)
             for(let j=0;j<cueKeys.length;j++){
                 let cue = cues[cueKeys[j]]
+                console.log(cue)
                 sequenceManager.sequences[keys[i]].cues[cueKeys[j]] = new Cue(cue.name)
                 sequenceManager.sequences[keys[i]].cuesOrder.push(parseFloat(cueKeys[j]))
                 sequenceManager.sequences[keys[i]].cues[cueKeys[j]].data = cue.data
                 sequenceManager.sequences[keys[i]].cues[cueKeys[j]].dataTypes = cue.dataTypes
                 sequenceManager.sequences[keys[i]].cues[cueKeys[j]].timings = cue.timings
+                sequenceManager.sequences[keys[i]].cues[cueKeys[j]].updateTotalTime()
             }
             sequenceManager.sequences[keys[i]].updateVariables()
         }
