@@ -65,4 +65,12 @@ class Fixture{
     clearManualChannels(){
         this.manualChannels.fill(false)
     }
+
+    clearSequenceChannels(sequence){
+        let index = Object.keys(this.sequenceChannels).indexOf(sequence)
+        if(index != -1){
+            this.sequenceChannels[sequence].fill(false)
+            this.updateSequenceOutput()
+        }
+    }
 }

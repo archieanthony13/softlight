@@ -63,7 +63,7 @@ class Sequence{
 
     trackToCue(cueNumber){
         for(let i=0;i<fixtureManager.fixtures.length;i++){
-            fixtureManager.fixtures[0].channels.fill(false)
+            fixtureManager.fixtures[i].clearSequenceChannels(this.name)
         }
         let iteration = this.cuesOrder.indexOf(cueNumber)
         for(let i=0;i<iteration;i++){
