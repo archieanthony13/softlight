@@ -140,7 +140,7 @@ class SequenceManager{
     }
 
     update(timestamp){
-        let cueList = document.querySelectorAll("#sequences-cuelist label")
+        let cueList = document.querySelectorAll("#cues-cuelist label")
         let sequenceKeys = Object.keys(this.sequences)
         for(let i=0;i<sequenceKeys.length;i++){
             this.sequences[sequenceKeys[i]].update(timestamp)

@@ -46,14 +46,14 @@ class UI{
             settingsMenu.toggleSettingsMenu()
         }
 
-        document.querySelector('button#sequences-go-button').onclick = function(){
+        document.querySelector('button#cues-go-button').onclick = function(){
             sequenceManager.go()
         }
-        document.querySelector('button#sequences-store-button').onclick = function(){
+        document.querySelector('button#cues-store-button').onclick = function(){
             sequenceManager.toggleCueMenu()
         }
-        document.querySelector('button#sequences-delete-button').onclick = function(){
-            let inputs = document.querySelectorAll("#sequences-cuelist input")
+        document.querySelector('button#cues-delete-button').onclick = function(){
+            let inputs = document.querySelectorAll("#cues-cuelist input")
             for(let i=0;i<inputs.length;i++){
                 if(inputs[i].checked){
                     sequenceManager.deleteCue(undefined, parseFloat(inputs[i].dataset.cueNumber))
@@ -71,6 +71,13 @@ class UI{
                 fixtureManager.clearAllManualFixtureChannels()
                 that.clear = false
             }
+        }
+
+        document.querySelector('button#cues-section-button').onclick = function(){
+
+        }
+        document.querySelector('button#sequences-section-button').onclick = function(){
+            
         }
     }
 
@@ -94,7 +101,7 @@ class UI{
     }
 
     updateCueList(){
-        document.getElementById('sequences-cuelist').innerHTML = ""
+        document.getElementById('cues-cuelist').innerHTML = ""
         let sequence = sequenceManager.sequences[sequenceManager.selectedSequence]
         for(let i=0;i<sequence.cuesOrder.length;i++){
             let label = document.createElement('label')
@@ -108,10 +115,10 @@ class UI{
             input.id = "cue-" + i
             input.hidden = true
             input.dataset.cueNumber = sequence.cuesOrder[i]
-            document.getElementById('sequences-cuelist').append(input)
-            document.getElementById('sequences-cuelist').append(label)
+            document.getElementById('cues-cuelist').append(input)
+            document.getElementById('cues-cuelist').append(label)
         }
-        document.getElementById('sequences-cuelist').style.gridTemplateRows = "repeat(" + sequence.cuesOrder.length + ", calc(var(--scale)*4))"
+        document.getElementById('cues-cuelist').style.gridTemplateRows = "repeat(" + sequence.cuesOrder.length + ", calc(var(--scale)*4))"
     }
 
     updateAttributes(){

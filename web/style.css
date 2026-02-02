@@ -31,7 +31,7 @@ html, body {
 .top-section {
     background-color: gray;
     display: grid;
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 9.25) calc(var(--scale) * 15) calc(var(--scale) * 15);
 }
 
 .middle-section {
@@ -83,7 +83,7 @@ html, body {
     grid-template-rows: 50% 50%;
 }
 
-#fixtures-list, #sequences-cuelist {
+#fixtures-list, #cues-cuelist {
     display: grid;
     grid-template-columns: auto;
 }
@@ -322,4 +322,9 @@ p {
 .sequence-channel {
     background-color: blue;
     color: white;
+}
+
+.section-button {
+    border-bottom: none;
+    border-radius: calc(var(--scale) * 1) calc(var(--scale) * 1) 0px 0px;
 }
