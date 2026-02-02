@@ -29,8 +29,8 @@ class Cue{
                 for(let j=0;j<fixtures[i].manualChannels.length;j++){
                     if(fixtures[i].manualChannels[j] !== false){
                         this.data[fixtures[i].name][j] = JSON.parse(JSON.stringify(fixtures[i].manualChannels[j]))
-                    } else {
-                        this.data[fixtures[i].name][j] = (this.data[fixtures[i].name][j] || false)
+                    } else if(this.data[fixtures[i].name][j] === undefined){
+                        this.data[fixtures[i].name][j] = false
                     }
                 }
                 this.dataTypes[fixtures[i].name] = JSON.parse(JSON.stringify(fixtures[i].channelTypes))
