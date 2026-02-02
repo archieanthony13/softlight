@@ -42,6 +42,7 @@ class SequenceManager{
 
     createSequence(name){
         this.sequences[name] = new Sequence(name)
+        ui.updateSequencesList()
     }
 
     deleteFixtureByName(fixtureName){
@@ -74,6 +75,7 @@ class SequenceManager{
     selectSequence(name){
         this.selectedSequence = name
         ui.updateCueList()
+        ui.updateSequencesList()
     }
 
     store(cueNumber, name, cueName, timings, mode){

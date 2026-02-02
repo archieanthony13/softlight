@@ -146,6 +146,9 @@ class UI{
             if(sequenceManager.selectedSequence == keys[i]){
                 label.classList.add("selected")
             }
+            label.onclick = function(){
+                sequenceManager.selectSequence(keys[i])
+            }
             document.getElementById('sequences-sequencelist').append(label)
         }
         document.getElementById('sequences-sequencelist').style.gridTemplateRows = "repeat(" + keys.length + ", calc(var(--scale)*4))"
