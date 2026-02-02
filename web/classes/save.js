@@ -1,6 +1,10 @@
 class Save{
     constructor(){
         this.data = {"fixtures":{},"sequences":{}}
+
+        window.onbeforeunload = function(e){
+            e.preventDefault()
+        }
     }
 
     generateSaveData(){
