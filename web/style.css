@@ -92,6 +92,11 @@ html, body {
     grid-template-columns: auto;
 }
 
+#sequences-sequencelist {
+    display: grid;
+    grid-template-columns: auto;
+}
+
 input, select {
     font-size: calc(var(--scale) * 2);
     background-color: gray;
@@ -331,4 +336,8 @@ p {
 .section-button {
     border-bottom: none;
     border-radius: calc(var(--scale) * 1) calc(var(--scale) * 1) 0px 0px;
+}
+
+label.selected {
+    color: orange;
 }

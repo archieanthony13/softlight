@@ -138,7 +138,17 @@ class UI{
     }
 
     updateSequencesList(){
-
+        document.getElementById('sequences-sequencelist').innerHTML = ""
+        let keys = Object.keys(sequenceManager.sequences)
+        for(let i=0;i<keys.length;i++){
+            let label = document.createElement('label')
+            label.innerHTML = keys[i]
+            if(sequenceManager.selectedSequence == keys[i]){
+                label.classList.add("selected")
+            }
+            document.getElementById('sequences-sequencelist').append(label)
+        }
+        document.getElementById('sequences-sequencelist').style.gridTemplateRows = "repeat(" + keys.length + ", calc(var(--scale)*4))"
     }
 
     updateAttributes(){
