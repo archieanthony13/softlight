@@ -92,7 +92,7 @@ html, body {
     grid-template-columns: auto;
 }
 
-#sequences-sequencelist {
+#sequences-sequencelist, #palettes-palettelist {
     display: grid;
     grid-template-columns: auto;
 }

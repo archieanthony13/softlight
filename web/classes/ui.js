@@ -173,7 +173,14 @@ class UI{
     }
 
     updatePalettesList(){
-        document.getElementById('palettes-palettelist').innerHTML = this.attribute
+        document.getElementById('palettes-palettelist').innerHTML = ""
+        let keys = Object.keys(paletteManager.palettes[this.attribute])
+        for(let i=0;i<keys.length;i++){
+            let label = document.createElement('label')
+            label.innerHTML = keys[i]
+            document.getElementById('palettes-palettelist').append(label)
+        }
+        document.getElementById('palettes-palettelist').style.gridTemplateRows = "repeat(" + keys.length + ", calc(var(--scale)*4))"
     }
 
     updateAttributes(){
