@@ -79,22 +79,39 @@ class UI{
         document.querySelector('button#sequences-section-button').onclick = function(){
             that.sequencesSection()
         }
+        document.querySelector('button#palettes-section-button').onclick = function(){
+            that.palettesSection()
+        }
     }
 
     cuesSection(){
         document.querySelector('.middle-right-section#cues').style.display = "grid"
         document.querySelector('.middle-right-section#sequences').style.display = "none"
+        document.querySelector('.middle-right-section#palettes').style.display = "none"
         document.querySelector('button#cues-section-button').classList.add('selected')
         document.querySelector('button#sequences-section-button').classList.remove('selected')
+        document.querySelector('button#palettes-section-button').classList.remove('selected')
         this.updateCueList()
     }
 
     sequencesSection(){
         document.querySelector('.middle-right-section#cues').style.display = "none"
         document.querySelector('.middle-right-section#sequences').style.display = "grid"
+        document.querySelector('.middle-right-section#palettes').style.display = "none"
         document.querySelector('button#cues-section-button').classList.remove('selected')
         document.querySelector('button#sequences-section-button').classList.add('selected')
+        document.querySelector('button#palettes-section-button').classList.remove('selected')
         this.updateSequencesList()
+    }
+
+    palettesSection(){
+        document.querySelector('.middle-right-section#cues').style.display = "none"
+        document.querySelector('.middle-right-section#sequences').style.display = "none"
+        document.querySelector('.middle-right-section#palettes').style.display = "grid"
+        document.querySelector('button#cues-section-button').classList.remove('selected')
+        document.querySelector('button#sequences-section-button').classList.remove('selected')
+        document.querySelector('button#palettes-section-button').classList.add('selected')
+        this.updatePalettesList()
     }
 
     updateFixtureList(){
@@ -152,6 +169,10 @@ class UI{
             document.getElementById('sequences-sequencelist').append(label)
         }
         document.getElementById('sequences-sequencelist').style.gridTemplateRows = "repeat(" + keys.length + ", calc(var(--scale)*4))"
+    }
+
+    updatePalettesList(){
+
     }
 
     updateAttributes(){

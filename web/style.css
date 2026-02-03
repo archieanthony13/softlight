@@ -31,7 +31,7 @@ html, body {
 .top-section {
     background-color: gray;
     display: grid;
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 9.25) calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 9.25) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
 }
 
 .middle-section {
@@ -45,7 +45,7 @@ html, body {
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
-.middle-right-section#sequences {
+.middle-right-section#sequences, .middle-right-section#palettes {
     display: none;
 }
 
