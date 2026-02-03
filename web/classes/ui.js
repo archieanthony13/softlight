@@ -13,6 +13,7 @@ class UI{
                 that.attribute = n.innerHTML.toLowerCase()
                 that.attributePage = 0
                 that.updateAttributes()
+                that.updatePalettesList()
             }
         })
 
@@ -172,7 +173,7 @@ class UI{
     }
 
     updatePalettesList(){
-
+        document.getElementById('palettes-palettelist').innerHTML = this.attribute
     }
 
     updateAttributes(){
