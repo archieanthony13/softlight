@@ -82,7 +82,7 @@ class SequenceManager{
         let index = Object.keys(this.sequences).indexOf(name)
         if(index != -1){
             if(cueNumber === undefined || isNaN(cueNumber)){
-                cueNumber = Math.floor(this.sequences[name].lastCue) + 1
+                cueNumber = (Math.floor(this.sequences[name].lastCue) + 1 || 0)
                 if(cueName === undefined || cueName == ""){
                     cueName = "Cue " + cueNumber
                 }
@@ -91,7 +91,7 @@ class SequenceManager{
             this.sequences[name].store(cueNumber, cueName, timings, mode)
         } else {
             if(cueNumber === undefined || isNaN(cueNumber)){
-                cueNumber = Math.floor(this.sequences[this.selectedSequence].lastCue) + 1
+                cueNumber = (Math.floor(this.sequences[this.selectedSequence].lastCue) + 1 || 0)
                 if(cueName === undefined || cueName == ""){
                     cueName = "Cue " + cueNumber
                 }
