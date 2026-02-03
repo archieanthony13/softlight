@@ -12,6 +12,8 @@ fixtureManager.loadFixtureLibrary()
 
 var sequenceManager = new SequenceManager()
 
+var paletteManager = new PaletteManager()
+
 var save = new Save()
 
 save.loadFromBrowser()
