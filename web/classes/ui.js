@@ -188,19 +188,26 @@ class UI{
                 let fixtureDataTypes = dmx.getFixtureDataTypes(fixture.name)
                 for(let j=0;j<fixtureData.length;j++){
                     if(fixture.channelTypes[j] == this.attribute){
-                        if(fixtureDataTypes[j] == "manual"){
-                            manual.push("manual")
-                        } else if(fixtureDataTypes[j] == "sequence" && manual[j] != "manual"){
-                            manual.push("sequence")
-                        } else {
-                            manual.push("default")
-                        }
                         let index = attributes.indexOf(fixture.channelNames[j])
                         if(index == -1){
                             attributes.push(fixture.channelNames[j])
                             attributeValues.push(fixtureData[j])
+                            if(fixtureDataTypes[j] == "manual"){
+                                manual.push("manual")
+                            } else if(fixtureDataTypes[j] == "sequence" && manual[j] != "manual"){
+                                manual.push("sequence")
+                            } else {
+                                manual.push("default")
+                            }
                             bits.push(1)
                         } else {
+                            if(fixtureDataTypes[j] == "manual"){
+                                manual[index] = "manual"
+                            } else if(fixtureDataTypes[j] == "sequence" && manual[index] != "manual"){
+                                manual[index] = "sequence"
+                            } else if(manual[index] != "sequence" && manual[index] != "manual") {
+                                manual[index] = "default"
+                            }
                             if(fixture.channelNames[j].indexOf("Fine") == -1){
                                 if(fixtureData[j] > attributeValues[index] && fixture.channelNames[j+1].indexOf("Fine") == -1){
                                     attributeValues[index] = fixtureData[j]
