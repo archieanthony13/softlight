@@ -1,6 +1,6 @@
 class Save{
     constructor(){
-        this.data = {"fixtures":{},"sequences":{}}
+        this.data = {"fixtures":{},"sequences":{},"data":{}}
 
         // window.onbeforeunload = function(e){
         //     e.preventDefault()
@@ -8,7 +8,7 @@ class Save{
     }
 
     generateSaveData(){
-        this.data = {"fixtures":{},"sequences":{}}
+        this.data = {"fixtures":{},"sequences":{},"data":{}}
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             let fixture = fixtures[i]
@@ -35,6 +35,7 @@ class Save{
                 }
             }
         }
+        this.data.data["selectedSequence"] = sequenceManager.selectedSequence
     }
 
     saveToFile(){
@@ -73,7 +74,6 @@ class Save{
             let cueKeys = Object.keys(cues)
             for(let j=0;j<cueKeys.length;j++){
                 let cue = cues[cueKeys[j]]
-                console.log(cue)
                 sequenceManager.sequences[keys[i]].cues[cueKeys[j]] = new Cue(cue.name)
                 sequenceManager.sequences[keys[i]].cuesOrder.push(parseFloat(cueKeys[j]))
                 sequenceManager.sequences[keys[i]].cues[cueKeys[j]].data = cue.data
@@ -83,6 +83,7 @@ class Save{
             }
             sequenceManager.sequences[keys[i]].updateVariables()
         }
+        sequenceManager.selectedSequence = this.data.data["selectedSequence"]
         this.loaded()
     }
 
