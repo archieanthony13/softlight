@@ -113,9 +113,7 @@ class SequenceManager{
         }
         this.sequences[name].go()
         if(name == this.selectedSequence){
-            let cueList = document.querySelectorAll("#cues-cuelist label")
-            let j = this.sequences[name].cuesOrder.indexOf(this.sequences[name].currentCue)
-            document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
+            ui.scrollCueList()
         }
     }
 

@@ -153,6 +153,7 @@ class UI{
             document.getElementById('cues-cuelist').append(label)
         }
         document.getElementById('cues-cuelist').style.gridTemplateRows = "repeat(" + sequence.cuesOrder.length + ", calc(var(--scale)*4))"
+        this.scrollCueList()
     }
 
     updateSequencesList(){
@@ -181,6 +182,13 @@ class UI{
             document.getElementById('palettes-palettelist').append(label)
         }
         document.getElementById('palettes-palettelist').style.gridTemplateRows = "repeat(" + keys.length + ", calc(var(--scale)*4))"
+    }
+
+    scrollCueList(){
+        let cueList = document.querySelectorAll("#cues-cuelist label")
+        let name = sequenceManager.selectedSequence
+        let j = sequenceManager.sequences[name].cuesOrder.indexOf(sequenceManager.sequences[name].currentCue)
+        document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
     }
 
     updateAttributes(){
