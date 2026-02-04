@@ -61,6 +61,9 @@ class UI{
                 }
             }
         }
+        document.querySelector('button#cues-edit-button').onclick = function(){
+            sequenceManager.toggleCueMenu()
+        }
         document.querySelector('button#fixtures-clear-button').onclick = function(){
             if(!that.clear){
                 Array.from(document.querySelectorAll('#fixtures-list input')).forEach(function(n){
