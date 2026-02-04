@@ -213,10 +213,10 @@ img.button-image {
     height: calc(var(--scale) * 2);
 }
 
-.menu-bottom-bottom-section.network-page, .menu-bottom-bottom-section.patch-fixture {
+.menu-bottom-bottom-section.network-page, .menu-bottom-bottom-section.patch-fixture, .menu-bottom-bottom-section.save-page {
     display: grid;
     grid-template-columns: calc(var(--scale) * 30) calc(var(--scale) * 30);
-    grid-template-rows: calc(var(--scale) * 3) calc(var(--scale) * 3);
+    grid-template-rows: calc(var(--scale) * 4) calc(var(--scale) * 4);
 }
 
 .menu#parameter-menu, .menu#cue-menu {

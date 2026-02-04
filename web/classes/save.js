@@ -40,13 +40,20 @@ class Save{
             "ip":artnet.ip,
             "websocket":artnet.websocket
         }
+        this.data.data.fileName = settingsMenu.settingsElement.querySelector('input#save-file-name').value
     }
 
     saveToFile(){
         this.generateSaveData()
         let element = document.createElement('a')
         element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(JSON.stringify(this.data)))
-        element.setAttribute('download', "softlight " + new Date().toString() + ".json")
+        let name = ""
+        if(this.data.data.fileName){
+            name = this.data.data.fileName + " " + new Date().toLocaleString().replaceAll("/","-").replaceAll(":","-") + ".json"
+        } else {
+            name = "softlight " + new Date().toLocaleString().replaceAll("/","-").replaceAll(":","-") + ".json"
+        }
+        element.setAttribute('download', name)
         element.style.display = 'none'
         document.body.appendChild(element)
         element.click()
@@ -90,6 +97,7 @@ class Save{
         sequenceManager.selectedSequence = this.data.data.selectedSequence
         artnet.changeIp(this.data.data.artnet.ip)
         artnet.changeWebsocket(this.data.data.artnet.websocket)
+        settingsMenu.settingsElement.querySelector('input#save-file-name').value = this.data.data.fileName
         this.loaded()
     }
 
