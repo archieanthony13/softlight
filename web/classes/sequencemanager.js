@@ -166,6 +166,7 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-settings").classList.add("selected")
         this.cueMenuElement.querySelector("button#cue-edit-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.remove("selected")
+        this.cueMenuElement.querySelector("button#cue-edit-timings").classList.remove("selected")
     }
 
     cueEditSettingsMenu(){
@@ -176,6 +177,7 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-edit-settings").classList.add("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.remove("selected")
+        this.cueMenuElement.querySelector("button#cue-edit-timings").classList.remove("selected")
     }
 
     cueTimingsMenu(){
@@ -186,6 +188,7 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-edit-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.add("selected")
+        this.cueMenuElement.querySelector("button#cue-edit-timings").classList.add("selected")
     }
 
     update(timestamp){
