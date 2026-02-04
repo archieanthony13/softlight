@@ -159,9 +159,7 @@ class SequenceManager{
                     }
                     if(this.sequences[this.selectedSequence].cuesOrder[j] == this.sequences[this.selectedSequence].currentCue){
                         cueList[j].classList.add("current-cue")
-                        // if(j > 4){
-                            document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
-                        // }
+                        document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
                     }
                 }
             }
