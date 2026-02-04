@@ -241,7 +241,7 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
-.menu#cue-menu .menu-bottom-section.cue-settings {
+.menu#cue-menu .menu-bottom-section.cue-settings, .menu#cue-menu .menu-bottom-section.cue-edit-settings {
     display: grid;
     grid-template-columns: calc(var(--scale) * 10) auto;
     grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 5);
@@ -274,6 +274,10 @@ img.button-image {
 .menu#cue-menu .menu-bottom-section.cue-timings table input {
     padding-top: 0px;
     width: calc(var(--scale) * 5);
+}
+
+.menu-top-section#cue-edit-section, .menu-top-section#cue-edit-settings {
+    display: none;
 }
 
 p {

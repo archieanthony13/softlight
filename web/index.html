@@ -178,11 +178,17 @@
     </div>
 
     <div class="menu" id="cue-menu">
-        <div class="menu-top-section">
+        <div class="menu-top-section" id="cue-store-section">
             <button id="cue-settings" class="section-button">Cue Settings</button>
             <button id="cue-timings" class="section-button">Timings</button>
             <button id="cue-store">Store</button>
             <button id="exit-cue" class="exit-button"><img src="assets/textures/cross.svg" class="button-image"></button>
+        </div>
+        <div class="menu-top-section" id="cue-edit-section">
+            <button id="cue-edit-settings" class="section-button">Cue Settings</button>
+            <button id="cue-edit-timings" class="section-button">Timings</button>
+            <button id="cue-edit-save">Save</button>
+            <button id="exit-edit-cue" class="exit-button"><img src="assets/textures/cross.svg" class="button-image"></button>
         </div>
         <div class="menu-bottom-section cue-settings">
             <label for="cue-settings-cue-number">Cue Number:</label>
@@ -194,6 +200,12 @@
                 <option value="merge">Merge</option>
                 <option value="overwrite">Overwrite</option>
             </select>
+        </div>
+        <div class="menu-bottom-section cue-edit-settings">
+            <label for="cue-edit-settings-cue-number">Cue Number:</label>
+            <input type="number" name="cue-edit-settings-cue-number" id="cue-edit-settings-cue-number" step="any" min="0">
+            <label for="cue-edit-settings-cue-name">Cue Name:</label>
+            <input type="text" name="cue-edit-settings-cue-name" id="cue-edit-settings-cue-name">
         </div>
         <div class="menu-bottom-section cue-timings">
             <table>

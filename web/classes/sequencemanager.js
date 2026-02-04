@@ -10,6 +10,9 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#exit-cue").onclick = function(){
             that.toggleCueMenu()
         }
+        this.cueMenuElement.querySelector("button#exit-edit-cue").onclick = function(){
+            that.toggleCueMenu()
+        }
         this.cueMenuElement.querySelector("button#cue-store").onclick = function(){
             that.toggleCueMenu()
             let cueNumber = parseFloat(that.cueMenuElement.querySelector("input#cue-settings-cue-number").value)
@@ -39,6 +42,12 @@ class SequenceManager{
             that.cueSettingsMenu()
         }
         this.cueMenuElement.querySelector("button#cue-timings").onclick = function(){
+            that.cueTimingsMenu()
+        }
+        this.cueMenuElement.querySelector("button#cue-edit-settings").onclick = function(){
+            that.cueEditSettingsMenu()
+        }
+        this.cueMenuElement.querySelector("button#cue-edit-timings").onclick = function(){
             that.cueTimingsMenu()
         }
     }
@@ -125,7 +134,25 @@ class SequenceManager{
             for(let i=0;i<inputs.length;i++){
                 inputs[i].value = ""
             }
+            document.getElementById('cue-store-section').style.display = "grid"
+            document.getElementById('cue-edit-section').style.display = "none"
             this.cueSettingsMenu()
+        } else {
+            this.cueMenuElement.style.display = "none"
+        }
+    }
+
+    toggleEditCueMenu(){
+        this.menuActive = !this.menuActive
+        if(this.menuActive){
+            this.cueMenuElement.style.display = "grid"
+            let inputs = this.cueMenuElement.querySelectorAll("input")
+            for(let i=0;i<inputs.length;i++){
+                inputs[i].value = ""
+            }
+            document.getElementById('cue-store-section').style.display = "none"
+            document.getElementById('cue-edit-section').style.display = "grid"
+            this.cueEditSettingsMenu()
         } else {
             this.cueMenuElement.style.display = "none"
         }
@@ -134,16 +161,30 @@ class SequenceManager{
     cueSettingsMenu(){
         this.cueMenuElementBottom = this.cueMenuElement.querySelector(".menu-bottom-section.cue-settings")
         this.cueMenuElement.querySelector('.menu-bottom-section.cue-settings').style.display = "grid"
+        this.cueMenuElement.querySelector('.menu-bottom-section.cue-edit-settings').style.display = "none"
         this.cueMenuElement.querySelector('.menu-bottom-section.cue-timings').style.display = "none"
         this.cueMenuElement.querySelector("button#cue-settings").classList.add("selected")
+        this.cueMenuElement.querySelector("button#cue-edit-settings").classList.remove("selected")
+        this.cueMenuElement.querySelector("button#cue-timings").classList.remove("selected")
+    }
+
+    cueEditSettingsMenu(){
+        this.cueMenuElementBottom = this.cueMenuElement.querySelector(".menu-bottom-section.cue-edit-settings")
+        this.cueMenuElement.querySelector('.menu-bottom-section.cue-settings').style.display = "none"
+        this.cueMenuElement.querySelector('.menu-bottom-section.cue-edit-settings').style.display = "grid"
+        this.cueMenuElement.querySelector('.menu-bottom-section.cue-timings').style.display = "none"
+        this.cueMenuElement.querySelector("button#cue-settings").classList.remove("selected")
+        this.cueMenuElement.querySelector("button#cue-edit-settings").classList.add("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.remove("selected")
     }
 
     cueTimingsMenu(){
         this.cueMenuElementBottom = this.cueMenuElement.querySelector(".menu-bottom-section.cue-timings")
         this.cueMenuElement.querySelector('.menu-bottom-section.cue-settings').style.display = "none"
+        this.cueMenuElement.querySelector('.menu-bottom-section.cue-edit-settings').style.display = "none"
         this.cueMenuElement.querySelector('.menu-bottom-section.cue-timings').style.display = "grid"
         this.cueMenuElement.querySelector("button#cue-settings").classList.remove("selected")
+        this.cueMenuElement.querySelector("button#cue-edit-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.add("selected")
     }
 
