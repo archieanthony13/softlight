@@ -249,9 +249,10 @@ img.button-image {
 
 .menu#cue-menu .menu-bottom-section.cue-timings table {
     width: calc(var(--scale) * 50);
-    font-size: calc(var(--scale) * 2);
+    font-size: calc(var(--scale) * 1.5);
     text-align: center;
     border-spacing: 0px;
+    padding-top: calc(var(--scale) * 1);
 }
 
 .menu#cue-menu .menu-bottom-section.cue-timings table *:not(input) {
@@ -267,6 +268,7 @@ img.button-image {
 
 .menu#cue-menu .menu-bottom-section.cue-timings table td {
     padding-top: calc(var(--scale) * 1);
+    width: calc(var(--scale) * 7);
 }
 
 .menu#cue-menu .menu-bottom-section.cue-timings table input {
