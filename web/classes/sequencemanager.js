@@ -112,6 +112,11 @@ class SequenceManager{
             name = this.selectedSequence
         }
         this.sequences[name].go()
+        if(name == this.selectedSequence){
+            let cueList = document.querySelectorAll("#cues-cuelist label")
+            let j = this.sequences[name].cuesOrder.indexOf(this.sequences[name].currentCue)
+            document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
+        }
     }
 
     toggleCueMenu(){
@@ -159,7 +164,6 @@ class SequenceManager{
                     }
                     if(this.sequences[this.selectedSequence].cuesOrder[j] == this.sequences[this.selectedSequence].currentCue){
                         cueList[j].classList.add("current-cue")
-                        document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
                     }
                 }
             }
