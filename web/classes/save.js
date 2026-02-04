@@ -35,7 +35,11 @@ class Save{
                 }
             }
         }
-        this.data.data["selectedSequence"] = sequenceManager.selectedSequence
+        this.data.data.selectedSequence = sequenceManager.selectedSequence
+        this.data.data.artnet = {
+            "ip":artnet.ip,
+            "websocket":artnet.websocket
+        }
     }
 
     saveToFile(){
@@ -83,7 +87,9 @@ class Save{
             }
             sequenceManager.sequences[keys[i]].updateVariables()
         }
-        sequenceManager.selectedSequence = this.data.data["selectedSequence"]
+        sequenceManager.selectedSequence = this.data.data.selectedSequence
+        artnet.changeIp(this.data.data.artnet.ip)
+        artnet.changeWebsocket(this.data.data.artnet.websocket)
         this.loaded()
     }
 

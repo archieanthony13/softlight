@@ -1,7 +1,11 @@
 class Artnet{
     constructor(ip, websocket){
-        this.ip = ip
-        this.changeWebsocket(websocket)
+        if(ip){
+            this.ip = ip
+        }
+        if(websocket){
+            this.changeWebsocket(websocket)
+        }
     }
 
     changeIp(ip){

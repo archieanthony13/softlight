@@ -1,5 +1,5 @@
 var dmx = new DMX()
-var artnet = new Artnet("10.175.60.40", "ws://localhost:8765")
+var artnet = new Artnet()
 dmx.data = new Array(512).fill(0)
 
 var ui = new UI()
