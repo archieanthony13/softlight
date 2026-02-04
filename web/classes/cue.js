@@ -52,6 +52,11 @@ class Cue{
         this.updateTotalTime()
     }
 
+    rename(name){
+        this.name = name
+        ui.updateCueList()
+    }
+
     go(){
         this.active = true
         this.activatedTime = null
