@@ -53,7 +53,9 @@ class Sequence{
     moveCue(cueNumber, newNumber){
         let cue = this.cues[cueNumber]
         this.cues[newNumber] = cue
-        this.cuesOrder.push(newNumber)
+        if(this.cuesOrder.indexOf(newNumber) == -1){
+            this.cuesOrder.push(newNumber)
+        }
         this.deleteCue(cueNumber)
     }
 
