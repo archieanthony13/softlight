@@ -64,6 +64,8 @@ class SequenceManager{
                     "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-shape").value))
                 }
             }
+            that.sequences[that.selectedSequence].cues[that.selectedCue].timings = timings
+            that.sequences[that.selectedSequence].cues[that.selectedCue].updateTotalTime()
             that.sequences[that.selectedSequence].cues[that.selectedCue].name = cueName
             that.moveCue(that.selectedSequence,that.selectedCue,cueNumber)
             that.updateSelectedCue()

@@ -51,15 +51,17 @@ class Sequence{
     }
 
     moveCue(cueNumber, newNumber){
-        let cue = this.cues[cueNumber]
-        this.cues[newNumber] = cue
-        if(this.cuesOrder.indexOf(newNumber) == -1){
-            this.cuesOrder.push(newNumber)
+        if(cueNumber != newNumber){
+            let cue = this.cues[cueNumber]
+            this.cues[newNumber] = cue
+            if(this.cuesOrder.indexOf(newNumber) == -1){
+                this.cuesOrder.push(newNumber)
+            }
+            if(this.currentCue == cueNumber){
+                this.currentCue = newNumber
+            }
+            this.deleteCue(cueNumber)
         }
-        if(this.currentCue == cueNumber){
-            this.currentCue = newNumber
-        }
-        this.deleteCue(cueNumber)
     }
 
     updateVariables(){
