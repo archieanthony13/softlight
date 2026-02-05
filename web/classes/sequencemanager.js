@@ -64,7 +64,8 @@ class SequenceManager{
                     "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-shape").value))
                 }
             }
-            console.log(cueNumber, cueName, timings)
+            that.sequences[that.selectedSequence].cues[that.selectedCue].name = cueName
+            that.moveCue(that.selectedSequence,that.selectedCue,cueNumber)
         }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
@@ -184,9 +185,16 @@ class SequenceManager{
         this.menuActive = !this.menuActive
         if(this.menuActive){
             this.cueMenuElement.style.display = "grid"
-            let inputs = this.cueMenuElement.querySelectorAll("input")
+            let inputs = this.cueMenuElement.querySelectorAll(".cue-edit-settings input")
+            console.log(inputs)
             for(let i=0;i<inputs.length;i++){
-                inputs[i].value = ""
+                if(i == 0){
+                    inputs[i].value = this.selectedCue
+                } else if(i == 1){
+                    inputs[i].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].name
+                } else {
+                    inputs[i].value = ""
+                }
             }
             document.getElementById('cue-store-section').style.display = "none"
             document.getElementById('cue-edit-section').style.display = "grid"
@@ -235,12 +243,12 @@ class SequenceManager{
             this.selectedCue = null
         }
         else if(selectedCues.length == 1){
-            this.selectedCue = selectedCues[0].dataset.cueNumber
+            this.selectedCue = parseFloat(selectedCues[0].dataset.cueNumber)
         } else {
             for(let i=0;i<selectedCues.length-1;i++){
                 selectedCues[i].checked = false
             }
-            this.selectedCue = selectedCues[selectedCues.length-1].dataset.cueNumber
+            this.selectedCue = parseFloat(selectedCues[selectedCues.length-1].dataset.cueNumber)
         }
     }
 

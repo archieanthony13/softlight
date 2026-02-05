@@ -62,7 +62,7 @@ class UI{
             }
         }
         document.querySelector('button#cues-edit-button').onclick = function(){
-            if(sequenceManager.selectedCue){
+            if(sequenceManager.selectedCue !== null){
                 sequenceManager.toggleEditCueMenu()
             }
         }
