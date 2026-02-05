@@ -191,7 +191,9 @@ class UI{
         let cueList = document.querySelectorAll("#cues-cuelist label")
         let name = sequenceManager.selectedSequence
         let j = sequenceManager.sequences[name].cuesOrder.indexOf(sequenceManager.sequences[name].currentCue)
-        document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
+        if(cueList[j]){
+            document.getElementById('cues-cuelist').scrollTo({top: cueList[j].scrollHeight * (j-3), behavior: 'smooth'})
+        }
     }
 
     updateAttributes(){
