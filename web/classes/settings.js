@@ -38,9 +38,11 @@ class Settings{
         this.active = !this.active
         if(this.active){
             this.settingsElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
             this.saveMenu()
         } else {
             this.settingsElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
         }
     }
 

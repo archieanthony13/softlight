@@ -60,9 +60,11 @@ class Parameter {
         this.active = !this.active
         if(this.active){
             this.parameterElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
             this.rawValueMenu()
         } else {
             this.parameterElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
         }
     }
 

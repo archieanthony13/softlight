@@ -52,9 +52,11 @@ class Patch{
         this.active = !this.active
         if(this.active){
             this.patchElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
             this.fixtureListMenu()
         } else {
             this.patchElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
         }
     }
 

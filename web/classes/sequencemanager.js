@@ -172,6 +172,7 @@ class SequenceManager{
         this.menuActive = !this.menuActive
         if(this.menuActive){
             this.cueMenuElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
             let inputs = this.cueMenuElement.querySelectorAll("input")
             for(let i=0;i<inputs.length;i++){
                 inputs[i].value = ""
@@ -181,6 +182,7 @@ class SequenceManager{
             this.cueSettingsMenu()
         } else {
             this.cueMenuElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
         }
     }
 
@@ -188,6 +190,7 @@ class SequenceManager{
         this.menuActive = !this.menuActive
         if(this.menuActive){
             this.cueMenuElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
             let inputs = this.cueMenuElement.querySelectorAll(".cue-edit-settings input")
             inputs[0].value = this.selectedCue
             inputs[1].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].name
@@ -209,6 +212,7 @@ class SequenceManager{
             this.cueEditSettingsMenu()
         } else {
             this.cueMenuElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
         }
     }
 

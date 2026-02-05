@@ -26,6 +26,7 @@ html, body {
     left: 0px;
     right: 0px;
     margin: auto;
+    transition-duration: 0.1s;
 }
 
 .top-section {
