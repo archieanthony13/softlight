@@ -5,8 +5,12 @@ class SequenceManager{
         this.menuActive = false
         this.sequences = {}
         this.selectedSequence = "1"
+        this.selectedCue = null
 
         let that = this
+        document.getElementById('cues-cuelist').onchange = function(){
+            that.updateSelectedCue()
+        }
         this.cueMenuElement.querySelector("button#exit-cue").onclick = function(){
             that.toggleCueMenu()
         }
@@ -223,6 +227,21 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-edit-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.add("selected")
         this.cueMenuElement.querySelector("button#cue-edit-timings").classList.add("selected")
+    }
+
+    updateSelectedCue(){
+        let selectedCues = document.querySelectorAll('#cues-cuelist input:checked')
+        if(selectedCues.length == 0){
+            this.selectedCue = null
+        }
+        else if(selectedCues.length == 1){
+            this.selectedCue = selectedCues[0].dataset.cueNumber
+        } else {
+            for(let i=0;i<selectedCues.length-1;i++){
+                selectedCues[i].checked = false
+            }
+            this.selectedCue = selectedCues[selectedCues.length-1].dataset.cueNumber
+        }
     }
 
     update(timestamp){
