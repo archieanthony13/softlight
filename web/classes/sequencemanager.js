@@ -186,7 +186,6 @@ class SequenceManager{
         if(this.menuActive){
             this.cueMenuElement.style.display = "grid"
             let inputs = this.cueMenuElement.querySelectorAll(".cue-edit-settings input")
-            console.log(inputs)
             for(let i=0;i<inputs.length;i++){
                 if(i == 0){
                     inputs[i].value = this.selectedCue
