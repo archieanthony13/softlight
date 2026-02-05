@@ -38,6 +38,30 @@ class SequenceManager{
             let mode = that.cueMenuElement.querySelector("select#cue-settings-store-mode").value
             that.store(cueNumber, undefined, cueName, timings, mode)
         }
+        this.cueMenuElement.querySelector("button#cue-edit-save").onclick = function(){
+            that.toggleCueMenu()
+            let cueNumber = parseFloat(that.cueMenuElement.querySelector("input#cue-edit-settings-cue-number").value)
+            let cueName = that.cueMenuElement.querySelector("input#cue-edit-settings-cue-name").value
+            let timings = {
+                "fade":{
+                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-up").value)),
+                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-dimmer-down").value)),
+                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-color").value)),
+                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-position").value)),
+                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-beam").value)),
+                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-fade-shape").value))
+                },
+                "delay":{
+                    "dimmer up":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-up").value)),
+                    "dimmer down":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-dimmer-down").value)),
+                    "color":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-color").value)),
+                    "position":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-position").value)),
+                    "beam":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-beam").value)),
+                    "shape":(parseFloat(that.cueMenuElement.querySelector("input#cue-timings-delay-shape").value))
+                }
+            }
+            console.log(cueNumber, cueName, timings)
+        }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
         }
@@ -80,6 +104,16 @@ class SequenceManager{
             this.sequences[name].deleteCue(cueNumber)
         } else {
             this.sequences[this.selectedSequence].deleteCue(cueNumber)
+        }
+        ui.updateCueList()
+    }
+
+    moveCue(name, cueNumber, newNumber){
+        let index = Object.keys(this.sequences).indexOf(name)
+        if(index != -1){
+            this.sequences[name].moveCue(cueNumber, newNumber)
+        } else {
+            this.sequences[this.selectedSequence].moveCue(cueNumber, newNumber)
         }
         ui.updateCueList()
     }

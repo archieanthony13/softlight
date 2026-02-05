@@ -50,6 +50,13 @@ class Sequence{
         this.updateVariables()
     }
 
+    moveCue(cueNumber, newNumber){
+        let cue = this.cues[cueNumber]
+        this.cues[newNumber] = cue
+        this.cuesOrder.push(newNumber)
+        this.deleteCue(cueNumber)
+    }
+
     updateVariables(){
         this.cuesOrder = this.cuesOrder.sort((a,b) => a-b)
         this.lastCue = this.cuesOrder[this.cuesOrder.length - 1]
