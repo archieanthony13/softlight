@@ -56,6 +56,9 @@ class Sequence{
         if(this.cuesOrder.indexOf(newNumber) == -1){
             this.cuesOrder.push(newNumber)
         }
+        if(this.currentCue == cueNumber){
+            this.currentCue = newNumber
+        }
         this.deleteCue(cueNumber)
     }
 
