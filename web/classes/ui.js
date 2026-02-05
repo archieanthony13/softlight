@@ -158,6 +158,7 @@ class UI{
             document.getElementById('cues-cuelist').append(label)
         }
         document.getElementById('cues-cuelist').style.gridTemplateRows = "repeat(" + sequence.cuesOrder.length + ", calc(var(--scale)*4))"
+        sequenceManager.selectedCue = null
         this.scrollCueList()
     }
 
