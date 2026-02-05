@@ -66,6 +66,7 @@ class SequenceManager{
             }
             that.sequences[that.selectedSequence].cues[that.selectedCue].name = cueName
             that.moveCue(that.selectedSequence,that.selectedCue,cueNumber)
+            that.updateSelectedCue()
         }
         this.cueMenuElement.querySelector("button#cue-settings").onclick = function(){
             that.cueSettingsMenu()
