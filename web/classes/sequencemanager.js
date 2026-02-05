@@ -189,15 +189,21 @@ class SequenceManager{
         if(this.menuActive){
             this.cueMenuElement.style.display = "grid"
             let inputs = this.cueMenuElement.querySelectorAll(".cue-edit-settings input")
-            for(let i=0;i<inputs.length;i++){
-                if(i == 0){
-                    inputs[i].value = this.selectedCue
-                } else if(i == 1){
-                    inputs[i].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].name
-                } else {
-                    inputs[i].value = ""
-                }
-            }
+            inputs[0].value = this.selectedCue
+            inputs[1].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].name
+            inputs = this.cueMenuElement.querySelectorAll(".cue-timings input")
+            inputs[0].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.fade["dimmer up"]
+            inputs[1].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.fade["dimmer down"]
+            inputs[2].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.fade["color"]
+            inputs[3].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.fade["position"]
+            inputs[4].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.fade["beam"]
+            inputs[5].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.fade["shape"]
+            inputs[6].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.delay["dimmer up"]
+            inputs[7].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.delay["dimmer down"]
+            inputs[8].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.delay["color"]
+            inputs[9].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.delay["position"]
+            inputs[10].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.delay["beam"]
+            inputs[11].value = sequenceManager.sequences[this.selectedSequence].cues[this.selectedCue].timings.delay["shape"]
             document.getElementById('cue-store-section').style.display = "none"
             document.getElementById('cue-edit-section').style.display = "grid"
             this.cueEditSettingsMenu()
