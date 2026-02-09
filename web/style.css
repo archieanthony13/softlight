@@ -118,7 +118,7 @@ input::placeholder {
 }
 
 input:checked + label {
-    color: orange;
+    color: orange !important;
 }
 
 label:hover {
@@ -346,5 +346,5 @@ p {
 }
 
 label.selected {
-    color: orange;
+    color: orange !important;
 }
