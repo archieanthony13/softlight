@@ -97,6 +97,7 @@ class SequenceManager{
 
     createSequence(name){
         this.sequences[name] = new Sequence(name)
+        this.createEmptyCue(name,0,"Cue 0")
         ui.updateSequencesList()
     }
 
