@@ -220,17 +220,21 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 4) calc(var(--scale) * 4);
 }
 
-.menu#parameter-menu, .menu#cue-menu {
+.menu#parameter-menu, .menu#cue-menu, .menu#sequence-menu {
     width: calc(var(--scale) * 50);
     height: calc(var(--scale) * 20);
     /* display: grid; */
 }
 
-.menu#parameter-menu button.exit-button, .menu#cue-menu button.exit-button {
+.menu#parameter-menu button.exit-button, .menu#cue-menu button.exit-button, .menu#sequence-menu button.exit-button {
     font-size: calc(var(--scale) * 2.5);
     width: calc(var(--scale) * 5);
     margin-left: 0px;
     text-align: center;
+}
+
+.menu#sequence-menu button.exit-button{
+    margin-left: calc(var(--scale) * 30);
 }
 
 .menu#parameter-menu .menu-bottom-top-section {
@@ -242,7 +246,7 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
-.menu#cue-menu .menu-bottom-section.cue-settings, .menu#cue-menu .menu-bottom-section.cue-edit-settings {
+.menu#cue-menu .menu-bottom-section.cue-settings, .menu#cue-menu .menu-bottom-section.cue-edit-settings, .menu#sequence-menu .menu-bottom-section {
     display: grid;
     grid-template-columns: calc(var(--scale) * 10) auto;
     grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 5);

@@ -2,6 +2,8 @@ class SequenceManager{
     constructor(){
         this.cueMenuElement = document.querySelector('.menu#cue-menu')
         this.cueMenuElementBottom = this.cueMenuElement.querySelector(".menu-bottom-section.cue-settings")
+        this.sequenceMenuElement = document.querySelector('.menu#sequence-menu')
+        this.sequenceMenuElementBottom = this.sequenceMenuElement.querySelector(".menu-bottom-section")
         this.menuActive = false
         this.sequences = {}
         this.selectedSequence = "1"
@@ -82,6 +84,15 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-edit-timings").onclick = function(){
             that.cueTimingsMenu()
         }
+
+        this.sequenceMenuElement.querySelector("button#exit-sequence").onclick = function(){
+            that.toggleSequenceMenu()
+        }
+        this.sequenceMenuElement.querySelector("button#sequence-create-sequence").onclick = function(){
+            let name = that.sequenceMenuElementBottom.querySelector("input").value
+            that.createSequence(name)
+            that.toggleSequenceMenu()
+        }
     }
 
     createSequence(name){
@@ -123,6 +134,16 @@ class SequenceManager{
         } else {
             this.sequences[this.selectedSequence].moveCue(cueNumber, newNumber)
         }
+        ui.updateCueList()
+    }
+
+    deleteSequence(name){
+        let index = Object.keys(this.sequences).indexOf(name)
+        if(index == -1){
+            name = this.selectedSequence
+        }
+        delete this.sequences[name]
+        ui.updateSequencesList()
         ui.updateCueList()
     }
 
@@ -247,6 +268,17 @@ class SequenceManager{
         this.cueMenuElement.querySelector("button#cue-edit-settings").classList.remove("selected")
         this.cueMenuElement.querySelector("button#cue-timings").classList.add("selected")
         this.cueMenuElement.querySelector("button#cue-edit-timings").classList.add("selected")
+    }
+
+    toggleSequenceMenu(){
+        this.menuActive = !this.menuActive
+        if(this.menuActive){
+            this.sequenceMenuElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
+        } else {
+            this.sequenceMenuElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
+        }
     }
 
     updateSelectedCue(){

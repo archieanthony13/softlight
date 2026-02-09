@@ -88,6 +88,13 @@ class UI{
         document.querySelector('button#palettes-section-button').onclick = function(){
             that.palettesSection()
         }
+
+        document.querySelector('button#sequences-create-button').onclick = function(){
+            sequenceManager.toggleSequenceMenu()
+        }
+        document.querySelector('button#sequences-delete-button').onclick = function(){
+            sequenceManager.deleteSequence()
+        }
     }
 
     cuesSection(){
