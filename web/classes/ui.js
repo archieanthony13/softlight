@@ -95,6 +95,13 @@ class UI{
         document.querySelector('button#sequences-delete-button').onclick = function(){
             sequenceManager.deleteSequence()
         }
+
+        document.querySelector('button#palettes-create-button').onclick = function(){
+            paletteManager.togglePaletteMenu()
+        }
+        document.querySelector('button#palettes-delete-button').onclick = function(){
+            paletteManager.deletePalette()
+        }
     }
 
     cuesSection(){
