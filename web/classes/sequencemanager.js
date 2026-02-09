@@ -144,6 +144,9 @@ class SequenceManager{
             name = this.selectedSequence
         }
         delete this.sequences[name]
+        for(let i=0;i<fixtureManager.fixtures.length;i++){
+            delete fixtureManager.fixtures[i].sequenceChannels[name]
+        }
         ui.updateSequencesList()
         ui.updateCueList()
     }
