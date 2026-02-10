@@ -5,7 +5,7 @@ class PaletteManager{
         this.paletteMenuElementBottom = this.paletteMenuElement.querySelector(".menu-bottom-section")
 
         this.paletteStoreMenuElement = document.querySelector('.menu#palette-store-menu')
-        this.paletteStoreMenuElementBottom = this.paletteMenuElement.querySelector(".menu-bottom-section")
+        this.paletteStoreMenuElementBottom = this.paletteStoreMenuElement.querySelector(".menu-bottom-section")
 
         this.palettes = {"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}}
 
@@ -31,9 +31,9 @@ class PaletteManager{
 
     createPalette(attribute,name){
         if(attribute){
-            this.palettes[attribute][name] = new Palette()
+            this.palettes[attribute][name] = new Palette(attribute)
         } else {
-            this.palettes[ui.attribute][name] = new Palette()
+            this.palettes[ui.attribute][name] = new Palette(ui.attribute)
         }
         ui.updatePalettesList()
     }
@@ -65,7 +65,7 @@ class PaletteManager{
         this.menuActive = !this.menuActive
         if(this.menuActive){
             this.paletteStoreMenuElement.style.display = "grid"
-            let inputs = this.cueMenuElement.querySelectorAll("input")
+            let inputs = this.paletteStoreMenuElement.querySelectorAll("input")
             for(let i=0;i<inputs.length;i++){
                 inputs[i].value = ""
             }
