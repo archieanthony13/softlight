@@ -8,7 +8,7 @@ class Save{
     }
 
     generateSaveData(){
-        this.data = {"fixtures":{},"sequences":{},"data":{}}
+        this.data = {"fixtures":{},"sequences":{},"palettes":{},"data":{}}
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             let fixture = fixtures[i]
@@ -33,6 +33,16 @@ class Save{
                     "name":cue.name,
                     "timings":cue.timings
                 }
+            }
+        }
+        let palettes = paletteManager.palettes
+        keys = Object.keys(palettes)
+        for(let i=0;i<keys.length;i++){
+            let attribute = keys[i]
+            this.data.palettes[attribute] = {}
+            let palKeys = Object.keys(palettes[attribute])
+            for(let j=0;j<palKeys.length;j++){
+                this.data.palettes[attribute][palKeys[j]] = palettes[attribute][palKeys[j]].data
             }
         }
         this.data.data.selectedSequence = sequenceManager.selectedSequence
@@ -69,6 +79,7 @@ class Save{
         fixtureManager.fixtures = []
         fixtureManager.selectedFixtures = []
         sequenceManager.sequences = {}
+        paletteManager.palettes = {}
     }
 
     load(){
@@ -95,6 +106,16 @@ class Save{
             sequenceManager.sequences[keys[i]].updateVariables()
         }
         sequenceManager.selectedSequence = this.data.data.selectedSequence
+        let palettes = this.data.palettes
+        keys = Object.keys(palettes)
+        for(let i=0;i<keys.length;i++){
+            let attribute = keys[i]
+            let palKeys = Object.keys(palettes[attribute])
+            for(let j=0;j<palKeys.length;j++){
+                paletteManager.createPalette(attribute,palKeys[j])
+                paletteManager.palettes[attribute][palKeys[j]].data = palettes[attribute][palKeys[j]]
+            }
+        }
         artnet.changeIp(this.data.data.artnet.ip)
         artnet.changeWebsocket(this.data.data.artnet.websocket)
         settingsMenu.settingsElement.querySelector('input#save-file-name').value = this.data.data.fileName
