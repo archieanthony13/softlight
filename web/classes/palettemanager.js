@@ -85,4 +85,18 @@ class PaletteManager{
             this.palettes[ui.attribute][name].store(mode)
         }
     }
+
+    selectPalette(attribute, name){
+        let keys = Object.keys(this.palettes[attribute][name].data)
+        for(let i=0;i<keys.length;i++){
+            let fixture = fixtureManager.getFixture(keys[i])
+            let fixtureData = this.palettes[attribute][name].data[keys[i]]
+            for(let j=0;j<fixtureData.length;j++){
+                if(fixtureData[j] !== false){
+                    fixture.manualChannels[j] = JSON.parse(JSON.stringify(fixtureData[j]))
+                }
+            }
+        }
+        ui.updateAttributes()
+    }
 }

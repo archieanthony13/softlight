@@ -202,6 +202,10 @@ class UI{
         for(let i=0;i<keys.length;i++){
             let label = document.createElement('label')
             label.innerHTML = keys[i]
+            let that = this
+            label.onclick = function(){
+                paletteManager.selectPalette(that.attribute,keys[i])
+            }
             document.getElementById('palettes-palettelist').append(label)
         }
         document.getElementById('palettes-palettelist').style.gridTemplateRows = "repeat(" + keys.length + ", calc(var(--scale)*4))"
