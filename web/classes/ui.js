@@ -102,6 +102,9 @@ class UI{
         document.querySelector('button#palettes-delete-button').onclick = function(){
             paletteManager.deletePalette()
         }
+        document.querySelector('button#palettes-store-button').onclick = function(){
+            paletteManager.togglePaletteStoreMenu()
+        }
     }
 
     cuesSection(){

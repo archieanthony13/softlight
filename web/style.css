@@ -220,7 +220,7 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 4) calc(var(--scale) * 4);
 }
 
-.menu#parameter-menu, .menu#cue-menu, .menu#sequence-menu, .menu#palette-menu {
+.menu#parameter-menu, .menu#cue-menu, .menu#sequence-menu, .menu#palette-menu, .menu#palette-store-menu {
     width: calc(var(--scale) * 50);
     height: calc(var(--scale) * 20);
     /* display: grid; */
@@ -233,7 +233,7 @@ img.button-image {
     text-align: center;
 }
 
-.menu#sequence-menu button.exit-button, .menu#palette-menu button.exit-button{
+.menu#sequence-menu button.exit-button, .menu#palette-menu button.exit-button, .menu#palette-store-menu button.exit-button{
     margin-left: calc(var(--scale) * 30);
 }
 
@@ -246,7 +246,7 @@ img.button-image {
     grid-template-rows: calc(var(--scale) * 5) auto;
 }
 
-.menu#cue-menu .menu-bottom-section.cue-settings, .menu#cue-menu .menu-bottom-section.cue-edit-settings, .menu#sequence-menu .menu-bottom-section, .menu#palette-menu .menu-bottom-section {
+.menu#cue-menu .menu-bottom-section.cue-settings, .menu#cue-menu .menu-bottom-section.cue-edit-settings, .menu#sequence-menu .menu-bottom-section, .menu#palette-menu .menu-bottom-section, .menu#palette-store-menu .menu-bottom-section {
     display: grid;
     grid-template-columns: calc(var(--scale) * 10) auto;
     grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 5);

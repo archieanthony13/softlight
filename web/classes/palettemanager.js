@@ -4,6 +4,9 @@ class PaletteManager{
         this.paletteMenuElement = document.querySelector('.menu#palette-menu')
         this.paletteMenuElementBottom = this.paletteMenuElement.querySelector(".menu-bottom-section")
 
+        this.paletteStoreMenuElement = document.querySelector('.menu#palette-store-menu')
+        this.paletteStoreMenuElementBottom = this.paletteMenuElement.querySelector(".menu-bottom-section")
+
         this.palettes = {"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}}
 
         let that = this
@@ -14,6 +17,13 @@ class PaletteManager{
             let name = that.paletteMenuElementBottom.querySelector("input").value
             that.createPalette(null,name)
             that.togglePaletteMenu()
+        }
+        this.paletteStoreMenuElement.querySelector("button#exit-palette-store").onclick = function(){
+            that.togglePaletteStoreMenu()
+        }
+        this.paletteStoreMenuElement.querySelector("button#palette-store-palette").onclick = function(){
+            that.store()
+            that.togglePaletteStoreMenu()
         }
     }
 
@@ -47,5 +57,20 @@ class PaletteManager{
             this.paletteMenuElement.style.display = "none"
             document.querySelector(".container").style.opacity = "1"
         }
+    }
+
+    togglePaletteStoreMenu(){
+        this.menuActive = !this.menuActive
+        if(this.menuActive){
+            this.paletteStoreMenuElement.style.display = "grid"
+            document.querySelector(".container").style.opacity = "0.25"
+        } else {
+            this.paletteStoreMenuElement.style.display = "none"
+            document.querySelector(".container").style.opacity = "1"
+        }
+    }
+
+    store(){
+
     }
 }

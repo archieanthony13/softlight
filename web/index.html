@@ -51,6 +51,7 @@
                 <div class="middle-right-top-section">
                     <button id="palettes-create-button">Create Palette</button>
                     <button id="palettes-delete-button">Delete Palette</button>
+                    <button id="palettes-store-button">Store</button>
                 </div>
                 <div class="middle-right-bottom-section" id="palettes-palettelist">
 
@@ -287,6 +288,20 @@
         <div class="menu-bottom-section">
             <label for="palette-name">Palette Name</label>
             <input type="text" name="palette-name" id="palette-name">
+        </div>
+    </div>
+
+    <div class="menu" id="palette-store-menu">
+        <div class="menu-top-section">
+            <button id="palette-store-palette">Store</button>
+            <button id="exit-palette-store" class="exit-button"><img src="assets/textures/cross.svg" class="button-image"></button>
+        </div>
+        <div class="menu-bottom-section">
+            <label for="cue-settings-store-mode">Store Mode:</label>
+            <select name="cue-settings-store-mode" id="cue-settings-store-mode">
+                <option value="merge">Merge</option>
+                <option value="overwrite">Overwrite</option>
+            </select>
         </div>
     </div>
 
