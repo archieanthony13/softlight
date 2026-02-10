@@ -22,7 +22,9 @@ class PaletteManager{
             that.togglePaletteStoreMenu()
         }
         this.paletteStoreMenuElement.querySelector("button#palette-store-palette").onclick = function(){
-            that.store()
+            let name = that.paletteStoreMenuElementBottom.querySelector("input").value
+            let mode = that.paletteStoreMenuElementBottom.querySelector("select").value
+            that.store(name, mode)
             that.togglePaletteStoreMenu()
         }
     }
@@ -63,6 +65,10 @@ class PaletteManager{
         this.menuActive = !this.menuActive
         if(this.menuActive){
             this.paletteStoreMenuElement.style.display = "grid"
+            let inputs = this.cueMenuElement.querySelectorAll("input")
+            for(let i=0;i<inputs.length;i++){
+                inputs[i].value = ""
+            }
             document.querySelector(".container").style.opacity = "0.25"
         } else {
             this.paletteStoreMenuElement.style.display = "none"
@@ -70,7 +76,13 @@ class PaletteManager{
         }
     }
 
-    store(){
-
+    store(name, mode){
+        let index = Object.keys(this.palettes[ui.attribute]).indexOf(name)
+        if(index != -1){
+            this.palettes[ui.attribute][name].store(mode)
+        } else {
+            this.createPalette(null,name)
+            this.palettes[ui.attribute][name].store(mode)
+        }
     }
 }
