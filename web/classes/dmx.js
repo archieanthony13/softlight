@@ -26,7 +26,6 @@ class DMX{
                 }
             } else {
                 if(fixture.manualChannels[i] !== false){
-                    // this.data[fixture.channel - 1 + i] = fixture.manualChannels[i]
                     this.data[fixture.channel - 1 + i] = paletteManager.palettes[fixture.manualChannels[i][0]][fixture.manualChannels[i][1]].data[fixture.name][i]
                     this.dataTypes[fixture.channel - 1 + i] = "manual"
                 } else if(fixture.channels[i] !== false) {

@@ -86,15 +86,7 @@ class Patch{
 
     patchFixtureMenu(){
         this.patchElementBottom = this.patchElement.querySelector(".menu-bottom-bottom-section.patch-fixture")
-        // this.patchElementBottom.innerHTML = ""
-        // this.patchElementBottom.append(this.manufacturerElement)
-        // this.patchElementBottom.append(this.nameElement)
-        // this.patchElementBottom.append(this.channelElement)
         this.updatePatchFixtureMenu()
-        // this.patchElement.querySelector('button#upload-fixture-profile').style.display = "block"
-        // this.patchElement.querySelector('button#load-fixture-library').style.display = "block"
-        // this.patchElement.querySelector('button#delete-fixture').style.display = "none"
-        // this.patchElement.querySelector('button#edit-fixture').style.display = "none"
         this.patchElementBottom.style.gridTemplateRows = "repeat(6, calc(var(--scale)*4))"
         this.patchElement.querySelector('.menu-bottom-section.fixture-list').style.display = "none"
         this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "grid"
