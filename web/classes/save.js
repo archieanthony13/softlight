@@ -1,6 +1,6 @@
 class Save{
     constructor(){
-        this.data = {"fixtures":{},"sequences":{},"data":{}}
+        this.data = {"fixtures":{},"sequences":{},"palettes":{"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}},"data":{}}
 
         // window.onbeforeunload = function(e){
         //     e.preventDefault()
@@ -8,7 +8,7 @@ class Save{
     }
 
     generateSaveData(){
-        this.data = {"fixtures":{},"sequences":{},"palettes":{},"data":{}}
+        this.data = {"fixtures":{},"sequences":{},"palettes":{"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}},"data":{}}
         let fixtures = fixtureManager.fixtures
         for(let i=0;i<fixtures.length;i++){
             let fixture = fixtures[i]
@@ -79,7 +79,7 @@ class Save{
         fixtureManager.fixtures = []
         fixtureManager.selectedFixtures = []
         sequenceManager.sequences = {}
-        paletteManager.palettes = {}
+        paletteManager.palettes = {"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}}
     }
 
     load(){
