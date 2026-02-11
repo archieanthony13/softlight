@@ -138,7 +138,11 @@ class Cue{
             let channels = this.data[fixture]
             for(let j=0;j<channels.length;j++){
                 if(channels[j] !== false){
-                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j],name)
+                    if(channels[j] instanceof Array){
+                        fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,paletteManager.palettes[channels[j][0]][channels[j][1]].data[fixture][j],name)
+                    } else {
+                        fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j],name)
+                    }
                 }
             }
         }
