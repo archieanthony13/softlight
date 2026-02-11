@@ -103,8 +103,6 @@ class Cue{
                     let channelType = this.dataTypes[fixture][j]
                     if(channels[j] !== false){
                         if(channels[j] instanceof Array){
-                            console.log(channels[j])
-                            console.log(paletteManager.palettes[channels[j][0]][channels[j][1]].data[fixture][j])
                             channels[j] = paletteManager.palettes[channels[j][0]][channels[j][1]].data[fixture][j]
                         }
                         if(channelType == "dimmer"){
