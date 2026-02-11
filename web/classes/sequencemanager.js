@@ -187,7 +187,11 @@ class SequenceManager{
         if(index == -1){
             name = this.selectedSequence
         }
-        this.sequences[name].go()
+        if(this.selectedCue !== null){
+            this.sequences[name].trackToCue(this.selectedCue)
+        } else {
+            this.sequences[name].go()
+        }
         if(name == this.selectedSequence){
             ui.scrollCueList()
         }

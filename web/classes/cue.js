@@ -128,7 +128,7 @@ class Cue{
         }
     }
 
-    track(){
+    track(name){
         this.active = false
         this.activatedTime = null
         this.percentage = null
@@ -138,7 +138,7 @@ class Cue{
             let channels = this.data[fixture]
             for(let j=0;j<channels.length;j++){
                 if(channels[j] !== false){
-                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j])
+                    fixtureManager.getFixture(fixture).updateFixtureChannelByIndex(j,channels[j],name)
                 }
             }
         }

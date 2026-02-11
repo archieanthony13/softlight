@@ -81,7 +81,7 @@ class Sequence{
         }
         let iteration = this.cuesOrder.indexOf(cueNumber)
         for(let i=0;i<iteration;i++){
-            this.cues[this.cuesOrder[i]].track()
+            this.cues[this.cuesOrder[i]].track(this.name)
         }
         this.currentCue = cueNumber
         this.cues[cueNumber].go()
