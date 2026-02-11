@@ -98,10 +98,15 @@ class Cue{
             let keys = Object.keys(this.data)
             for(let i=0;i<keys.length;i++){
                 let fixture = keys[i]
-                let channels = this.data[fixture]
+                let channels = JSON.parse(JSON.stringify(this.data[fixture]))
                 for(let j=0;j<channels.length;j++){
                     let channelType = this.dataTypes[fixture][j]
                     if(channels[j] !== false){
+                        if(channels[j] instanceof Array){
+                            console.log(channels[j])
+                            console.log(paletteManager.palettes[channels[j][0]][channels[j][1]].data[fixture][j])
+                            channels[j] = paletteManager.palettes[channels[j][0]][channels[j][1]].data[fixture][j]
+                        }
                         if(channelType == "dimmer"){
                             if(channels[j] > this.beforeState[fixture][j]){
                                 channelType = "dimmer up"

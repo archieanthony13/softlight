@@ -93,7 +93,8 @@ class PaletteManager{
             let fixtureData = this.palettes[attribute][name].data[keys[i]]
             for(let j=0;j<fixtureData.length;j++){
                 if(fixtureData[j] !== false){
-                    fixture.manualChannels[j] = JSON.parse(JSON.stringify(fixtureData[j]))
+                    // fixture.manualChannels[j] = JSON.parse(JSON.stringify(fixtureData[j]))
+                    fixture.manualChannels[j] = [attribute,name]
                 }
             }
         }
