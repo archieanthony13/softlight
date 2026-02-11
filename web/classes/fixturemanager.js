@@ -171,4 +171,12 @@ class FixtureManager{
         this.fixtureLibrary = []
         localStorage.removeItem("softlight-fixture-library")
     }
+
+    getFixtureIndex(name){
+        for(let i=0;i<this.fixtures.length;i++){
+            if(this.fixtures[i].name == name){
+                return i
+            }
+        }
+    }
 }
