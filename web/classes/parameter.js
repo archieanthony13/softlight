@@ -90,13 +90,45 @@ class Parameter {
     }
 
     listValueMenu(){
-        this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-bottom-section.raw-value")
+        this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-section.list-values")
         this.parameterElement.querySelector('.menu-bottom-section.raw-value').style.display = "none"
         this.parameterElement.querySelector('.menu-bottom-section.list-values').style.display = "grid"
         this.parameterElement.querySelector('.menu-bottom-section.pixel-values').style.display = "none"
         this.parameterElement.querySelector("button#raw-value").classList.remove("selected")
         this.parameterElement.querySelector("button#list-values").classList.add("selected")
         this.parameterElement.querySelector("button#pixel-values").classList.remove("selected")
+
+        let listValues = []
+        for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
+            let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
+            let fixtureList = fixture.fixtureProfile.channels[this.parameter].listValues
+            if(fixtureList){
+                listValues = listValues.concat(fixtureList)
+            }
+        }
+        let selectElement = this.parameterElementBottom.querySelector("select")
+        selectElement.innerHTML = ""
+        for(let i=0;i<listValues.length;i++){
+            let option = document.createElement("option")
+            // option.value = Math.round(listValues[])
+            let min = listValues[i].startValue
+            let max = listValues[i].endValue
+            let middle = Math.round(min + (max - min)/2)
+            option.value = middle
+            option.innerHTML = listValues[i].description
+            selectElement.append(option)
+            if(this.value >= min && this.value <= max){
+                selectElement.value = middle
+            }
+        }
+        let that = this
+        selectElement.onchange = function(){
+            let value = parseInt(this.value)
+            that.value = value
+            console.log(that.parameter,this.value,that.bits)
+            fixtureManager.updateSelectedFixtureManualChannel(that.parameter,this.value,that.bits)
+            ui.updateAttributes()
+        }
     }
     pixelValueMenu(){
         this.parameterElementBottom = this.parameterElement.querySelector(".menu-bottom-bottom-section.raw-value")
