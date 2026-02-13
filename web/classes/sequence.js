@@ -85,5 +85,6 @@ class Sequence{
         }
         this.currentCue = cueNumber
         this.cues[cueNumber].go()
+        ui.updateCueList()
     }
 }
