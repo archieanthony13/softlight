@@ -99,11 +99,15 @@ class Parameter {
         this.parameterElement.querySelector("button#pixel-values").classList.remove("selected")
 
         let listValues = []
+        let fixtures = []
         for(let i=0;i<fixtureManager.selectedFixtures.length;i++){
             let fixture = fixtureManager.fixtures[fixtureManager.selectedFixtures[i]]
-            let fixtureList = fixture.fixtureProfile.channels[this.parameter].listValues
-            if(fixtureList){
-                listValues = listValues.concat(fixtureList)
+            if(fixtures.indexOf(fixture.fixtureProfile.manufacturer + fixture.fixtureProfile.name)){
+                let fixtureList = fixture.fixtureProfile.channels[this.parameter].listValues
+                if(fixtureList){
+                    listValues = listValues.concat(fixtureList)
+                }
+                fixtures.push(fixture.fixtureProfile.manufacturer + fixture.fixtureProfile.name)
             }
         }
         let selectElement = this.parameterElementBottom.querySelector("select")
