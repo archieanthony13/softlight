@@ -291,16 +291,21 @@ class SequenceManager{
 
     updateSelectedCue(){
         let selectedCues = document.querySelectorAll('#cues-cuelist input:checked')
+        let newCue = null
         if(selectedCues.length == 0){
             this.selectedCue = null
         }
         else if(selectedCues.length == 1){
             this.selectedCue = parseFloat(selectedCues[0].dataset.cueNumber)
         } else {
-            for(let i=0;i<selectedCues.length-1;i++){
-                selectedCues[i].checked = false
+            for(let i=0;i<selectedCues.length;i++){
+                if(selectedCues[i].dataset.cueNumber != this.selectedCue){
+                    newCue = parseFloat(selectedCues[i].dataset.cueNumber)
+                } else {
+                    selectedCues[i].checked = false
+                }
             }
-            this.selectedCue = parseFloat(selectedCues[selectedCues.length-1].dataset.cueNumber)
+            this.selectedCue = newCue
         }
     }
 
