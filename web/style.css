@@ -1,6 +1,7 @@
 * {
     font-family: Montserrat;
     user-select: none;
+    color: white;
 }
 
 html, body {
@@ -16,7 +17,7 @@ html, body {
     /* width: 100%; */
     max-width: 100vw;
     max-height: 100vh;
-    background-color: lightgray;
+    background-color: rgb(25, 25, 25);
     display: grid;
     grid-template-rows: calc(var(--scale) * 5) calc(var(--scale) * 35) calc(var(--scale) * 10);
     font-size: calc(var(--scale));
@@ -30,7 +31,7 @@ html, body {
 }
 
 .top-section {
-    background-color: gray;
+    background-color: rgb(50, 50, 50);
     display: grid;
     grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 9.25) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 10.75) calc(var(--scale) * 5);
 }
@@ -78,7 +79,7 @@ div.logo img {
 }
 
 .bottom-section {
-    background-color: gray;
+    background-color: rgb(50, 50, 50);
     display: grid;
     grid-template-columns: calc(var(--scale) * 10) calc(var(--scale) * 90);
 }
@@ -110,21 +111,22 @@ div.logo img {
 
 input, select {
     font-size: calc(var(--scale) * 2);
-    background-color: gray;
+    background-color: rgb(60, 60, 60);
     border-radius: calc(var(--scale) * 1);
-    border: solid calc(var(--scale) * 0.2) rgb(61, 61, 61);
+    border: solid calc(var(--scale) * 0.2);
+    border-color: rgb(80, 80, 80) rgb(40, 40, 40) rgb(40, 40, 40) rgb(80, 80, 80);
 }
 
 select:hover, input:hover {
-    background-color: lightgray;
+    background-color: rgb(70, 70, 70);
 }
 
 select:focus, input:focus {
-    background-color: lightgray;
+    background-color: rgb(70, 70, 70);
 }
 
 input::placeholder {
-    color: rgba(0,0,0,0.5);
+    color: rgba(255,255,255,0.125);
 }
 
 input:checked + label {
@@ -145,19 +147,19 @@ label:hover {
 }
 
 button {
-    background-color: gray;
+    background-color: rgb(60, 60, 60);
     transition-duration: .1s;
     border-radius: calc(var(--scale) * 1);
-    border: rgb(61, 61, 61) solid calc(var(--scale) * 0.2);
+    border: solid calc(var(--scale) * 0.2);
+    border-color: rgb(80, 80, 80) rgb(40, 40, 40) rgb(40, 40, 40) rgb(80, 80, 80);
     font-size: calc(var(--scale));
     height: 100%;
     padding: 0px;
 }
 
 button:hover {
-    background-color: lightgray;
+    background-color: rgb(70, 70, 70);
     cursor: pointer;
-    color: black;
 }
 
 button.selected {
@@ -179,13 +181,12 @@ button.selected {
     left: 0px;
     right: 0px;
     margin: auto;
-    background-color: rgb(65, 65, 65);
+    background-color: rgb(50, 50, 50);
     border-radius: calc(var(--scale) * 1);
     display: none;
     /* display: grid; */
     grid-template-rows: calc(var(--scale) * 5) auto auto;
     box-shadow: 0px 0px calc(var(--scale) * 1) calc(var(--scale) * 0.5) black;
-    color: lightgray;
     overflow: hidden;
 }
 
@@ -304,50 +305,45 @@ p {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: rgba(0, 0, 0, 0.25);
+    background-color: rgba(60, 60, 60, 0.5);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(80, 80, 80);
     border-radius: calc(var(--scale) * 0.5);
 }
 
 .menu-bottom-bottom-section.fixture-list::-webkit-scrollbar-track {
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(40, 40, 40);
     border-radius: calc(var(--scale) * 0.5);
 }
 
 .menu-bottom-bottom-section.fixture-list::-webkit-scrollbar-thumb {
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(80, 80, 80);
     border-radius: calc(var(--scale) * 0.5);
 }
 
 .current-cue {
     background-color: purple;
-    color: white;
     transition-duration: 0.1s;
 }
 
 .active-cue {
     background: linear-gradient(90deg, green var(--percentage), grey var(--percentage));
-    color: white;
     transition-duration: 0.1s;
 }
 
 .current-cue.active-cue {
     background: linear-gradient(90deg, purple var(--percentage), grey var(--percentage));
-    color: white;
     transition-duration: 0.1s;
 }
 
 .manual-channel {
     background-color: red;
-    color: white;
 }
 
 .sequence-channel {
     background-color: blue;
-    color: white;
 }
 
 .section-button {
