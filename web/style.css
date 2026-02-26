@@ -32,7 +32,17 @@ html, body {
 .top-section {
     background-color: gray;
     display: grid;
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 9.25) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 9.25) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 10.75) calc(var(--scale) * 5);
+}
+
+div.logo {
+    height: calc(var(--scale) * 5);
+    overflow: hidden;
+}
+
+div.logo img {
+    height: calc(100% - var(--scale) * 1);
+    padding: calc(var(--scale) * .5);
 }
 
 .middle-section {
