@@ -330,21 +330,21 @@ p {
 }
 
 .active-cue {
-    background: linear-gradient(90deg, green var(--percentage), grey var(--percentage));
+    background: linear-gradient(90deg, green var(--percentage), rgba(255, 255, 255, 0.1) var(--percentage));
     transition-duration: 0.1s;
 }
 
 .current-cue.active-cue {
-    background: linear-gradient(90deg, purple var(--percentage), grey var(--percentage));
+    background: linear-gradient(90deg, purple var(--percentage), rgba(255, 255, 255, 0.1) var(--percentage));
     transition-duration: 0.1s;
 }
 
 .manual-channel {
-    background-color: red;
+    background-color: rgba(255, 0, 0, 0.75) !important;
 }
 
 .sequence-channel {
-    background-color: rgb(0, 200, 255);
+    background-color: rgba(0, 200, 255, 0.75) !important;
 }
 
 .section-button {
