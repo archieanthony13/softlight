@@ -87,7 +87,7 @@ class Patch{
     patchFixtureMenu(){
         this.patchElementBottom = this.patchElement.querySelector(".menu-bottom-bottom-section.patch-fixture")
         this.updatePatchFixtureMenu()
-        this.patchElementBottom.style.gridTemplateRows = "repeat(6, calc(var(--scale)*4))"
+        this.patchElementBottom.style.gridTemplateRows = "repeat(7, calc(var(--scale)*4))"
         this.patchElement.querySelector('.menu-bottom-section.fixture-list').style.display = "none"
         this.patchElement.querySelector('.menu-bottom-section.patch-fixture').style.display = "grid"
         this.patchElement.querySelector("button#fixture-list").classList.remove("selected")
@@ -159,7 +159,8 @@ class Patch{
         let channel = this.patchElementBottom.querySelector("#patch-fixture-channel").value
         let fixtureName = this.patchElementBottom.querySelector("#patch-fixture-fixture-name").value
         let fixtureChannel = parseInt(this.patchElementBottom.querySelector("#patch-fixture-fixture-channel").value)
-        fixtureManager.patchFixture(fixtureChannel, channel, manufacturer, name, fixtureName)
+        let universe = this.patchElementBottom.querySelector("#patch-fixture-fixture-universe").value
+        fixtureManager.patchFixture(universe, fixtureChannel, channel, manufacturer, name, fixtureName)
     }
 
     deleteFixtures(){

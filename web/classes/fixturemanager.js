@@ -48,13 +48,13 @@ class FixtureManager{
         return -1
     }
 
-    async patchFixture(channel, mode, manufacturer, fixtureName, name){
+    async patchFixture(universe, channel, mode, manufacturer, fixtureName, name){
         let fixtureProfile = this.getFixtureProfile(manufacturer, fixtureName)
         if(fixtureProfile == -1){
             await this.loadFixtureProfileFromCloud(manufacturer, fixtureName)
             fixtureProfile = this.getFixtureProfile(manufacturer, fixtureName)
         }
-        this.fixtures.push(new Fixture(channel, mode, fixtureProfile, name))
+        this.fixtures.push(new Fixture(universe, channel, mode, fixtureProfile, name))
 
         ui.updateFixtureList()
         this.updateSelectedFixtures()

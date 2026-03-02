@@ -13,6 +13,7 @@ class Save{
         for(let i=0;i<fixtures.length;i++){
             let fixture = fixtures[i]
             this.data.fixtures[fixture.name] = {
+                "universe":fixture.universe,
                 "channel":fixture.channel,
                 "mode":fixture.mode,
                 "fixtureProfile":fixture.fixtureProfile
@@ -86,7 +87,7 @@ class Save{
         let fixtures = this.data.fixtures
         let keys = Object.keys(fixtures)
         for(let i=0;i<keys.length;i++){
-            fixtureManager.fixtures.push(new Fixture(fixtures[keys[i]].channel,fixtures[keys[i]].mode,fixtures[keys[i]].fixtureProfile,keys[i]))
+            fixtureManager.fixtures.push(new Fixture(fixtures[keys[i]].universe,fixtures[keys[i]].channel,fixtures[keys[i]].mode,fixtures[keys[i]].fixtureProfile,keys[i]))
         }
         let sequences = this.data.sequences
         keys = Object.keys(sequences)

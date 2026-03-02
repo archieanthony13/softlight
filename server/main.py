@@ -29,7 +29,8 @@ async def echo(websocket):
         ip = messageSplit[0]
         universe = messageSplit[1]
         data = bytes(json.loads(messageSplit[2]))
-        sendArtnetData(ip, universe, data)
+        for i in range(int(len(data)/512)):
+            sendArtnetData(ip, i + 1, data[i*512:(i+1)*512-1])
 
 async def main():
     # Create the WebSocket connection to allow JavaScript to talk to Art-Net

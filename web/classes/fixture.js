@@ -1,6 +1,7 @@
 class Fixture{
-    constructor(channel, mode, fixtureProfile, name){
+    constructor(universe, channel, mode, fixtureProfile, name){
         this.name = name
+        this.universe = universe
         this.channel = channel
         this.mode = mode
         this.fixtureProfile = fixtureProfile
