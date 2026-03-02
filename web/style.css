@@ -134,7 +134,7 @@ input:checked + label {
 }
 
 label:hover {
-    color: blue !important;
+    color: rgb(0, 200, 255) !important;
 }
 
 label {
@@ -164,6 +164,7 @@ button:hover {
 
 button.selected {
     background-color: orange;
+    color: black;
 }
 
 @media (min-aspect-ratio: 2/1) {
@@ -343,7 +344,7 @@ p {
 }
 
 .sequence-channel {
-    background-color: blue;
+    background-color: rgb(0, 200, 255);
 }
 
 .section-button {
