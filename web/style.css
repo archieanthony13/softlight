@@ -203,7 +203,7 @@ button.selected {
 
 .menu-bottom-top-section {
     display: grid;
-    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
+    grid-template-columns: calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15) calc(var(--scale) * 15);
 }
 
 .menu-bottom-bottom-section {

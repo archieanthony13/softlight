@@ -32,6 +32,9 @@ class Settings{
         this.settingsElement.querySelector('button#load-from-browser').onclick = function(){
             save.loadFromBrowser()
         }
+        this.settingsElement.querySelector('button#new-showfile').onclick = function(){
+            save.newShowfile()
+        }
     }
 
     toggleSettingsMenu(){

@@ -97,8 +97,9 @@ class SequenceManager{
 
     createSequence(name){
         this.sequences[name] = new Sequence(name)
-        this.createEmptyCue(name,0,"Cue 0")
+        this.selectedSequence = name
         ui.updateSequencesList()
+        this.createEmptyCue(name,0,"Cue 0")
     }
 
     deleteFixtureByName(fixtureName){

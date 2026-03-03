@@ -148,6 +148,14 @@ class Save{
     loaded(){
         ui.updateFixtureList()
         ui.updateAttributes()
+        ui.updateSequencesList()
+        ui.updatePalettesList()
         ui.updateCueList()
+    }
+
+    newShowfile(){
+        this.clearData()
+        this.data = {"fixtures":{},"sequences":{},"palettes":{"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}},"data":{"selectedSequence":"","artnet":{"ip":"0.0.0.0","websocket":"ws://localhost:8765"},"fileName":""}}
+        this.load()
     }
 }
