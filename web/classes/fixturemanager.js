@@ -56,6 +56,7 @@ class FixtureManager{
         }
         this.fixtures.push(new Fixture(universe, channel, mode, fixtureProfile, name))
 
+        dmx.updateUniverses()
         ui.updateFixtureList()
         this.updateSelectedFixtures()
         ui.updateAttributes()
@@ -178,5 +179,10 @@ class FixtureManager{
                 return i
             }
         }
+    }
+
+    changeUniverse(fixture, universe){
+        this.getFixture(fixture).universe = universe
+        dmx.updateUniverses()
     }
 }

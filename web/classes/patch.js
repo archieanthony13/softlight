@@ -159,7 +159,7 @@ class Patch{
         let channel = this.patchElementBottom.querySelector("#patch-fixture-channel").value
         let fixtureName = this.patchElementBottom.querySelector("#patch-fixture-fixture-name").value
         let fixtureChannel = parseInt(this.patchElementBottom.querySelector("#patch-fixture-fixture-channel").value)
-        let universe = this.patchElementBottom.querySelector("#patch-fixture-fixture-universe").value
+        let universe = parseInt(this.patchElementBottom.querySelector("#patch-fixture-fixture-universe").value)
         fixtureManager.patchFixture(universe, fixtureChannel, channel, manufacturer, name, fixtureName)
     }
 

@@ -41,16 +41,20 @@ class DMX{
         }
     }
 
+    updateUniverses(){
+        this.universes = 0
+        for(let i=0;i<fixtureManager.fixtures.length;i++){
+            this.universes = Math.max(fixtureManager.fixtures[i].universe, this.universes)
+        }
+        this.data.length = 512 * this.universes
+        this.dataTypes.length = 512 * this.universes
+        this.data = JSON.parse(JSON.stringify(this.data).replaceAll("null",0))
+        this.dataTypes = JSON.parse(JSON.stringify(this.dataTypes).replaceAll("null","\"default\""))
+    }
+
     update(){
         let fixtures = fixtureManager.fixtures
-        this.universes = 0
         for(let i=0;i<fixtures.length;i++){
-            if(this.universes < fixtures[i].universe){
-                this.universes = fixtures[i].universe
-                this.data.length = 512 * this.universes
-                this.dataTypes.length = 512 * this.universes
-            }
-            this.data = JSON.parse(JSON.stringify(this.data).replaceAll("null",0))
             this.updateChannelsFromFixture(fixtures[i].name)
         }
     }
