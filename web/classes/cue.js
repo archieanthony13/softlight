@@ -83,8 +83,8 @@ class Cue{
         delete this.data[fixtureName]
     }
 
-    update(timestamp, sequence){
-        if(this.active){
+    update(timestamp, sequence, cue){
+        if(this.active && sequenceManager.sequences[sequence].currentCue >= cue){
             if(this.activatedTime === null){
                 this.activatedTime = timestamp
             }
@@ -125,6 +125,10 @@ class Cue{
                 }
             }
             ui.updateAttributes()
+        } else {
+            this.active = false
+            this.activatedTime = null
+            this.percentage = null
         }
     }
 
