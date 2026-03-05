@@ -2,9 +2,9 @@ class Save{
     constructor(){
         this.data = {}
 
-        // window.onbeforeunload = function(e){
-        //     e.preventDefault()
-        // }
+        window.onbeforeunload = function(e){
+            e.preventDefault()
+        }
     }
 
     generateSaveData(){
