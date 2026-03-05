@@ -1,6 +1,6 @@
 class Save{
     constructor(){
-        this.data = {"fixtures":{},"sequences":{},"palettes":{"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}},"data":{}}
+        this.data = {}
 
         // window.onbeforeunload = function(e){
         //     e.preventDefault()
@@ -140,9 +140,13 @@ class Save{
     }
 
     loadFromBrowser(){
-        this.clearData()
-        this.data = JSON.parse(localStorage.getItem("softlight-showfile"))
-        this.load()
+        if(localStorage.getItem("softlight-showfile") !== null){
+            this.clearData()
+            this.data = JSON.parse(localStorage.getItem("softlight-showfile"))
+            this.load()
+        } else {
+            this.newShowfile()
+        }
     }
 
     loaded(){
