@@ -8,6 +8,7 @@ class PaletteManager{
         this.paletteStoreMenuElementBottom = this.paletteStoreMenuElement.querySelector(".menu-bottom-section")
 
         this.palettes = {"dimmer":{},"color":{},"position":{},"beam":{},"shape":{}}
+        this.selectedPalette = []
 
         let that = this
         this.paletteMenuElement.querySelector("button#exit-palette").onclick = function(){
@@ -44,6 +45,11 @@ class PaletteManager{
         } else {
             delete this.palettes[ui.attribute][name]
         }
+        ui.updatePalettesList()
+    }
+
+    deletePaletteButton(){
+        this.deletePalette(this.selectedPalette[0],this.selectedPalette[1])
     }
 
     togglePaletteMenu(){
@@ -88,17 +94,26 @@ class PaletteManager{
 
     selectPalette(attribute, name){
         let keys = Object.keys(this.palettes[attribute][name].data)
-        for(let i=0;i<keys.length;i++){
-            if(fixtureManager.selectedFixtures.includes(fixtureManager.getFixtureIndex(keys[i])) || fixtureManager.selectedFixtures.length == 0){
-                let fixture = fixtureManager.getFixture(keys[i])
-                let fixtureData = this.palettes[attribute][name].data[keys[i]]
-                for(let j=0;j<fixtureData.length;j++){
-                    if(fixtureData[j] !== false){
-                        fixture.manualChannels[j] = [attribute,name]
+        if(fixtureManager.selectedFixtures.length == 0){
+            if(this.selectedPalette[0] == attribute && this.selectedPalette[1] == name){
+                this.selectedPalette = []
+            } else {
+                this.selectedPalette = [attribute,name]
+            }
+        } else {
+            for(let i=0;i<keys.length;i++){
+                if(fixtureManager.selectedFixtures.includes(fixtureManager.getFixtureIndex(keys[i])) || fixtureManager.selectedFixtures.length == 0){
+                    let fixture = fixtureManager.getFixture(keys[i])
+                    let fixtureData = this.palettes[attribute][name].data[keys[i]]
+                    for(let j=0;j<fixtureData.length;j++){
+                        if(fixtureData[j] !== false){
+                            fixture.manualChannels[j] = [attribute,name]
+                        }
                     }
                 }
             }
         }
         ui.updateAttributes()
+        ui.updatePalettesList()
     }
 }

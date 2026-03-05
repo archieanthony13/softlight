@@ -100,7 +100,7 @@ class UI{
             paletteManager.togglePaletteMenu()
         }
         document.querySelector('button#palettes-delete-button').onclick = function(){
-            paletteManager.deletePalette()
+            paletteManager.deletePaletteButton()
         }
         document.querySelector('button#palettes-store-button').onclick = function(){
             paletteManager.togglePaletteStoreMenu()
@@ -203,6 +203,9 @@ class UI{
             let label = document.createElement('label')
             label.innerHTML = keys[i]
             let that = this
+            if(paletteManager.selectedPalette[0] == this.attribute && paletteManager.selectedPalette[1] == keys[i]){
+                label.classList.add("selected")
+            }
             label.onclick = function(){
                 paletteManager.selectPalette(that.attribute,keys[i])
             }
