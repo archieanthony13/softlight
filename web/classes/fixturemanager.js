@@ -136,7 +136,7 @@ class FixtureManager{
     }
 
     async loadFixtureProfileFromCloud(manufacturer, name){
-        let data = JSON.parse(await fetch("https://raw.githubusercontent.com/RetroCoder13/softlight-fixture-library/refs/heads/main/"+manufacturer+"/"+name+".json").then(text => text.text()))
+        let data = JSON.parse(await fetch("https://raw.githubusercontent.com/archieanthony13/softlight-fixture-library/refs/heads/main/"+manufacturer+"/"+name+".json").then(text => text.text()))
         this.fixtureLibrary.push(data)
         localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
@@ -155,7 +155,7 @@ class FixtureManager{
                 }
             }
         } else {
-            fixturesList = fixturesList.concat(await this.getFixtureLibraryFromCloud("https://api.github.com/repos/RetroCoder13/softlight-fixture-library/contents"))
+            fixturesList = fixturesList.concat(await this.getFixtureLibraryFromCloud("https://api.github.com/repos/archieanthony13/softlight-fixture-library/contents"))
         }
         return fixturesList
     }
@@ -163,7 +163,7 @@ class FixtureManager{
     async loadFixtureLibraryFromCloud(){
         let fixturesList = await this.getFixtureLibraryFromCloud()
         for(let i=0;i<fixturesList.length;i++){
-            this.fixtureLibrary.push(JSON.parse(await fetch("https://raw.githubusercontent.com/RetroCoder13/softlight-fixture-library/main/" + fixturesList[i] + ".json").then(text => text.text())))
+            this.fixtureLibrary.push(JSON.parse(await fetch("https://raw.githubusercontent.com/archieanthony13/softlight-fixture-library/main/" + fixturesList[i] + ".json").then(text => text.text())))
         }
         localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
