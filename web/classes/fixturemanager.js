@@ -181,45 +181,64 @@ class FixtureManager{
         ui.updateAttributes()
     }
 
+    // Function to load a specific fixture profile from the cloud
     async loadFixtureProfileFromCloud(manufacturer, name){
+        // Fetch the data from the online repository and parse it into JSON
         let data = JSON.parse(await fetch("https://raw.githubusercontent.com/archieanthony13/softlight-fixture-library/refs/heads/main/"+manufacturer+"/"+name+".json").then(text => text.text()))
+        // Update the fixture library
         this.fixtureLibrary.push(data)
         localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
 
+    // Function to get the entire fixture library from the cloud
     async getFixtureLibraryFromCloud(url){
+        // Create a list array which will store all manufacturer and fixture names
         let fixturesList = []
+        // If a URL is specified then it will search through that repository
+        // In the future the URL can be given by the user for custom repositories
         if(url){
+            // Get the contents of the repository
             let contents = JSON.parse(await fetch(url).then(text => text.text()))
             for(let i=0;i<contents.length;i++){
+                // Search through if a folder is found
                 if(contents[i].size == 0){
                     fixturesList = fixturesList.concat(await this.getFixtureLibraryFromCloud(contents[i].url))
                 } else {
+                    // Add the path of the fixture profile to the array
                     if(contents[i].name != "README.md"){
                         fixturesList.push(contents[i].path.replace(".json",""))
                     }
                 }
             }
+        // If no URL is given then it will default to my fixture library
         } else {
             fixturesList = fixturesList.concat(await this.getFixtureLibraryFromCloud("https://api.github.com/repos/archieanthony13/softlight-fixture-library/contents"))
         }
+        // Return the fixture profile paths
         return fixturesList
     }
 
+    // Function to load the entire fixture library from the cloud
     async loadFixtureLibraryFromCloud(){
+        // Get the fixture profile paths from the cloud
         let fixturesList = await this.getFixtureLibraryFromCloud()
+        // Loop through the paths and fetch the fixture profiles into the fixture library
         for(let i=0;i<fixturesList.length;i++){
             this.fixtureLibrary.push(JSON.parse(await fetch("https://raw.githubusercontent.com/archieanthony13/softlight-fixture-library/main/" + fixturesList[i] + ".json").then(text => text.text())))
         }
+        // Update local storage fixture library
         localStorage.setItem("softlight-fixture-library", JSON.stringify(this.fixtureLibrary))
     }
 
+    // Function to clear the fixture library
     clearFixtureLibrary(){
         this.fixtureLibrary = []
         localStorage.removeItem("softlight-fixture-library")
     }
 
+    // Function to get the array index of a fixture
     getFixtureIndex(name){
+        // Loop through fixtures until the name matches and return index
         for(let i=0;i<this.fixtures.length;i++){
             if(this.fixtures[i].name == name){
                 return i
@@ -227,6 +246,7 @@ class FixtureManager{
         }
     }
 
+    // Function to change the universe of a specific fixture
     changeUniverse(fixture, universe){
         this.getFixture(fixture).universe = universe
         dmx.updateUniverses()
