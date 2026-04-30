@@ -74,7 +74,7 @@ class Parameter {
         }
     }
 
-    // Function to toggle the paramaterm menu
+    // Function to toggle the paramater menu
     toggleParameterMenu(){
         // Toggle menu active
         this.active = !this.active
